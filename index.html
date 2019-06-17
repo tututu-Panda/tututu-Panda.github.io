@@ -170,7 +170,8 @@
 <p>什么是梯度?</p>
 </blockquote>
 <p>梯度实质为一个n维向量,表示某一函数在某点处的方向导数沿着该方向取得的最大值.因此沿着梯度的方向变化最快,变化率最大.(百度百科)</p>
-<p>$$<br>grand f= \triangledown f(x_1,x_2,x_3) = ( \frac{\delta f}{\delta x_1} ,\frac{\delta f}{\delta x_2},\frac{\delta f}{\delta x_3} )<br>$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">grand f= \triangledown f(x_1,x_2,x_3) = ( \frac&#123;\delta f&#125;&#123;\delta x_1&#125; ,\frac&#123;\delta f&#125;&#123;\delta x_2&#125;,\frac&#123;\delta f&#125;&#123;\delta x_3&#125; )</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>什么是梯度下降?</p>
 </blockquote>
@@ -180,21 +181,34 @@
 <p>为什么梯度的反方向是函数值局部下降的最快方向?</p>
 </blockquote>
 <ol>
-<li>设当前处于目标函数的某一个点上,该点的坐标为:<br>$$<br>\vec{x} = (x_1, x_2, x_3,…, x_n)<br>$$</li>
-</ol>
-<p>则该点的函数值为:<br>$$<br>f(\vec{x})<br>$$</p>
-<ol start="2">
-<li>现在要往某个方向进行下降,则设这个随机的方向向量为:<br>$$<br>\vec{l} = (l_1,l_2,…,l_n)<br>$$</li>
-</ol>
-<p>则沿着这个方向下降后的函数值为:<br>$$<br>f(\vec{x}+\vec{l})<br>$$</p>
-<ol start="3">
-<li>根据==多元函数的泰勒展开公式==可以得到:<br>$$<br>f(\vec{x}+\vec{l}) = f(\vec{x})+\sum_{k=1}^{n}\frac{\delta f}{\delta x_k} \times l_k +o(x)<br>$$</li>
-</ol>
-<p>进一步可以得到他们之间的变化量( o(x)足够小,因此可以忽略 ):<br>$$<br>f(\vec{x}+\vec{l})-f(\vec{x}) = \sum_{k=1}^{n}\frac{\delta f}{\delta x_k} \times l_k<br>$$</p>
-<ol start="4">
-<li><p>其中前者为x点的梯度,后者为随机的方向向量.则可以看出,最终的目的就是求出他们之间的向量积:<br>$$<br>\langle\vec{grand f_x}, \vec{l}\rangle = |\vec{grand f_x}| \cdot |\vec{l}| \cdot \cos(\vec{grand f_x},\vec{l})<br>$$</p>
+<li>设当前处于目标函数的某一个点上,该点的坐标为:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\vec&#123;x&#125; = (x_1, x_2, x_3,..., x_n)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+
 </li>
-<li><p>由上面的式子可以得知,当$$cos(\vec{grand f_x},\vec{l})$$最小时,$$f(\vec{x}+\vec{l})-f(\vec{l})$$的值最小.因此$$\vec{l}$$与$$\vec{x}$$方向反向时,其取得最小值.从而可以得知$$f$$沿着负梯度方向前进时下降的最快.</p>
+</ol>
+<p>则该点的函数值为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">f(\vec&#123;x&#125;)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>现在要往某个方向进行下降,则设这个随机的方向向量为:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\vec&#123;l&#125; = (l_1,l_2,...,l_n)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>则沿着这个方向下降后的函数值为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">f(\vec&#123;x&#125;+\vec&#123;l&#125;)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>根据==多元函数的泰勒展开公式==可以得到:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">f(\vec&#123;x&#125;+\vec&#123;l&#125;) = f(\vec&#123;x&#125;)+\sum_&#123;k=1&#125;^&#123;n&#125;\frac&#123;\delta f&#125;&#123;\delta x_k&#125; \times l_k +o(x)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>进一步可以得到他们之间的变化量( o(x)足够小,因此可以忽略 ):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">f(\vec&#123;x&#125;+\vec&#123;l&#125;)-f(\vec&#123;x&#125;) = \sum_&#123;k=1&#125;^&#123;n&#125;\frac&#123;\delta f&#125;&#123;\delta x_k&#125; \times l_k</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>其中前者为x点的梯度,后者为随机的方向向量.则可以看出,最终的目的就是求出他们之间的向量积:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\langle\vec&#123;grand f_x&#125;, \vec&#123;l&#125;\rangle = |\vec&#123;grand f_x&#125;| \cdot |\vec&#123;l&#125;| \cdot \cos(\vec&#123;grand f_x&#125;,\vec&#123;l&#125;)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>由上面的式子可以得知,当<code>!$cos(\vec{grand f_x},\vec{l})$</code>最小时,<code>!$f(\vec{x}+\vec{l})-f(\vec{l})$</code>的值最小.因此<code>!$\vec{l}$</code>与<code>!$\vec{x}$</code>方向反向时,其取得最小值.从而可以得知<code>!$f$</code>沿着负梯度方向前进时下降的最快.</p>
 </li>
 </ol>
 <h2 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用?"></a>有什么用?</h2><blockquote>
@@ -225,7 +239,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最优化,梯度下降</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最优化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">梯度下降</a>
         		</li>
       		
 		</ul>
@@ -539,6 +557,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">最优化,梯度下降</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">最优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">梯度下降</a>
               </li>
             
             <div class="clearfix"></div>
