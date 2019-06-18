@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/yourusername/yourusername.github.io">
-  <title>Archives: 2019/6 | 3to</title>
+  <title>批量梯度下降法 | 3to</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="认真能做任何事.">
-<meta name="keywords" content="3to">
-<meta property="og:type" content="website">
-<meta property="og:title" content="3to">
-<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/archives/2019/06/index.html">
+  <meta name="description" content="是什么？ 什么是批量梯度下降法？  批量梯度下降根据已有的所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新。 为什么？ 为什么这样做？   原本的梯度下降算法更新的时候，如果样本数据过多，会一个个的进行样本的训练，这样就会很浪费时间、效率以及容易造成错误。  原本的梯度下降法不能保证找到的极小值点就是函数的极小值点，然而如果通过批量的数据对比，在每一次去往的梯度方向上进行正确的选择，那">
+<meta name="keywords" content="最优化,梯度下降">
+<meta property="og:type" content="article">
+<meta property="og:title" content="批量梯度下降法">
+<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/2019/06/19/梯度下降法(二) 批量梯度下降法/index.html">
 <meta property="og:site_name" content="3to">
-<meta property="og:description" content="认真能做任何事.">
+<meta property="og:description" content="是什么？ 什么是批量梯度下降法？  批量梯度下降根据已有的所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新。 为什么？ 为什么这样做？   原本的梯度下降算法更新的时候，如果样本数据过多，会一个个的进行样本的训练，这样就会很浪费时间、效率以及容易造成错误。  原本的梯度下降法不能保证找到的极小值点就是函数的极小值点，然而如果通过批量的数据对比，在每一次去往的梯度方向上进行正确的选择，那">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-18T16:19:39.471Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3to">
-<meta name="twitter:description" content="认真能做任何事.">
+<meta name="twitter:title" content="批量梯度下降法">
+<meta name="twitter:description" content="是什么？ 什么是批量梯度下降法？  批量梯度下降根据已有的所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新。 为什么？ 为什么这样做？   原本的梯度下降算法更新的时候，如果样本数据过多，会一个个的进行样本的训练，这样就会很浪费时间、效率以及容易造成错误。  原本的梯度下降法不能保证找到的极小值点就是函数的极小值点，然而如果通过批量的数据对比，在每一次去往的梯度方向上进行正确的选择，那">
   
     <link rel="alternative" href="/atom.xml" title="3to" type="application/atom+xml">
   
@@ -152,36 +153,113 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-梯度下降法(二) 批量梯度下降法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      批量梯度下降法
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/19/梯度下降法(二) 批量梯度下降法/" class="archive-article-date">
+
+        
+        <a href="/2019/06/19/梯度下降法(二) 批量梯度下降法/" class="archive-article-date">
   	<time datetime="2019-06-18T16:20:06.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/19/梯度下降法(二) 批量梯度下降法/">批量梯度下降法</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><blockquote>
+<p>什么是批量梯度下降法？</p>
+</blockquote>
+<p>批量梯度下降根据已有的所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新。</p>
+<h2 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><blockquote>
+<p>为什么这样做？</p>
+</blockquote>
+<ol>
+<li><p>原本的梯度下降算法更新的时候，如果样本数据过多，会一个个的进行样本的训练，这样就会很浪费时间、效率以及容易造成错误。</p>
+</li>
+<li><p>原本的梯度下降法<strong>不能保证找到的极小值点就是函数的极小值点</strong>，然而如果通过<strong>批量的数据对比</strong>，在每一次<strong>去往的梯度方向上进行正确的选择</strong>，那么就可以确保每一次更新都能去往下降最快的方向。</p>
+</li>
+</ol>
+<blockquote>
+<p>实现原理？</p>
+</blockquote>
+<ol>
+<li>首先更新某个点时，用一个样本进行更新时的公式：<script type="math/tex; mode=display">
+\theta_{j} :=\theta_{j}-\alpha \frac{\partial}{\partial \theta_{j}} J(\theta)</script></li>
+</ol>
+<p>其中<script type="math/tex">\theta_{j}</script>为最开始的随机初始点，<script type="math/tex">\alpha</script>为下降最大方向的步伐大小。<script type="math/tex">\frac{\partial}{\partial \theta_{j}} J(\theta)</script>为函数的偏导数。</p>
+<ol>
+<li><strong>更新一个点（x，y）时,J的偏导为：</strong><script type="math/tex; mode=display">
+\begin{aligned} \frac{\partial}{\partial \theta_{j}} J(\theta) &=\frac{\partial}{\partial \theta_{j}} \frac{1}{2}\left(h_{\theta}(x)-y\right)^{2} \\ &=2 \cdot \frac{1}{2}\left(h_{\theta}(x)-y\right) \cdot \frac{\partial}{\partial \theta_{j}}\left(h_{\theta}(x)-y\right) \\ &=\left(h_{\theta}(x)-y\right) \cdot \frac{\partial}{\partial \theta_{j}}\left(\sum_{i=0}^{n} \theta_{i} x_{i}-y\right) \\ &=\left(h_{\theta}(x)-y\right) x_{j} \end{aligned}</script></li>
+</ol>
+<p>对应的<strong>该点更新值为:</strong></p>
+<script type="math/tex; mode=display">
+\theta_{j} :=\theta_{j}-\alpha(h_{\theta}(x)-y) x_{j}</script><ol>
+<li><strong> 对于所有的数据，进行更新,其J的偏导为:</strong><script type="math/tex; mode=display">
+\frac{\partial J(\theta)}{\partial \theta_{j}}=-\frac{1}{m} \sum_{i=1}^{m}\left(y^{i}-h_{\theta}\left(x^{i}\right)\right) x_{j}^{i}</script></li>
+</ol>
+<p>根据所求出的函数值，进行<script type="math/tex">\theta_{j}</script>的更新，使得<script type="math/tex">\theta_{j}</script>的值减小到一定值：</p>
+<script type="math/tex; mode=display">
+\theta_{j}^{\prime}=\theta_{j}+\frac{1}{m} \sum_{i=1}^{m}\left(y^{i}-h_{\theta}\left(x^{i}\right)\right) x_{j}^{i}</script><ol>
+<li>一直重复上述过程，<strong>直到满足某个值或者所有样本数据都已经循环完为止</strong></li>
+</ol>
+<h2 id="应用范围？"><a href="#应用范围？" class="headerlink" title="应用范围？"></a>应用范围？</h2><ol>
+<li>已知x和y，设计一个函数进行拟合时。</li>
+<li>搜索最优解。</li>
+</ol>
+<h2 id="优缺点？"><a href="#优缺点？" class="headerlink" title="优缺点？"></a>优缺点？</h2><blockquote>
+<p>优点</p>
+</blockquote>
+<ol>
+<li>批量梯度下降就是当走到某个点时，用全局已有的数据进行探测，保证每一次更新的梯度方向是正确的。这样就能很好的避免陷入局部极小值中。</li>
+</ol>
+<blockquote>
+<p>缺点</p>
+</blockquote>
+<ol>
+<li>每次更新每一个参数时都采用的所有样本数据，因此开销大，时间长。</li>
+</ol>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://medium.com/@divakar_239/stochastic-vs-batch-gradient-descent-8820568eada1" target="_blank" rel="noopener">Stochastic vs Batch Gradient Descent</a><br><a href="https://zhuanlan.zhihu.com/p/25765735" target="_blank" rel="noopener">详解梯度下降法的三种形式BGD、SGD以及MBGD</a></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/Alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,137 +275,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/yourusername/yourusername.github.io/2019/06/19/梯度下降法(二) 批量梯度下降法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/18/梯度下降法(一)/" class="archive-article-date">
-  	<time datetime="2019-06-17T17:43:52.518Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/18/梯度下降法(一)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">梯度下降法(一)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/18/梯度下降法(一)/">梯度下降法(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最优化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">梯度下降</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么？"><span class="toc-number">1.</span> <span class="toc-text">是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么？"><span class="toc-number">2.</span> <span class="toc-text">为什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用范围？"><span class="toc-number">3.</span> <span class="toc-text">应用范围？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优缺点？"><span class="toc-number">4.</span> <span class="toc-text">优缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/17/测试文章/" class="archive-article-date">
-  	<time datetime="2019-06-16T17:24:43.538Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-17</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/17/测试文章/">测试文章</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/17/hello-world/" class="archive-article-date">
-  	<time datetime="2019-06-16T16:34:59.459Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/17/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -350,8 +410,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -154,6 +154,136 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-梯度下降法(二) 批量梯度下降法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/19/梯度下降法(二) 批量梯度下降法/">批量梯度下降法</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/19/梯度下降法(二) 批量梯度下降法/" class="archive-article-date">
+  	<time datetime="2019-06-18T16:20:06.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><blockquote>
+<p>什么是批量梯度下降法？</p>
+</blockquote>
+<p>批量梯度下降根据已有的所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新。</p>
+<h2 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><blockquote>
+<p>为什么这样做？</p>
+</blockquote>
+<ol>
+<li><p>原本的梯度下降算法更新的时候，如果样本数据过多，会一个个的进行样本的训练，这样就会很浪费时间、效率以及容易造成错误。</p>
+</li>
+<li><p>原本的梯度下降法<strong>不能保证找到的极小值点就是函数的极小值点</strong>，然而如果通过<strong>批量的数据对比</strong>，在每一次<strong>去往的梯度方向上进行正确的选择</strong>，那么就可以确保每一次更新都能去往下降最快的方向。</p>
+</li>
+</ol>
+<blockquote>
+<p>实现原理？</p>
+</blockquote>
+<ol>
+<li>首先更新某个点时，用一个样本进行更新时的公式：<script type="math/tex; mode=display">
+\theta_{j} :=\theta_{j}-\alpha \frac{\partial}{\partial \theta_{j}} J(\theta)</script></li>
+</ol>
+<p>其中<script type="math/tex">\theta_{j}</script>为最开始的随机初始点，<script type="math/tex">\alpha</script>为下降最大方向的步伐大小。<script type="math/tex">\frac{\partial}{\partial \theta_{j}} J(\theta)</script>为函数的偏导数。</p>
+<ol>
+<li><strong>更新一个点（x，y）时,J的偏导为：</strong><script type="math/tex; mode=display">
+\begin{aligned} \frac{\partial}{\partial \theta_{j}} J(\theta) &=\frac{\partial}{\partial \theta_{j}} \frac{1}{2}\left(h_{\theta}(x)-y\right)^{2} \\ &=2 \cdot \frac{1}{2}\left(h_{\theta}(x)-y\right) \cdot \frac{\partial}{\partial \theta_{j}}\left(h_{\theta}(x)-y\right) \\ &=\left(h_{\theta}(x)-y\right) \cdot \frac{\partial}{\partial \theta_{j}}\left(\sum_{i=0}^{n} \theta_{i} x_{i}-y\right) \\ &=\left(h_{\theta}(x)-y\right) x_{j} \end{aligned}</script></li>
+</ol>
+<p>对应的<strong>该点更新值为:</strong></p>
+<script type="math/tex; mode=display">
+\theta_{j} :=\theta_{j}-\alpha(h_{\theta}(x)-y) x_{j}</script><ol>
+<li><strong> 对于所有的数据，进行更新,其J的偏导为:</strong><script type="math/tex; mode=display">
+\frac{\partial J(\theta)}{\partial \theta_{j}}=-\frac{1}{m} \sum_{i=1}^{m}\left(y^{i}-h_{\theta}\left(x^{i}\right)\right) x_{j}^{i}</script></li>
+</ol>
+<p>根据所求出的函数值，进行<script type="math/tex">\theta_{j}</script>的更新，使得<script type="math/tex">\theta_{j}</script>的值减小到一定值：</p>
+<script type="math/tex; mode=display">
+\theta_{j}^{\prime}=\theta_{j}+\frac{1}{m} \sum_{i=1}^{m}\left(y^{i}-h_{\theta}\left(x^{i}\right)\right) x_{j}^{i}</script><ol>
+<li>一直重复上述过程，<strong>直到满足某个值或者所有样本数据都已经循环完为止</strong></li>
+</ol>
+<h2 id="应用范围？"><a href="#应用范围？" class="headerlink" title="应用范围？"></a>应用范围？</h2><ol>
+<li>已知x和y，设计一个函数进行拟合时。</li>
+<li>搜索最优解。</li>
+</ol>
+<h2 id="优缺点？"><a href="#优缺点？" class="headerlink" title="优缺点？"></a>优缺点？</h2><blockquote>
+<p>优点</p>
+</blockquote>
+<ol>
+<li>批量梯度下降就是当走到某个点时，用全局已有的数据进行探测，保证每一次更新的梯度方向是正确的。这样就能很好的避免陷入局部极小值中。</li>
+</ol>
+<blockquote>
+<p>缺点</p>
+</blockquote>
+<ol>
+<li>每次更新每一个参数时都采用的所有样本数据，因此开销大，时间长。</li>
+</ol>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://medium.com/@divakar_239/stochastic-vs-batch-gradient-descent-8820568eada1" target="_blank" rel="noopener">Stochastic vs Batch Gradient Descent</a><br><a href="https://zhuanlan.zhihu.com/p/25765735" target="_blank" rel="noopener">详解梯度下降法的三种形式BGD、SGD以及MBGD</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最优化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">梯度下降</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/19/梯度下降法(二) 批量梯度下降法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-梯度下降法(一)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
