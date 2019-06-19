@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://github.com/yourusername/yourusername.github.io">
   <title>批量梯度下降法 | 3to</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="是什么？ 什么是批量梯度下降法？  批量梯度下降根据所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新，去拟合数据函数关系。 为什么？ 为什么这样做？   原本的梯度下降算法更新的时候，如果样本数据过多，会一个个的进行样本的训练，这样就会很浪费时间、效率以及容易造成错误。  原本的梯度下降法不能保证找到的极小值点就是函数的极小值点，然而如果通过批量的数据对比，在每一次去往的梯度方向上进行">
+  <meta name="description" content="是什么 什么是随机梯度下降法？  随机采取一个样本的方式进行函数更新，拟合函数关系。这种方式就被称为随机梯度下降。 为什么 为什么这样做？   所有的样本数据初试时便符合一定的函数关系。随机选取一个，来预测当前的误差，根据误差来拟合函数，其更新速度相较于批量更快。   实现原理？   首先更新某个点时，用一个样本进行更新时的公式：   \theta_{j} :=\theta_{j}-\alpha">
 <meta name="keywords" content="最优化,梯度下降">
 <meta property="og:type" content="article">
 <meta property="og:title" content="批量梯度下降法">
-<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/2019/06/19/梯度下降法(二) 批量梯度下降法/index.html">
+<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/2019/06/20/梯度下降法(三) 随机梯度下降法/index.html">
 <meta property="og:site_name" content="3to">
-<meta property="og:description" content="是什么？ 什么是批量梯度下降法？  批量梯度下降根据所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新，去拟合数据函数关系。 为什么？ 为什么这样做？   原本的梯度下降算法更新的时候，如果样本数据过多，会一个个的进行样本的训练，这样就会很浪费时间、效率以及容易造成错误。  原本的梯度下降法不能保证找到的极小值点就是函数的极小值点，然而如果通过批量的数据对比，在每一次去往的梯度方向上进行">
+<meta property="og:description" content="是什么 什么是随机梯度下降法？  随机采取一个样本的方式进行函数更新，拟合函数关系。这种方式就被称为随机梯度下降。 为什么 为什么这样做？   所有的样本数据初试时便符合一定的函数关系。随机选取一个，来预测当前的误差，根据误差来拟合函数，其更新速度相较于批量更快。   实现原理？   首先更新某个点时，用一个样本进行更新时的公式：   \theta_{j} :=\theta_{j}-\alpha">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-19T16:15:29.857Z">
+<meta property="og:updated_time" content="2019-06-19T16:16:10.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="批量梯度下降法">
-<meta name="twitter:description" content="是什么？ 什么是批量梯度下降法？  批量梯度下降根据所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新，去拟合数据函数关系。 为什么？ 为什么这样做？   原本的梯度下降算法更新的时候，如果样本数据过多，会一个个的进行样本的训练，这样就会很浪费时间、效率以及容易造成错误。  原本的梯度下降法不能保证找到的极小值点就是函数的极小值点，然而如果通过批量的数据对比，在每一次去往的梯度方向上进行">
+<meta name="twitter:description" content="是什么 什么是随机梯度下降法？  随机采取一个样本的方式进行函数更新，拟合函数关系。这种方式就被称为随机梯度下降。 为什么 为什么这样做？   所有的样本数据初试时便符合一定的函数关系。随机选取一个，来预测当前的误差，根据误差来拟合函数，其更新速度相较于批量更快。   实现原理？   首先更新某个点时，用一个样本进行更新时的公式：   \theta_{j} :=\theta_{j}-\alpha">
   
     <link rel="alternative" href="/atom.xml" title="3to" type="application/atom+xml">
   
@@ -153,7 +153,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-梯度下降法(二) 批量梯度下降法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-梯度下降法(三) 随机梯度下降法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -165,67 +165,52 @@
   
 
         
-        <a href="/2019/06/19/梯度下降法(二) 批量梯度下降法/" class="archive-article-date">
-  	<time datetime="2019-06-18T16:20:06.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-19</time>
+        <a href="/2019/06/20/梯度下降法(三) 随机梯度下降法/" class="archive-article-date">
+  	<time datetime="2019-06-19T16:17:15.055Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><blockquote>
-<p>什么是批量梯度下降法？</p>
+        <h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><blockquote>
+<p>什么是随机梯度下降法？</p>
 </blockquote>
-<p>批量梯度下降根据所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新，去拟合数据函数关系。</p>
-<h2 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><blockquote>
+<p>随机采取一个样本的方式进行函数更新，拟合函数关系。这种方式就被称为随机梯度下降。</p>
+<h2 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h2><blockquote>
 <p>为什么这样做？</p>
 </blockquote>
 <ol>
-<li><p>原本的梯度下降算法更新的时候，如果样本数据过多，会一个个的进行样本的训练，这样就会很浪费时间、效率以及容易造成错误。</p>
-</li>
-<li><p>原本的梯度下降法<strong>不能保证找到的极小值点就是函数的极小值点</strong>，然而如果通过<strong>批量的数据对比</strong>，在每一次<strong>去往的梯度方向上进行正确的选择</strong>，那么就可以确保每一次更新都能去往下降最快的方向。</p>
-</li>
+<li>所有的样本数据初试时便符合一定的函数关系。随机选取一个，来预测当前的误差，根据误差来拟合函数，其更新速度相较于批量更快。</li>
 </ol>
 <blockquote>
 <p>实现原理？</p>
 </blockquote>
 <ol>
-<li>首先更新某个点时，用一个样本进行更新时的公式：<script type="math/tex; mode=display">
-\theta_{j} :=\theta_{j}-\alpha \frac{\partial}{\partial \theta_{j}} J(\theta)</script></li>
+<li>首先更新某个点时，用一个样本进行更新时的公式：</li>
 </ol>
-<p>其中<script type="math/tex">\theta_{j}</script>为最开始的随机初始点，<script type="math/tex">\alpha</script>为下降最大方向的步伐大小。<script type="math/tex">\frac{\partial}{\partial \theta_{j}} J(\theta)</script>为函数的偏导数。</p>
+<script type="math/tex; mode=display">
+\theta_{j} :=\theta_{j}-\alpha \frac{\partial}{\partial \theta_{j}} J(\theta)</script><p>其中<script type="math/tex">\theta_{j}</script>为最开始的随机初始点，<script type="math/tex">\alpha</script>为下降最大方向的步伐大小。<script type="math/tex">\frac{\partial}{\partial \theta_{j}} J(\theta)</script>为函数的偏导数。</p>
 <ol>
-<li><strong>更新一个点（x，y）时,J的偏导为：</strong><script type="math/tex; mode=display">
-\begin{aligned} \frac{\partial}{\partial \theta_{j}} J(\theta) &=\frac{\partial}{\partial \theta_{j}} \frac{1}{2}\left(h_{\theta}(x)-y\right)^{2} \\ &=2 \cdot \frac{1}{2}\left(h_{\theta}(x)-y\right) \cdot \frac{\partial}{\partial \theta_{j}}\left(h_{\theta}(x)-y\right) \\ &=\left(h_{\theta}(x)-y\right) \cdot \frac{\partial}{\partial \theta_{j}}\left(\sum_{i=0}^{n} \theta_{i} x_{i}-y\right) \\ &=\left(h_{\theta}(x)-y\right) x_{j} \end{aligned}</script></li>
+<li><strong>随机选择一个点，进行同样的更新：</strong></li>
 </ol>
-<p>对应的<strong>该点更新值为:</strong></p>
 <script type="math/tex; mode=display">
-\theta_{j} :=\theta_{j}-\alpha(h_{\theta}(x)-y) x_{j}</script><ol>
-<li><strong>再利用其它所有的数据，进行更新,其J的偏导为:</strong><script type="math/tex; mode=display">
-\frac{\partial J(\theta)}{\partial \theta_{j}}=-\frac{1}{m} \sum_{i=1}^{m}\left(y^{i}-h_{\theta}\left(x^{i}\right)\right) x_{j}^{i}</script></li>
+\theta_{j} :=\theta_{j}-\alpha \frac{\partial}{\partial \theta_{j}} J(\theta)</script><ol>
+<li><strong>重复样本数据，直到循环次数达到限制或者满足某个值时为止。</strong></li>
 </ol>
-<p>根据所求出的函数值，进行<script type="math/tex">\theta_{j}</script>的更新，使得<script type="math/tex">\theta_{j}</script>的值减小到一定值：</p>
-<script type="math/tex; mode=display">
-\theta_{j}^{\prime}=\theta_{j}+\frac{1}{m} \sum_{i=1}^{m}\left(y^{i}-h_{\theta}\left(x^{i}\right)\right) x_{j}^{i}</script><ol>
-<li>一直重复上述过程，<strong>直到满足某个值或者所有样本数据都已经循环完为止。</strong></li>
-</ol>
-<h2 id="应用范围？"><a href="#应用范围？" class="headerlink" title="应用范围？"></a>应用范围？</h2><ol>
-<li>已知x和y，设计一个函数进行拟合时。</li>
-<li>搜索最优解。</li>
-</ol>
-<h2 id="优缺点？"><a href="#优缺点？" class="headerlink" title="优缺点？"></a>优缺点？</h2><blockquote>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><blockquote>
 <p>优点</p>
 </blockquote>
 <ol>
-<li>批量梯度下降就是当走到某个点时，用全局已有的数据进行探测，保证每一次更新的梯度方向是正确的。这样就能很好的避免陷入局部极小值中。</li>
+<li>参数更新较快。</li>
 </ol>
 <blockquote>
 <p>缺点</p>
 </blockquote>
 <ol>
-<li>每次更新每一个参数时都采用的所有样本数据，因此开销大，时间长。</li>
+<li>由于是随机的样本，因此参数更新的方向不一定正确。</li>
+<li>容易陷入局部极小值。</li>
 </ol>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://medium.com/@divakar_239/stochastic-vs-batch-gradient-descent-8820568eada1" target="_blank" rel="noopener">Stochastic vs Batch Gradient Descent</a><br><a href="https://zhuanlan.zhihu.com/p/25765735" target="_blank" rel="noopener">详解梯度下降法的三种形式BGD、SGD以及MBGD</a></p>
 
       
 
@@ -325,7 +310,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/yourusername/yourusername.github.io/2019/06/19/梯度下降法(二) 批量梯度下降法/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/yourusername/yourusername.github.io/2019/06/20/梯度下降法(三) 随机梯度下降法/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -339,18 +324,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/20/梯度下降法(三) 随机梯度下降法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          批量梯度下降法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/06/18/梯度下降法(一)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">梯度下降法(一)</div>
+    <a href="/2019/06/19/梯度下降法(二) 批量梯度下降法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">批量梯度下降法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -377,7 +353,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么？"><span class="toc-number">1.</span> <span class="toc-text">是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么？"><span class="toc-number">2.</span> <span class="toc-text">为什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用范围？"><span class="toc-number">3.</span> <span class="toc-text">应用范围？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优缺点？"><span class="toc-number">4.</span> <span class="toc-text">优缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么"><span class="toc-number">1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么"><span class="toc-number">2.</span> <span class="toc-text">为什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优缺点"><span class="toc-number">3.</span> <span class="toc-text">优缺点</span></a></li></ol>
                     </div>
                 </span>
             </div>

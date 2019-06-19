@@ -154,6 +154,121 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-梯度下降法(三) 随机梯度下降法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/20/梯度下降法(三) 随机梯度下降法/">批量梯度下降法</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/20/梯度下降法(三) 随机梯度下降法/" class="archive-article-date">
+  	<time datetime="2019-06-19T16:17:15.055Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><blockquote>
+<p>什么是随机梯度下降法？</p>
+</blockquote>
+<p>随机采取一个样本的方式进行函数更新，拟合函数关系。这种方式就被称为随机梯度下降。</p>
+<h2 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h2><blockquote>
+<p>为什么这样做？</p>
+</blockquote>
+<ol>
+<li>所有的样本数据初试时便符合一定的函数关系。随机选取一个，来预测当前的误差，根据误差来拟合函数，其更新速度相较于批量更快。</li>
+</ol>
+<blockquote>
+<p>实现原理？</p>
+</blockquote>
+<ol>
+<li>首先更新某个点时，用一个样本进行更新时的公式：</li>
+</ol>
+<script type="math/tex; mode=display">
+\theta_{j} :=\theta_{j}-\alpha \frac{\partial}{\partial \theta_{j}} J(\theta)</script><p>其中<script type="math/tex">\theta_{j}</script>为最开始的随机初始点，<script type="math/tex">\alpha</script>为下降最大方向的步伐大小。<script type="math/tex">\frac{\partial}{\partial \theta_{j}} J(\theta)</script>为函数的偏导数。</p>
+<ol>
+<li><strong>随机选择一个点，进行同样的更新：</strong></li>
+</ol>
+<script type="math/tex; mode=display">
+\theta_{j} :=\theta_{j}-\alpha \frac{\partial}{\partial \theta_{j}} J(\theta)</script><ol>
+<li><strong>重复样本数据，直到循环次数达到限制或者满足某个值时为止。</strong></li>
+</ol>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><blockquote>
+<p>优点</p>
+</blockquote>
+<ol>
+<li>参数更新较快。</li>
+</ol>
+<blockquote>
+<p>缺点</p>
+</blockquote>
+<ol>
+<li>由于是随机的样本，因此参数更新的方向不一定正确。</li>
+<li>容易陷入局部极小值。</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最优化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">梯度下降</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/20/梯度下降法(三) 随机梯度下降法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-梯度下降法(二) 批量梯度下降法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -177,7 +292,7 @@
         <h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><blockquote>
 <p>什么是批量梯度下降法？</p>
 </blockquote>
-<p>批量梯度下降根据已有的所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新。</p>
+<p>批量梯度下降根据所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新，去拟合数据函数关系。</p>
 <h2 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><blockquote>
 <p>为什么这样做？</p>
 </blockquote>
@@ -202,13 +317,13 @@
 <p>对应的<strong>该点更新值为:</strong></p>
 <script type="math/tex; mode=display">
 \theta_{j} :=\theta_{j}-\alpha(h_{\theta}(x)-y) x_{j}</script><ol>
-<li><strong> 对于所有的数据，进行更新,其J的偏导为:</strong><script type="math/tex; mode=display">
+<li><strong>再利用其它所有的数据，进行更新,其J的偏导为:</strong><script type="math/tex; mode=display">
 \frac{\partial J(\theta)}{\partial \theta_{j}}=-\frac{1}{m} \sum_{i=1}^{m}\left(y^{i}-h_{\theta}\left(x^{i}\right)\right) x_{j}^{i}</script></li>
 </ol>
 <p>根据所求出的函数值，进行<script type="math/tex">\theta_{j}</script>的更新，使得<script type="math/tex">\theta_{j}</script>的值减小到一定值：</p>
 <script type="math/tex; mode=display">
 \theta_{j}^{\prime}=\theta_{j}+\frac{1}{m} \sum_{i=1}^{m}\left(y^{i}-h_{\theta}\left(x^{i}\right)\right) x_{j}^{i}</script><ol>
-<li>一直重复上述过程，<strong>直到满足某个值或者所有样本数据都已经循环完为止</strong></li>
+<li>一直重复上述过程，<strong>直到满足某个值或者所有样本数据都已经循环完为止。</strong></li>
 </ol>
 <h2 id="应用范围？"><a href="#应用范围？" class="headerlink" title="应用范围？"></a>应用范围？</h2><ol>
 <li>已知x和y，设计一个函数进行拟合时。</li>
