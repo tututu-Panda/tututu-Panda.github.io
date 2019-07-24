@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/yourusername/yourusername.github.io">
-  <title>3to</title>
+  <title>Tag: 贝叶斯定理 | 3to</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="认真能做任何事.">
 <meta name="keywords" content="3to">
 <meta property="og:type" content="website">
 <meta property="og:title" content="3to">
-<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/index.html">
+<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/tags/贝叶斯定理/index.html">
 <meta property="og:site_name" content="3to">
 <meta property="og:description" content="认真能做任何事.">
 <meta property="og:locale" content="default">
@@ -154,80 +154,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-贝叶斯分类器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/07/24/贝叶斯分类器/" class="archive-article-date">
+  	<time datetime="2019-07-24T02:51:37.435Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-24</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/24/贝叶斯分类器/">贝叶斯定理</a>
+      <a class="archive-article-title" href="/2019/07/24/贝叶斯分类器/">贝叶斯定理</a>
     </h1>
   
 
-        
-        <a href="/2019/07/24/贝叶斯分类器/" class="archive-article-date">
-  	<time datetime="2019-07-24T02:51:37.435Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-条件概率"><a href="#1-条件概率" class="headerlink" title="1. 条件概率"></a>1. 条件概率</h2><blockquote>
-<p>什么是条件概率：</p>
-</blockquote>
-<p>条件概率就是指：在事件B发生的情况下，事件A也发生的概率，通常用P(A|B)表示。</p>
-<blockquote>
-<p>用公式怎么表示：</p>
-</blockquote>
-<p><img src="C:\Users\51904\Desktop/123.jpg" alt="avatar"></p>
-<h4 id="1，根据文氏图，可知在事件B发生的条件下，事件A发生的概率即为P-A-∩-B-P-B-。即为："><a href="#1，根据文氏图，可知在事件B发生的条件下，事件A发生的概率即为P-A-∩-B-P-B-。即为：" class="headerlink" title="1，根据文氏图，可知在事件B发生的条件下，事件A发生的概率即为P(A ∩ B)  / P (B)。即为："></a>1，根据文氏图，可知在事件B发生的条件下，事件A发生的概率即为P(A ∩ B)  / P (B)。即为：</h4><script type="math/tex; mode=display">
-P(A | B)=\frac{P(A \cap B)}{P(B)}</script><p>因此可以得出P(A ∩ B):</p>
-<script type="math/tex; mode=display">
-P(A \cap B) = P(A | B) P(B)</script><h4 id="2，同理可以得出在事件A发生的条件下，B发生的概率："><a href="#2，同理可以得出在事件A发生的条件下，B发生的概率：" class="headerlink" title="2，同理可以得出在事件A发生的条件下，B发生的概率："></a>2，同理可以得出在事件A发生的条件下，B发生的概率：</h4><script type="math/tex; mode=display">
-P(B | A) = \frac{p(A \cap B)}{P(A)}</script><p>P(A ∩ B):</p>
-<script type="math/tex; mode=display">
-P(A \cap B) = P(B | A) P(A)</script><h4 id="3，两个相结合便可以得出条件概率的计算公式："><a href="#3，两个相结合便可以得出条件概率的计算公式：" class="headerlink" title="3，两个相结合便可以得出条件概率的计算公式："></a>3，两个相结合便可以得出条件概率的计算公式：</h4><script type="math/tex; mode=display">
-P(A | B) = \frac{P(B | A)P(A)}{P(B)}</script><h2 id="2-全概率公式"><a href="#2-全概率公式" class="headerlink" title="2. 全概率公式"></a>2. 全概率公式</h2><blockquote>
-<p>什么是全概率：</p>
-</blockquote>
-<p>全概率公式将对一复杂事件A的概率求解问题转化为了在不同情况或==不同原因 Bn==下发生的简单事件的概率的求和问题。</p>
-<blockquote>
-<p>公式进一步推导：</p>
-</blockquote>
-<h4 id="1，-假设-Bn-n-1-2-3-…-是一个概率空间的有限或者可数无限的分割（既-Bn为一完备事件组），且每个集合Bn是一个可测集合，则对任意事件A有全概率公式："><a href="#1，-假设-Bn-n-1-2-3-…-是一个概率空间的有限或者可数无限的分割（既-Bn为一完备事件组），且每个集合Bn是一个可测集合，则对任意事件A有全概率公式：" class="headerlink" title="1， 假设{ Bn : n = 1, 2, 3, … } 是一个概率空间的有限或者可数无限的分割（既 Bn为一完备事件组），且每个集合Bn是一个可测集合，则对任意事件A有全概率公式："></a>1， 假设{ Bn : n = 1, 2, 3, … } 是一个概率空间的有限或者可数无限的分割（既 Bn为一完备事件组），且每个集合Bn是一个可测集合，则对任意事件A有全概率公式：</h4><script type="math/tex; mode=display">
-\operatorname{Pr}(A)=\sum \operatorname{Pr}\left(A \cap B_{n}\right)</script><h4 id="2，由上一步的条件概率推导可知："><a href="#2，由上一步的条件概率推导可知：" class="headerlink" title="2，由上一步的条件概率推导可知："></a>2，由上一步的条件概率推导可知：</h4><p>P(A ∩  B) = P(A | B)  P(B)</p>
-<p>则：</p>
-<script type="math/tex; mode=display">
-\operatorname{Pr}\left(A \cap B_{n}\right)=\operatorname{Pr}\left(A | B_{n}\right) \operatorname{Pr}\left(B_{n}\right)</script><h4 id="3，由此可以推导出P（A）发生的概率："><a href="#3，由此可以推导出P（A）发生的概率：" class="headerlink" title="3，由此可以推导出P（A）发生的概率："></a>3，由此可以推导出P（A）发生的概率：</h4><script type="math/tex; mode=display">
-\operatorname{Pr}(A)=\sum_{n} \operatorname{Pr}\left(A | B_{n}\right) \operatorname{Pr}\left(B_{n}\right)</script><h2 id="3-贝叶斯定理"><a href="#3-贝叶斯定理" class="headerlink" title="3. 贝叶斯定理"></a>3. 贝叶斯定理</h2><blockquote>
-<p>公式（对条件概率进行变形）：</p>
-<script type="math/tex; mode=display">
-P(A | B)=\frac{P(B | A) P(A)}{P(B)}</script><p>贝叶斯定理中的重要名称：</p>
-</blockquote>
-<p>先验概率P(A)：A的先验概率即这个事件的不确定程度，其是独立于其他事件的。<br>后验概率P(A|B)：在已经B发生后A也发生的概率，称为后验概率<br>标准似然度： P(B|A) / P(B) </p>
-<p>即：<br>后验概率 = 标准似然度 * 先验概率</p>
-<blockquote>
-<p>定理的其他形式：</p>
-</blockquote>
-<ol>
-<li>假设Ai是事件集合的部分，则对于任意的Ai，贝叶斯定义可以表示为：<script type="math/tex; mode=display">
-P\left(A_{i} | B\right)=\frac{P\left(B | A_{i}\right) P\left(A_{i}\right)}{\sum_{j} P\left(B | A_{j}\right) P\left(A_{j}\right)}</script></li>
-</ol>
-<blockquote>
-<p>贝叶斯定理怎么使用：</p>
-</blockquote>
-<p>其主要应用为在已知一些条件概率发生的情况下，  去求未知事件发生的概率。</p>
-<h2 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h2><p><a href="https://www.jianshu.com/p/c59851b1c0f3" target="_blank" rel="noopener">条件概率，全概率，贝叶斯公式理解</a><br><a href="https://zh.wikipedia.org/wiki/%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F" target="_blank" rel="noopener">全概率公式</a><br><a href="https://zh.wikipedia.org/wiki/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">贝叶斯定理</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -239,447 +193,19 @@ P\left(A_{i} | B\right)=\frac{P\left(B | A_{i}\right) P\left(A_{i}\right)}{\sum_
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/24/贝叶斯分类器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-梯度下降法(三) 随机梯度下降法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/20/梯度下降法(三) 随机梯度下降法/">随机梯度下降法</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/20/梯度下降法(三) 随机梯度下降法/" class="archive-article-date">
-  	<time datetime="2019-06-19T16:17:15.055Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><blockquote>
-<p>什么是随机梯度下降法？</p>
-</blockquote>
-<p>随机采取一个样本的方式进行函数更新，拟合函数关系。这种方式就被称为随机梯度下降。</p>
-<h2 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h2><blockquote>
-<p>为什么这样做？</p>
-</blockquote>
-<ol>
-<li>所有的样本数据初试时便符合一定的函数关系。随机选取一个，来预测当前的误差，根据误差来拟合函数，其更新速度相较于批量更快。</li>
-</ol>
-<blockquote>
-<p>实现原理？</p>
-</blockquote>
-<ol>
-<li>首先更新某个点时，用一个样本进行更新时的公式：</li>
-</ol>
-<script type="math/tex; mode=display">
-\theta_{j} :=\theta_{j}-\alpha \frac{\partial}{\partial \theta_{j}} J(\theta)</script><p>其中<script type="math/tex">\theta_{j}</script>为最开始的随机初始点，<script type="math/tex">\alpha</script>为下降最大方向的步伐大小。<script type="math/tex">\frac{\partial}{\partial \theta_{j}} J(\theta)</script>为函数的偏导数。</p>
-<ol>
-<li><strong>随机选择一个点，进行同样的更新：</strong></li>
-</ol>
-<script type="math/tex; mode=display">
-\theta_{j} :=\theta_{j}-\alpha \frac{\partial}{\partial \theta_{j}} J(\theta)</script><ol>
-<li><strong>重复样本数据，直到循环次数达到限制或者满足某个值时为止。</strong></li>
-</ol>
-<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><blockquote>
-<p>优点</p>
-</blockquote>
-<ol>
-<li>参数更新较快。</li>
-</ol>
-<blockquote>
-<p>缺点</p>
-</blockquote>
-<ol>
-<li>由于是随机的样本，因此参数更新的方向不一定正确。</li>
-<li>容易陷入局部极小值。</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最优化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">梯度下降</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/20/梯度下降法(三) 随机梯度下降法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-梯度下降法(二) 批量梯度下降法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/19/梯度下降法(二) 批量梯度下降法/">批量梯度下降法</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/19/梯度下降法(二) 批量梯度下降法/" class="archive-article-date">
-  	<time datetime="2019-06-18T16:20:06.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><blockquote>
-<p>什么是批量梯度下降法？</p>
-</blockquote>
-<p>批量梯度下降根据所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新，去拟合数据函数关系。</p>
-<h2 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><blockquote>
-<p>为什么这样做？</p>
-</blockquote>
-<ol>
-<li><p>原本的梯度下降算法更新的时候，如果样本数据过多，会一个个的进行样本的训练，这样就会很浪费时间、效率以及容易造成错误。</p>
-</li>
-<li><p>原本的梯度下降法<strong>不能保证找到的极小值点就是函数的极小值点</strong>，然而如果通过<strong>批量的数据对比</strong>，在每一次<strong>去往的梯度方向上进行正确的选择</strong>，那么就可以确保每一次更新都能去往下降最快的方向。</p>
-</li>
-</ol>
-<blockquote>
-<p>实现原理？</p>
-</blockquote>
-<ol>
-<li>首先更新某个点时，用一个样本进行更新时的公式：<script type="math/tex; mode=display">
-\theta_{j} :=\theta_{j}-\alpha \frac{\partial}{\partial \theta_{j}} J(\theta)</script></li>
-</ol>
-<p>其中<script type="math/tex">\theta_{j}</script>为最开始的随机初始点，<script type="math/tex">\alpha</script>为下降最大方向的步伐大小。<script type="math/tex">\frac{\partial}{\partial \theta_{j}} J(\theta)</script>为函数的偏导数。</p>
-<ol>
-<li><strong>更新一个点（x，y）时,J的偏导为：</strong><script type="math/tex; mode=display">
-\begin{aligned} \frac{\partial}{\partial \theta_{j}} J(\theta) &=\frac{\partial}{\partial \theta_{j}} \frac{1}{2}\left(h_{\theta}(x)-y\right)^{2} \\ &=2 \cdot \frac{1}{2}\left(h_{\theta}(x)-y\right) \cdot \frac{\partial}{\partial \theta_{j}}\left(h_{\theta}(x)-y\right) \\ &=\left(h_{\theta}(x)-y\right) \cdot \frac{\partial}{\partial \theta_{j}}\left(\sum_{i=0}^{n} \theta_{i} x_{i}-y\right) \\ &=\left(h_{\theta}(x)-y\right) x_{j} \end{aligned}</script></li>
-</ol>
-<p>对应的<strong>该点更新值为:</strong></p>
-<script type="math/tex; mode=display">
-\theta_{j} :=\theta_{j}-\alpha(h_{\theta}(x)-y) x_{j}</script><ol>
-<li><strong>再利用其它所有的数据，进行更新,其J的偏导为:</strong><script type="math/tex; mode=display">
-\frac{\partial J(\theta)}{\partial \theta_{j}}=-\frac{1}{m} \sum_{i=1}^{m}\left(y^{i}-h_{\theta}\left(x^{i}\right)\right) x_{j}^{i}</script></li>
-</ol>
-<p>根据所求出的函数值，进行<script type="math/tex">\theta_{j}</script>的更新，使得<script type="math/tex">\theta_{j}</script>的值减小到一定值：</p>
-<script type="math/tex; mode=display">
-\theta_{j}^{\prime}=\theta_{j}+\frac{1}{m} \sum_{i=1}^{m}\left(y^{i}-h_{\theta}\left(x^{i}\right)\right) x_{j}^{i}</script><ol>
-<li>一直重复上述过程，<strong>直到满足某个值或者所有样本数据都已经循环完为止。</strong></li>
-</ol>
-<h2 id="应用范围？"><a href="#应用范围？" class="headerlink" title="应用范围？"></a>应用范围？</h2><ol>
-<li>已知x和y，设计一个函数进行拟合时。</li>
-<li>搜索最优解。</li>
-</ol>
-<h2 id="优缺点？"><a href="#优缺点？" class="headerlink" title="优缺点？"></a>优缺点？</h2><blockquote>
-<p>优点</p>
-</blockquote>
-<ol>
-<li>批量梯度下降就是当走到某个点时，用全局已有的数据进行探测，保证每一次更新的梯度方向是正确的。这样就能很好的避免陷入局部极小值中。</li>
-</ol>
-<blockquote>
-<p>缺点</p>
-</blockquote>
-<ol>
-<li>每次更新每一个参数时都采用的所有样本数据，因此开销大，时间长。</li>
-</ol>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://medium.com/@divakar_239/stochastic-vs-batch-gradient-descent-8820568eada1" target="_blank" rel="noopener">Stochastic vs Batch Gradient Descent</a><br><a href="https://zhuanlan.zhihu.com/p/25765735" target="_blank" rel="noopener">详解梯度下降法的三种形式BGD、SGD以及MBGD</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最优化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">梯度下降</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/19/梯度下降法(二) 批量梯度下降法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-梯度下降法(一)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/18/梯度下降法(一)/">梯度下降法(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/18/梯度下降法(一)/" class="archive-article-date">
-  	<time datetime="2019-06-17T17:43:52.518Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么?"></a>是什么?</h2><blockquote>
-<p>什么是梯度?</p>
-</blockquote>
-<p>梯度实质为一个n维向量,表示某一函数在某点处的方向导数沿着该方向取得的最大值.因此沿着梯度的方向变化最快,变化率最大.(百度百科)</p>
-<script type="math/tex; mode=display">
-grand f= \triangledown f(x_1,x_2,x_3) = ( \frac{\delta f}{\delta x_1} ,\frac{\delta f}{\delta x_2},\frac{\delta f}{\delta x_3} )</script>
-        
-          <a class="article-more-a" href="/2019/06/18/梯度下降法(一)/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最优化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">梯度下降</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/18/梯度下降法(一)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-测试文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/17/测试文章/">测试文章</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/17/测试文章/" class="archive-article-date">
-  	<time datetime="2019-06-16T17:24:43.538Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>11</strong><br>$F_{\mu}$<br>
-        
-          <a class="article-more-a" href="/2019/06/17/测试文章/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/17/测试文章/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -701,10 +227,10 @@ grand f= \triangledown f(x_1,x_2,x_3) = ( \frac{\delta f}{\delta x_1} ,\frac{\de
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
