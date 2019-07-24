@@ -154,6 +154,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-贝叶斯分类器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-条件概率"><a href="#1-条件概率" class="headerlink" title="1. 条件概率"></a>1. 条件概率</h2><blockquote>
+<p>什么是条件概率：</p>
+</blockquote>
+<p>条件概率就是指：在事件B发生的情况下，事件A也发生的概率，通常用P(A|B)表示。</p>
+<blockquote>
+<p>用公式怎么表示：</p>
+</blockquote>
+<p><img src="C:\Users\51904\Desktop/123.jpg" alt="avatar"></p>
+<h4 id="1，根据文氏图，可知在事件B发生的条件下，事件A发生的概率即为P-A-∩-B-P-B-。即为："><a href="#1，根据文氏图，可知在事件B发生的条件下，事件A发生的概率即为P-A-∩-B-P-B-。即为：" class="headerlink" title="1，根据文氏图，可知在事件B发生的条件下，事件A发生的概率即为P(A ∩ B)  / P (B)。即为："></a>1，根据文氏图，可知在事件B发生的条件下，事件A发生的概率即为P(A ∩ B)  / P (B)。即为：</h4><script type="math/tex; mode=display">
+P(A | B)=\frac{P(A \cap B)}{P(B)}</script><p>因此可以得出P(A ∩ B):</p>
+<script type="math/tex; mode=display">
+P(A \cap B) = P(A | B) P(B)</script><h4 id="2，同理可以得出在事件A发生的条件下，B发生的概率："><a href="#2，同理可以得出在事件A发生的条件下，B发生的概率：" class="headerlink" title="2，同理可以得出在事件A发生的条件下，B发生的概率："></a>2，同理可以得出在事件A发生的条件下，B发生的概率：</h4><script type="math/tex; mode=display">
+P(B | A) = \frac{p(A \cap B)}{P(A)}</script><p>P(A ∩ B):</p>
+<script type="math/tex; mode=display">
+P(A \cap B) = P(B | A) P(A)</script><h4 id="3，两个相结合便可以得出条件概率的计算公式："><a href="#3，两个相结合便可以得出条件概率的计算公式：" class="headerlink" title="3，两个相结合便可以得出条件概率的计算公式："></a>3，两个相结合便可以得出条件概率的计算公式：</h4><script type="math/tex; mode=display">
+P(A | B) = \frac{P(B | A)P(A)}{P(B)}</script><h2 id="2-全概率公式"><a href="#2-全概率公式" class="headerlink" title="2. 全概率公式"></a>2. 全概率公式</h2><blockquote>
+<p>什么是全概率：</p>
+</blockquote>
+<p>全概率公式将对一复杂事件A的概率求解问题转化为了在不同情况或==不同原因 Bn==下发生的简单事件的概率的求和问题。</p>
+<blockquote>
+<p>公式进一步推导：</p>
+</blockquote>
+<h4 id="1，-假设-Bn-n-1-2-3-…-是一个概率空间的有限或者可数无限的分割（既-Bn为一完备事件组），且每个集合Bn是一个可测集合，则对任意事件A有全概率公式："><a href="#1，-假设-Bn-n-1-2-3-…-是一个概率空间的有限或者可数无限的分割（既-Bn为一完备事件组），且每个集合Bn是一个可测集合，则对任意事件A有全概率公式：" class="headerlink" title="1， 假设{ Bn : n = 1, 2, 3, … } 是一个概率空间的有限或者可数无限的分割（既 Bn为一完备事件组），且每个集合Bn是一个可测集合，则对任意事件A有全概率公式："></a>1， 假设{ Bn : n = 1, 2, 3, … } 是一个概率空间的有限或者可数无限的分割（既 Bn为一完备事件组），且每个集合Bn是一个可测集合，则对任意事件A有全概率公式：</h4><script type="math/tex; mode=display">
+\operatorname{Pr}(A)=\sum \operatorname{Pr}\left(A \cap B_{n}\right)</script><h4 id="2，由上一步的条件概率推导可知："><a href="#2，由上一步的条件概率推导可知：" class="headerlink" title="2，由上一步的条件概率推导可知："></a>2，由上一步的条件概率推导可知：</h4><p>P(A ∩  B) = P(A | B)  P(B)</p>
+<p>则：</p>
+<script type="math/tex; mode=display">
+\operatorname{Pr}\left(A \cap B_{n}\right)=\operatorname{Pr}\left(A | B_{n}\right) \operatorname{Pr}\left(B_{n}\right)</script><h4 id="3，由此可以推导出P（A）发生的概率："><a href="#3，由此可以推导出P（A）发生的概率：" class="headerlink" title="3，由此可以推导出P（A）发生的概率："></a>3，由此可以推导出P（A）发生的概率：</h4><script type="math/tex; mode=display">
+\operatorname{Pr}(A)=\sum_{n} \operatorname{Pr}\left(A | B_{n}\right) \operatorname{Pr}\left(B_{n}\right)</script><h2 id="3-贝叶斯定理"><a href="#3-贝叶斯定理" class="headerlink" title="3. 贝叶斯定理"></a>3. 贝叶斯定理</h2><blockquote>
+<p>公式（对条件概率进行变形）：</p>
+<script type="math/tex; mode=display">
+P(A | B)=\frac{P(B | A) P(A)}{P(B)}</script><p>贝叶斯定理中的重要名称：</p>
+</blockquote>
+<p>先验概率P(A)：A的先验概率即这个事件的不确定程度，其是独立于其他事件的。<br>后验概率P(A|B)：在已经B发生后A也发生的概率，称为后验概率<br>标准似然度： P(B|A) / P(B) </p>
+<p>即：<br>后验概率 = 标准似然度 * 先验概率</p>
+<blockquote>
+<p>定理的其他形式：</p>
+</blockquote>
+<ol>
+<li>假设Ai是事件集合的部分，则对于任意的Ai，贝叶斯定义可以表示为：<script type="math/tex; mode=display">
+P\left(A_{i} | B\right)=\frac{P\left(B | A_{i}\right) P\left(A_{i}\right)}{\sum_{j} P\left(B | A_{j}\right) P\left(A_{j}\right)}</script></li>
+</ol>
+<blockquote>
+<p>贝叶斯定理怎么使用：</p>
+</blockquote>
+<p>其主要应用为在已知一些条件概率发生的情况下，  去求未知事件发生的概率。</p>
+<h2 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h2><p><a href="https://www.jianshu.com/p/c59851b1c0f3" target="_blank" rel="noopener">条件概率，全概率，贝叶斯公式理解</a><br><a href="https://zh.wikipedia.org/wiki/%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F" target="_blank" rel="noopener">全概率公式</a><br><a href="https://zh.wikipedia.org/wiki/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">贝叶斯定理</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/24/贝叶斯分类器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-梯度下降法(三) 随机梯度下降法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -531,84 +624,6 @@ grand f= \triangledown f(x_1,x_2,x_3) = ( \frac{\delta f}{\delta x_1} ,\frac{\de
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/06/17/测试文章/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/17/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/17/hello-world/" class="archive-article-date">
-  	<time datetime="2019-06-16T16:34:59.459Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-        
-          <a class="article-more-a" href="/2019/06/17/hello-world/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/17/hello-world/">展开全文 >></a>
         </p>
       
 
