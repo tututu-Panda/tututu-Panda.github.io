@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="3to">
 <meta property="og:description" content="概念 什么是决策树  决策树是对分类的一种方式。其是将问题的特征进行划分，并通过从上到下依次对比已有的数据特征，最终将问题划分为某个已知类别。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="c:/Users/51904/Desktop/决策树-流程图.jpg">
-<meta property="og:image" content="c:/Users/51904/Desktop/20140605135958281.jpg">
-<meta property="og:updated_time" content="2019-08-13T08:52:47.931Z">
+<meta property="og:image" content="https://github.com/img/决策树-流程图.jpg">
+<meta property="og:image" content="https://github.com/img/20140605135958281.jpg">
+<meta property="og:updated_time" content="2019-08-13T08:54:23.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="决策树（id3算法）">
 <meta name="twitter:description" content="概念 什么是决策树  决策树是对分类的一种方式。其是将问题的特征进行划分，并通过从上到下依次对比已有的数据特征，最终将问题划分为某个已知类别。">
-<meta name="twitter:image" content="c:/Users/51904/Desktop/决策树-流程图.jpg">
+<meta name="twitter:image" content="https://github.com/img/决策树-流程图.jpg">
   
     <link rel="alternative" href="/atom.xml" title="3to" type="application/atom+xml">
   
@@ -195,7 +195,7 @@ H(x)=-\sum_{i=1}^{n} p_{i} \log _{2} p_{i}</script><p>条件熵：在一个条�
 </blockquote>
 <p>根节点、内部节点：特征标签</p>
 <p>叶子节点：所属类别</p>
-<p>例如一个邮件分类系统，可以通过决策树表示为：<br><img src="C:\Users\51904\Desktop\决策树-流程图.jpg" alt="邮件分类"></p>
+<p>例如一个邮件分类系统，可以通过决策树表示为：<br><img src="/img/决策树-流程图.jpg" alt="邮件分类"></p>
 <h2 id="决策树构造算法"><a href="#决策树构造算法" class="headerlink" title="决策树构造算法"></a>决策树构造算法</h2><h4 id="1-ID3算法"><a href="#1-ID3算法" class="headerlink" title="1. ID3算法"></a>1. ID3算法</h4><blockquote>
 <p>划分依据</p>
 </blockquote>
@@ -209,7 +209,7 @@ H(x)=-\sum_{i=1}^{n} p_{i} \log _{2} p_{i}</script><p>条件熵：在一个条�
 <blockquote>
 <p>具体实现步骤</p>
 </blockquote>
-<p>主要通过递归的方式，构造决策树。<br><img src="C:\Users\51904\Desktop\20140605135958281.jpg" alt="id3流程步骤"></p>
+<p>主要通过递归的方式，构造决策树。<br><img src="/img/20140605135958281.jpg" alt="id3流程步骤"></p>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><ol>
 <li><p>构造数据</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createDataSet</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    创建数据集以及标签</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    dataSet = [</span><br><span class="line">        [<span class="number">1</span>, <span class="number">1</span>, <span class="string">'yes'</span>],</span><br><span class="line">        [<span class="number">1</span>, <span class="number">1</span>, <span class="string">'yes'</span>],</span><br><span class="line">        [<span class="number">1</span>, <span class="number">0</span>, <span class="string">'no'</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">1</span>, <span class="string">'no'</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">1</span>, <span class="string">'no'</span>]</span><br><span class="line">    ]</span><br><span class="line">    labels = [<span class="string">'no surfacing'</span>, <span class="string">'flippers'</span>]</span><br><span class="line">    <span class="keyword">return</span> dataSet, labels</span><br></pre></td></tr></table></figure>
