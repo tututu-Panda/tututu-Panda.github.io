@@ -17,7 +17,8 @@
 <meta property="og:description" content="梯度上升法 思想  要找到函数的最大值，最好的方法便是沿着该函数的梯度方向探寻前进，每前进一步便重新计算梯度，直到到达函数最大值。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/img/LR_3.png">
-<meta property="og:updated_time" content="2019-08-14T14:14:45.184Z">
+<meta property="og:image" content="https://github.com/img/LR_12.png">
+<meta property="og:updated_time" content="2019-08-15T02:11:06.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逻辑回归">
 <meta name="twitter:description" content="梯度上升法 思想  要找到函数的最大值，最好的方法便是沿着该函数的梯度方向探寻前进，每前进一步便重新计算梯度，直到到达函数最大值。">
@@ -215,44 +216,74 @@ w :=w+\alpha \nabla_{\mathbf{w}} f(w)</script><blockquote>
 <p>$f(x|\theta)$表示为在参数$\theta$下，随机向量$\vec{X}$取到x的概率。其是一个<strong>概率函数</strong>。</p>
 <p>而$L(\theta ; x)$表示当$\vec{x}$取到x时，哪个参数$\theta$能够使得x出现的可能性多大。其是一个<strong>参数函数</strong>。</p>
 <p><strong>最大似然估计法：</strong>最大似然估计是一种<strong>确定模型参数值的方法</strong>。确定参数值的过程，是<strong>找到能最大化模型产生真实观察数据可能性的那一组参数</strong>。即能通过确定的参数来<strong>最大化的拟合</strong>真实观察的数据。</p>
-<h3 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h3><ul>
+<h3 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h3><ol>
 <li>对于二分类问题，我们需要得到的答案不过就两种类型。因此我们需要某种函数：接受所有的输入然后预测出类别，即0或者1。</li>
-</ul>
-<ul>
+</ol>
+<ol>
 <li>对于上述方法的描述，在数学上能找到一个很好表达的函数，即sigmoid函数：</li>
-</ul>
+</ol>
 <script type="math/tex; mode=display">
-\sigma(z)=\frac{1}{1+e^{-z}}</script><p>​        其函数图像为：</p>
-<p>​        <img src="/img/LR_3.png" alt></p>
-<ul>
+\sigma(z)=\frac{1}{1+e^{-z}}</script><p>其函数图像为：</p>
+<p><img src="/img/LR_3.png" alt></p>
+<ol>
 <li>如果将<strong>函数扩展到多维空间</strong>上，即sigmoid输入变为：$z=\theta_{0} v_{0}+\theta_{1} x_{1}+\theta_{2} x_{2}+\ldots+\theta_{n} x_{n}$，则此时可以写成$z=\theta^{T} x$。其中$x$是变量，$\theta$是参数， $\theta^{T}$表示矩阵$\theta$的转置。则此时函数变成了：</li>
-</ul>
+</ol>
 <script type="math/tex; mode=display">
-h_{\theta}(x)=g\left(\theta^{T} x\right)=\frac{1}{1+e^{-\theta^{T} x}}</script><ul>
+h_{\theta}(x)=g\left(\theta^{T} x\right)=\frac{1}{1+e^{-\theta^{T} x}}</script><ol>
 <li>如果有合适的$\theta$，以及样本$x$，则可以通过$h_\theta(x)$计算出概率值，然后根据概率值判断该样本$x$的分类。如：0.7则为1，0.4则为0。</li>
-</ul>
-<ul>
+</ol>
+<ol>
 <li><p><strong>依据最大似然估计法求解$\theta$</strong>，进而拟合函数：</p>
-<p>​    根据sigmoid函数的特性，可以作出如下假设：</p>
+<ol>
+<li>根据sigmoid函数的特性，可以作出如下假设：</li>
+</ol>
+<script type="math/tex; mode=display">
+\begin{aligned} P(y=1 | x ; \theta) &=h_{\theta}(x) \\ P(y=0 | x ;\theta) &=1-h_{\theta}  (x)\end{aligned}</script><p>即在已知样本$x$和$w$的情况下，样本属于（y=1）以及（y=0）的条件概率。</p>
+<ol>
+<li>将两个式子合并，便可以得到：</li>
+</ol>
+<script type="math/tex; mode=display">
+p(y | x ; \theta)=\left(h_{\theta}(x)\right)^{y}\left(1-h_{\theta}(x)\right)^{1-y}</script><ol>
+<li><p>在已知概率的情况下，便可以通过最大似然估计法算出$w$的值：</p>
+<script type="math/tex; mode=display">
+\begin{aligned} L(w) &=p(\vec{y} | X ; \theta) \\ &=\prod_{i=1}^{n} p\left(y^{(i)} | x^{(i)} ; \theta\right) \\ &=\prod_{i=1}^{n}\left(h_{\theta}\left(x^{(i)}\right)\right)^{y^{(i)}}\left(1-h_{\theta}\left(x^{(i)}\right)\right)^{1-y^{(i)}} \end{aligned}</script><p>其中n为样本的总数。</p>
+</li>
+<li><p>需要在$\theta$的课能范围内，挑选使得其能满足似然函数$L(\theta)$的最大的$\theta$。则可以通过<strong>对数似然方程</strong>求解。首先得到对数方程：</p>
+<script type="math/tex; mode=display">
+\begin{aligned} \ell(\theta) &=\log L(\theta) \\ &=\sum_{i=1}^{n} y^{(i)} \log h_\theta\left(x^{(i)}\right)+\left(1-y^{(i)}\right) \log \left(1-h_\theta\left(x^{(i)}\right)\right) \end{aligned}</script></li>
+</ol>
+<p>其中$h_{\theta}(x)=g\left(\theta^{T} x\right)=\frac{1}{1+e^{-\theta^{T} x}}$          </p>
+<ol>
+<li><p>然后再对 对数方程求$\theta$的偏导可得到：</p>
+<script type="math/tex; mode=display">
+\begin{aligned} \frac{\partial}{\partial \theta_{j}} \ell(\theta) &=\left(y \frac{1}{g\left(\theta^{T} x\right)}-(1-y) \frac{1}{1-g\left(\theta^{T} x\right)}\right) \frac{\partial}{\partial \theta_{j}} g\left(\theta^{T} x\right) \\ &=\left(y \frac{1}{g\left(\theta^{T} x\right)}-(1-y) \frac{1}{1-g\left(\theta^{T} x\right)}\right) g\left(\theta^{T} x\right)\left(1-g\left(\theta^{T} x\right) \frac{\partial}{\partial \theta_{j}} \theta^{T} x\right.\\ &=\left(y\left(1-g\left(\theta^{T} x\right)\right)-(1-y) g\left(\theta^{T} x\right)\right) x_{j} \\ &=\left(y-h_{\theta}(x)\right) x_{j} \end{aligned}</script></li>
+<li><p>因此梯度上升公式可以替换为：</p>
+<script type="math/tex; mode=display">
+\theta_{j} :=\theta_{j}+\alpha\left(y^{(i)}-h_{\theta}\left(x^{(i)}\right)\right) x_{j}^{(i)}</script></li>
+</ol>
+</li>
+</ol>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h4 id="1-定义sigmoid函数"><a href="#1-定义sigmoid函数" class="headerlink" title="1. 定义sigmoid函数"></a>1. 定义sigmoid函数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid</span><span class="params">(inX)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1.0</span>/(<span class="number">1</span>+np.exp(-inX))</span><br></pre></td></tr></table></figure>
+<h4 id="2-梯度上升算法"><a href="#2-梯度上升算法" class="headerlink" title="2. 梯度上升算法"></a>2. 梯度上升算法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">grandAscent</span><span class="params">(dataMat, classLabels)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    利用梯度上升优化算法，得到参数值去拟合函数图像</span></span><br><span class="line"><span class="string">    θj := θj + α * (y - hθ(x)) * x</span></span><br><span class="line"><span class="string">    θj: 参数值     α: 更新步长     y: 实际值      hθ(x): 根据参数θ得到的函数值      x: 该点的已知x</span></span><br><span class="line"><span class="string">    :param dataMat: 数据列表</span></span><br><span class="line"><span class="string">    :param classLabels: 标签列表</span></span><br><span class="line"><span class="string">    :return: 返回每个特征的θ值</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 将数据转换为矩阵</span></span><br><span class="line">    dataMatrix = np.mat(dataMat)</span><br><span class="line">    <span class="comment"># 将类别转换为矩阵并转置</span></span><br><span class="line">    labelMat = np.mat(classLabels).transpose()</span><br><span class="line">    m, n = np.shape(dataMatrix)</span><br><span class="line">    <span class="comment"># 目标移动的步长</span></span><br><span class="line">    alpha = <span class="number">0.001</span></span><br><span class="line">    <span class="comment"># 迭代次数</span></span><br><span class="line">    maxCycle = <span class="number">500</span></span><br><span class="line">    <span class="comment"># 创建回归系数</span></span><br><span class="line">    weight = np.ones((n, <span class="number">1</span>))</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(maxCycle):</span><br><span class="line">        <span class="comment"># dataMatrix =&gt; m*3 weight=&gt; 3*1</span></span><br><span class="line">        <span class="comment"># 得到每行的sigmoid函数值</span></span><br><span class="line">        h = sigmoid(dataMatrix * weight)</span><br><span class="line">        <span class="comment"># 得到实际值与函数的误差</span></span><br><span class="line">        error = (labelMat - h)</span><br><span class="line">        <span class="comment"># 根据上述得到的梯度上升公式，得到最后的回归系数</span></span><br><span class="line">        weight = weight + alpha * dataMatrix.transpose() * error</span><br><span class="line">    <span class="keyword">return</span> np.array(weight)</span><br></pre></td></tr></table></figure>
+<h2 id="代码改进"><a href="#代码改进" class="headerlink" title="代码改进"></a>代码改进</h2><ol>
+<li><p>上述更新θ时，每次都是通过计算<strong>所有数据的sigmoid值与实际值的误差</strong>，来进行更新。如果含有上亿条数据，那么此时这种更新方式就会显得比较慢。</p>
+</li>
+<li><p>因此选择对该更新方式进行改进，每次只根据一个点的误差值，来进行θ的更新，称为<strong>随机梯度上升法：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stocGradAscent0</span><span class="params">(dataMatrix, classLabels)</span>:</span></span><br><span class="line">    m, n = np.shape(dataMatrix)</span><br><span class="line">    alpha = <span class="number">0.01</span></span><br><span class="line">    weights = np.ones(n)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(m):</span><br><span class="line">        <span class="comment"># 一次仅用一个样本点更新回归系数 np.sum(dataMatrix[i] * weights) = f(x) = θ1*x1+θ2*x2+...θn*xn</span></span><br><span class="line">        h = sigmoid(np.sum(dataMatrix[i] * weights))</span><br><span class="line">        error = classLabels[i] - h</span><br><span class="line">        weights = weights + alpha * error * dataMatrix[i]</span><br><span class="line">    <span class="keyword">return</span> weight</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>但随机梯度上升法仍然存在不足，当存在一些”与众不同”的数据点时，每次迭代就会导致参数波动，使得参数很难得到一个稳定的值。如下图的x0参数需要经过多次迭代才能得到稳定值。<br><img src="/img/LR_12.png" alt="参数随着迭代次数波动情况"></p>
+</li>
+</ol>
+<p>此时便需要进一步改进。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stocGradAscent1</span><span class="params">(dataMatrix, classLabels, numIter=<span class="number">150</span>)</span>:</span></span><br><span class="line">    m, n = np.shape(dataMatrix)</span><br><span class="line">    weights = np.ones(n)</span><br><span class="line">    <span class="comment"># 给定循环次数</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(numIter):</span><br><span class="line">        dataIndex = list(range(m))</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(m):</span><br><span class="line">            <span class="comment"># alpha 参数每次迭代时都需要进行更新，最后的0,0001确保alpha永不为0</span></span><br><span class="line">            alpha = <span class="number">4</span> / (<span class="number">1.0</span> + j + i) + <span class="number">0.0001</span></span><br><span class="line">            <span class="comment"># 随机获取某个数据下标</span></span><br><span class="line">            randIndex = int(np.random.uniform(<span class="number">0</span>, len(dataIndex)))</span><br><span class="line">            <span class="comment"># 进行回归系数更新</span></span><br><span class="line">            h = sigmoid(sum(dataMatrix[dataIndex[randIndex]] * weights))</span><br><span class="line">            error = classLabels[dataIndex[randIndex]] - h</span><br><span class="line">            weights = weights + alpha * error * dataMatrix[dataIndex[randIndex]]</span><br><span class="line">            <span class="comment"># 避免再次随机到该数据</span></span><br><span class="line">            <span class="keyword">del</span> (dataIndex[randIndex])</span><br><span class="line">    <span class="keyword">return</span> weights</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>上述主要进行了3点改进：<ol>
+<li>alpha：每次迭代时，alpha值都会随着进行调整，这将会缓解数据波动。并且alpha会随着迭代次数的增加而不断减小。</li>
+<li>randIndex：随机获取数据下标，之前的数据获取是根据i值有规律的获取，而此时改为了通过迭代次数的下标进行随机获取。</li>
+<li>numIter：给定了一个循环次数，多次循环以求每个参数能达到一个稳定值。<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2></li>
+</ol>
 </li>
 </ul>
-<script type="math/tex; mode=display">
-\begin{aligned} P(y=1 | x ; \theta) &=h_{\theta}(x) \\ P(y=0 | x ;\theta) &=1-h_{\theta}(x) \end{aligned}</script><p>​            即在已知样本$x$和$w$的情况下，样本属于（y=1）以及（y=0）的条件概率。</p>
-<p>​            将两个式子合并，便可以得到：</p>
-<script type="math/tex; mode=display">
-p(y | x ; \theta)=\left(h_{\theta}(x)\right)^{y}\left(1-h_{\theta}(x)\right)^{1-y}</script><p>​            在已知概率的情况下，便可以通过最大似然估计法算出$w$的值：</p>
-<script type="math/tex; mode=display">
-\begin{aligned} L(w) &=p(\vec{y} | X ; \theta) \\ &=\prod_{i=1}^{n} p\left(y^{(i)} | x^{(i)} ; \theta\right) \\ &=\prod_{i=1}^{n}\left(h_{\theta}\left(x^{(i)}\right)\right)^{y^{(i)}}\left(1-h_{\theta}\left(x^{(i)}\right)\right)^{1-y^{(i)}} \end{aligned}</script><p>​            其中n为样本的总数。</p>
-<p>​            需要在$\theta$的课能范围内，挑选使得其能满足似然函数$L(\theta)$的最大的$\theta$。则可以通过<strong>对数似然方程</strong>求            解。</p>
-<p>​            首先得到对数方程：</p>
-<script type="math/tex; mode=display">
-\begin{aligned} \ell(\theta) &=\log L(\theta) \\ &=\sum_{i=1}^{n} y^{(i)} \log h_\theta\left(x^{(i)}\right)+\left(1-y^{(i)}\right) \log \left(1-h_\theta\left(x^{(i)}\right)\right) \end{aligned}</script><p>​        </p>
-<p>​            其中$h_{\theta}(x)=g\left(\theta^{T} x\right)=\frac{1}{1+e^{-\theta^{T} x}}$          </p>
-<p>​            然后再对 对数方程求$\theta$的偏导可得到：</p>
-<script type="math/tex; mode=display">
-\begin{aligned} \frac{\partial}{\partial \theta_{j}} \ell(\theta) &=\left(y \frac{1}{g\left(\theta^{T} x\right)}-(1-y) \frac{1}{1-g\left(\theta^{T} x\right)}\right) \frac{\partial}{\partial \theta_{j}} g\left(\theta^{T} x\right) \\ &=\left(y \frac{1}{g\left(\theta^{T} x\right)}-(1-y) \frac{1}{1-g\left(\theta^{T} x\right)}\right) g\left(\theta^{T} x\right)\left(1-g\left(\theta^{T} x\right) \frac{\partial}{\partial \theta_{j}} \theta^{T} x\right.\\ &=\left(y\left(1-g\left(\theta^{T} x\right)\right)-(1-y) g\left(\theta^{T} x\right)\right) x_{j} \\ &=\left(y-h_{\theta}(x)\right) x_{j} \end{aligned}因此梯度上升公式可以替换为：</script><p>​            因此梯度上升公式可以替换为：</p>
-<script type="math/tex; mode=display">
-\theta_{j} :=\theta_{j}+\alpha\left(y^{(i)}-h_{\theta}\left(x^{(i)}\right)\right) x_{j}^{(i)}</script><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="[https://github.com/apachecn/AiLearning/blob/master/docs/ml/5.Logistic%E5%9B%9E%E5%BD%92.md](https://github.com/apachecn/AiLearning/blob/master/docs/ml/5.Logistic回归.md">第5章 Logistic回归</a>)</p>
+<p><a href="[https://github.com/apachecn/AiLearning/blob/master/docs/ml/5.Logistic%E5%9B%9E%E5%BD%92.md](https://github.com/apachecn/AiLearning/blob/master/docs/ml/5.Logistic回归.md">第5章 Logistic回归</a>)</p>
 <p><a href="https://www.zhihu.com/question/54082000" target="_blank" rel="noopener">如何理解似然函数?</a></p>
 <p><a href="https://blog.51cto.com/sbp810050504/1608064" target="_blank" rel="noopener">Logistic 回归与梯度上升算法</a></p>
 <p><a href="https://www.jiqizhixin.com/articles/2018-01-09-6" target="_blank" rel="noopener">从最大似然估计开始，你需要打下的机器学习基石</a></p>
@@ -394,7 +425,7 @@ p(y | x ; \theta)=\left(h_{\theta}(x)\right)^{y}\left(1-h_{\theta}(x)\right)^{1-
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度上升法"><span class="toc-number">1.</span> <span class="toc-text">梯度上升法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑回归"><span class="toc-number">2.</span> <span class="toc-text">逻辑回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思想"><span class="toc-number">2.2.</span> <span class="toc-text">思想</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度上升法"><span class="toc-number">1.</span> <span class="toc-text">梯度上升法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑回归"><span class="toc-number">2.</span> <span class="toc-text">逻辑回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思想"><span class="toc-number">2.2.</span> <span class="toc-text">思想</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number">3.</span> <span class="toc-text">代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-定义sigmoid函数"><span class="toc-number">3.0.1.</span> <span class="toc-text">1. 定义sigmoid函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-梯度上升算法"><span class="toc-number">3.0.2.</span> <span class="toc-text">2. 梯度上升算法</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#代码改进"><span class="toc-number">4.</span> <span class="toc-text">代码改进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li>
                     </div>
                 </span>
             </div>
