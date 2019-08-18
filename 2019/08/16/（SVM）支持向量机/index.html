@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/img/svm.jpg">
 <meta property="og:image" content="https://github.com/img/svm2.png">
-<meta property="og:updated_time" content="2019-08-18T03:54:09.732Z">
+<meta property="og:updated_time" content="2019-08-18T04:01:57.960Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM支持向量机">
 <meta name="twitter:description" content="拉格朗日乘子法 拉格朗日乘子法是什么？ 拉格朗日乘子法是一种寻找多元函数在其受到一个或多个条件约束下，求极值的一种方法。">
@@ -298,7 +298,7 @@
 <p>再设SVM的超平面模型为：$f(x) = w^Tx+b \quad w = \Sigma \alpha_{i} y_{i} x_{i} $。即f(x)为样本$x_i$的预测值，$y_i$为样本的真实值，那么可以得到误差值为：<br>$E_i = f(x_i) - y_i$    (5)</p>
 <p>由于：<br>$v_{i}=\sum_{j=3}^{N} \alpha_{j} y_{j} K\left(x_{i}, x_{j}\right), i=1,2$</p>
 <p>那么可以得到：<br>$v_{1}=f\left(x_{1}\right)-\sum_{j=1}^{2} y_{j} \alpha_{j} K_{1 j}-b \quad    (6) \\v_{2}=f\left(x_{2}\right)-\sum_{j=1}^{2} y_{j} \alpha_{j} K_{2 j}-b \quad  (7)$</p>
-<p>那么将上面（4）（5）（6）的公式代入求导公式后，此时便可以得到没有约束条件的$\alpha_2^{new}$，记为$\alpha_2{new,unclipped}$</p>
+<p>那么将上面（4）（5）（6）的公式代入求导公式后，此时便可以得到没有约束条件的$\alpha_2^{new}$，记为$\alpha_2{new,unclipped}$，则可以得到：</p>
 <p>$\left(K_{11}+K_{22}-2 K_{12}\right) \alpha_{2}^{\text {new, undiped }}=\left(K_{11}+K_{22}-2 K_{12}\right) \alpha_{2}^{\text {old}}+y_{2}\left[y_{2}-y_{1}+f\left(x_{1}\right)-f\left(x_{2}\right)\right]$</p>
 <font color="#802A2A" size="3">**将其代入(5)中，可得**</font>：
 
