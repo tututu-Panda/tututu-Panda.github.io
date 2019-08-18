@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/img/svm.jpg">
 <meta property="og:image" content="https://github.com/img/svm2.png">
-<meta property="og:updated_time" content="2019-08-18T03:48:06.560Z">
+<meta property="og:updated_time" content="2019-08-18T03:54:09.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM支持向量机">
 <meta name="twitter:description" content="拉格朗日乘子法 拉格朗日乘子法是什么？ 拉格朗日乘子法是一种寻找多元函数在其受到一个或多个条件约束下，求极值的一种方法。">
@@ -300,7 +300,7 @@
 <p>那么可以得到：<br>$v_{1}=f\left(x_{1}\right)-\sum_{j=1}^{2} y_{j} \alpha_{j} K_{1 j}-b \quad    (6) \\v_{2}=f\left(x_{2}\right)-\sum_{j=1}^{2} y_{j} \alpha_{j} K_{2 j}-b \quad  (7)$</p>
 <p>那么将上面（4）（5）（6）的公式代入求导公式后，此时便可以得到没有约束条件的$\alpha_2^{new}$，记为$\alpha_2{new,unclipped}$</p>
 <p>$\left(K_{11}+K_{22}-2 K_{12}\right) \alpha_{2}^{\text {new, undiped }}=\left(K_{11}+K_{22}-2 K_{12}\right) \alpha_{2}^{\text {old}}+y_{2}\left[y_{2}-y_{1}+f\left(x_{1}\right)-f\left(x_{2}\right)\right]$</p>
-<font color="#802A2A" size="3">将其代入(5)中，可得</font>：
+<font color="#802A2A" size="3">**将其代入(5)中，可得**</font>：
 
 $\alpha_{2}^{new， unclipped}=\alpha_{2}^{old}+\frac{y_{2}\left(E_{1}-E_{2}\right)}{\eta} \\ \eta = k(x_1,x_1) + k(x_2,x_2) - 2k(x_1, x_2) $
 
@@ -329,14 +329,14 @@ $ \begin{array}{l}{0 \leq \alpha_{i=1,2} \leq C} \\ { \alpha_{1} y_{1}+\alpha_{2
 
 
 
-<font color="#802A2A" size="3">由于$\alpha_1和\alpha_2$既要在矩形方框内，也要在直线上，因此$L \leq \alpha_2^{new} \leq H$，那么便可以得到：</font>
+<font color="#802A2A" size="3">**由于$\alpha_1和\alpha_2$既要在矩形方框内，也要在直线上，因此$L \leq \alpha_2^{new} \leq H$，那么便可以得到：**</font>
 
 <p>$当y_1 \neq y_2时： \quad L = max(0, \alpha_2^{odd} - \alpha_1^{odd}); \quad H = min(C, C+\alpha_2^{old} - \alpha_1^{odd})$</p>
 <p>$当y_1 = y_2 时：\quad  L = max(0, \alpha_1{odd} + \alpha_2^{odd} - C)  \quad  H = min(C, \alpha_2^{old}+\alpha_1^{odd})  $</p>
-<p><font color="#802A2A" size="3">那么可以得到最终的值为：</font><br>$\begin{equation}<br>\alpha_2^{new} = \begin{cases}<br>H， \alpha_{2}^{\text {new, undiped }} &gt; H \\<br>\alpha_{2}^{\text {new, undiped }}， L \leq \alpha_{2}^{\text {new, undiped }} \leq H \\<br>L，\alpha_{2}^{\text {new, undiped }} &lt; L\end{cases}\end{equation}$</p>
+<p><font color="#802A2A" size="3"><strong>那么可以得到最终的值为：</strong></font><br>$\begin{equation}<br>\alpha_2^{new} = \begin{cases}<br>H， \alpha_{2}^{\text {new, undiped }} &gt; H \\<br>\alpha_{2}^{\text {new, undiped }}， L \leq \alpha_{2}^{\text {new, undiped }} \leq H \\<br>L，\alpha_{2}^{\text {new, undiped }} &lt; L\end{cases}\end{equation}$</p>
 <p>再根据<br>$\alpha_1^{old}y_1 + \alpha_2^{odd}y_2 = \alpha_1^{new}y_1 + \alpha_2^{new}y_2$</p>
-<p><font color="#802A2A" size="3">得到$\alpha_1^{new}$</font>:<br>$\alpha_1^{new} = \alpha_1^{old} + y_1y_2(\alpha_2^{old}-\alpha_2^{new})$    (9)</p>
-<h5 id="更新b"><a href="#更新b" class="headerlink" title="更新b"></a>更新b</h5><p><font color="#802A2A" size="3">每完成两个变量的优化后，都需要对阈值B进行更新，因为关系到下次优化是f(x)的计算。</font>:</p>
+<p><font color="#802A2A" size="3"><strong>得到$\alpha_1^{new}$</strong></font>:<br>$\alpha_1^{new} = \alpha_1^{old} + y_1y_2(\alpha_2^{old}-\alpha_2^{new})$    (9)</p>
+<h5 id="更新b"><a href="#更新b" class="headerlink" title="更新b"></a>更新b</h5><p><font color="#802A2A" size="3"><strong>每完成两个变量的优化后，都需要对阈值B进行更新，因为关系到下次优化是f(x)的计算。</strong></font>:</p>
 <p><img src="/img/svm2.png" alt></p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>推导公式参考下面三个链接，理论基础参考其他。</p>
 <hr>
