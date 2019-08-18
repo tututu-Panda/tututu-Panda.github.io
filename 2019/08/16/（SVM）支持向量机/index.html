@@ -17,8 +17,9 @@
 <meta property="og:description" content="拉格朗日乘子法 拉格朗日乘子法是什么？ 拉格朗日乘子法是一种寻找多元函数在其受到一个或多个条件约束下，求极值的一种方法。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/img/svm.jpg">
+<meta property="og:image" content="https://github.com/img/svm1.png">
 <meta property="og:image" content="https://github.com/img/svm2.png">
-<meta property="og:updated_time" content="2019-08-18T04:48:26.555Z">
+<meta property="og:updated_time" content="2019-08-18T04:49:54.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM支持向量机">
 <meta name="twitter:description" content="拉格朗日乘子法 拉格朗日乘子法是什么？ 拉格朗日乘子法是一种寻找多元函数在其受到一个或多个条件约束下，求极值的一种方法。">
@@ -300,37 +301,10 @@
 <p>那么可以得到：<br>$v_{1}=f\left(x_{1}\right)-\sum_{j=1}^{2} y_{j} \alpha_{j} K_{1 j}-b \quad    (6) \\v_{2}=f\left(x_{2}\right)-\sum_{j=1}^{2} y_{j} \alpha_{j} K_{2 j}-b \quad  (7)$</p>
 <p>那么将上面（4）（5）（6）的公式代入求导公式后，此时便可以得到没有约束条件的$\alpha_2^{new}$，记为$\alpha_2{new,unclipped}$，则可以得到：</p>
 <p>$\left(K_{11}+K_{22}-2 K_{12}\right) \alpha_{2}^{\text {new, undiped }}=\left(K_{11}+K_{22}-2 K_{12}\right) \alpha_{2}^{\text {old}}+y_{2}\left[y_{2}-y_{1}+f\left(x_{1}\right)-f\left(x_{2}\right)\right]$</p>
-<p><strong>将其代入(5)中，可得</strong>：</p>
-<hr>
-<font color="#802A2A" size="3"> **将其代入(5)中，可得** </font>：
-
-$\alpha_{2}^{new， unclipped}=\alpha_{2}^{old}+\frac{y_{2}\left(E_{1}-E_{2}\right)}{\eta} \\ \eta = k(x_1,x_1) + k(x_2,x_2) - 2k(x_1, x_2) $
-
-
-
-
-
-
-
-##### 求得最终的对偶因子
-
-
-以上求得的$\alpha_2^{new unclipped}$没有考虑约束条件：
-$ \begin{array}{l}{0 \leq \alpha_{i=1,2} \leq C} \\ { \alpha_{1} y_{1}+\alpha_{2} y_{2}=\zeta} \end{array}$
-
-
-
-
-当$y_1和y_2$异号时，可以表示为一条斜率为1的直线：
-
-![求值L](/img/svm1.png)
-
-其中横轴为$\alpha_1$，纵轴为$\alpha_2$。
-
-
-
-
-
+<h5 id="求得最终的对偶因子"><a href="#求得最终的对偶因子" class="headerlink" title="求得最终的对偶因子"></a>求得最终的对偶因子</h5><p>以上求得的$\alpha_2^{new unclipped}$没有考虑约束条件：<br>$ \begin{array}{l}{0 \leq \alpha_{i=1,2} \leq C} \ { \alpha_{1} y_{1}+\alpha_{2} y_{2}=\zeta} \end{array}$</p>
+<p>当$y_1和y_2$异号时，可以表示为一条斜率为1的直线：</p>
+<p><img src="/img/svm1.png" alt="求值L"></p>
+<p>其中横轴为$\alpha_1$，纵轴为$\alpha_2$。</p>
 <font color="#802A2A" size="3">**由于$\alpha_1和\alpha_2$既要在矩形方框内，也要在直线上，因此$L \leq \alpha_2^{new} \leq H$，那么便可以得到：**</font>
 
 <p>$当y_1 \neq y_2时： \quad L = max(0, \alpha_2^{odd} - \alpha_1^{odd}); \quad H = min(C, C+\alpha_2^{old} - \alpha_1^{odd})$</p>
@@ -489,7 +463,7 @@ $ \begin{array}{l}{0 \leq \alpha_{i=1,2} \leq C} \\ { \alpha_{1} y_{1}+\alpha_{2
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#拉格朗日乘子法"><span class="toc-number">1.</span> <span class="toc-text">拉格朗日乘子法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#拉格朗日乘子法是什么？"><span class="toc-number">1.0.1.</span> <span class="toc-text">拉格朗日乘子法是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用条件"><span class="toc-number">1.0.2.</span> <span class="toc-text">使用条件</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#KKT条件"><span class="toc-number">2.</span> <span class="toc-text">KKT条件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是KKT？"><span class="toc-number">2.0.1.</span> <span class="toc-text">什么是KKT？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVM-支持向量机"><span class="toc-number">3.</span> <span class="toc-text">SVM 支持向量机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#概念"><span class="toc-number">3.0.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#工作原理"><span class="toc-number">3.0.2.</span> <span class="toc-text">工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-寻求最大间隔"><span class="toc-number">3.0.2.1.</span> <span class="toc-text">1. 寻求最大间隔</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#超平面"><span class="toc-number">3.0.2.2.</span> <span class="toc-text">超平面</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#函数间隔"><span class="toc-number">3.0.2.3.</span> <span class="toc-text">函数间隔</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#几何间隔"><span class="toc-number">3.0.2.4.</span> <span class="toc-text">几何间隔</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-最大间隔分类器"><span class="toc-number">3.0.2.5.</span> <span class="toc-text">2. 最大间隔分类器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-转换目标函数"><span class="toc-number">3.0.2.6.</span> <span class="toc-text">3. 转换目标函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-利用拉格朗日乘法，求凸二次规划问题"><span class="toc-number">3.0.2.7.</span> <span class="toc-text">4. 利用拉格朗日乘法，求凸二次规划问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-对偶问题求解"><span class="toc-number">3.0.2.8.</span> <span class="toc-text">5. 对偶问题求解</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SMO算法"><span class="toc-number">4.</span> <span class="toc-text">SMO算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#松弛变量"><span class="toc-number">4.0.0.1.</span> <span class="toc-text">松弛变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#伪代码"><span class="toc-number">4.0.0.2.</span> <span class="toc-text">伪代码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原理分析"><span class="toc-number">4.0.0.3.</span> <span class="toc-text">原理分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#转换为二次函数"><span class="toc-number">4.0.0.4.</span> <span class="toc-text">转换为二次函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#转换为一次函数"><span class="toc-number">4.0.0.5.</span> <span class="toc-text">转换为一次函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#对一元函数求极值"><span class="toc-number">4.0.0.6.</span> <span class="toc-text">对一元函数求极值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#更新b"><span class="toc-number">4.0.0.7.</span> <span class="toc-text">更新b</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#拉格朗日乘子法"><span class="toc-number">1.</span> <span class="toc-text">拉格朗日乘子法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#拉格朗日乘子法是什么？"><span class="toc-number">1.0.1.</span> <span class="toc-text">拉格朗日乘子法是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用条件"><span class="toc-number">1.0.2.</span> <span class="toc-text">使用条件</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#KKT条件"><span class="toc-number">2.</span> <span class="toc-text">KKT条件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是KKT？"><span class="toc-number">2.0.1.</span> <span class="toc-text">什么是KKT？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVM-支持向量机"><span class="toc-number">3.</span> <span class="toc-text">SVM 支持向量机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#概念"><span class="toc-number">3.0.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#工作原理"><span class="toc-number">3.0.2.</span> <span class="toc-text">工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-寻求最大间隔"><span class="toc-number">3.0.2.1.</span> <span class="toc-text">1. 寻求最大间隔</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#超平面"><span class="toc-number">3.0.2.2.</span> <span class="toc-text">超平面</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#函数间隔"><span class="toc-number">3.0.2.3.</span> <span class="toc-text">函数间隔</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#几何间隔"><span class="toc-number">3.0.2.4.</span> <span class="toc-text">几何间隔</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-最大间隔分类器"><span class="toc-number">3.0.2.5.</span> <span class="toc-text">2. 最大间隔分类器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-转换目标函数"><span class="toc-number">3.0.2.6.</span> <span class="toc-text">3. 转换目标函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-利用拉格朗日乘法，求凸二次规划问题"><span class="toc-number">3.0.2.7.</span> <span class="toc-text">4. 利用拉格朗日乘法，求凸二次规划问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-对偶问题求解"><span class="toc-number">3.0.2.8.</span> <span class="toc-text">5. 对偶问题求解</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SMO算法"><span class="toc-number">4.</span> <span class="toc-text">SMO算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#松弛变量"><span class="toc-number">4.0.0.1.</span> <span class="toc-text">松弛变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#伪代码"><span class="toc-number">4.0.0.2.</span> <span class="toc-text">伪代码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原理分析"><span class="toc-number">4.0.0.3.</span> <span class="toc-text">原理分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#转换为二次函数"><span class="toc-number">4.0.0.4.</span> <span class="toc-text">转换为二次函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#转换为一次函数"><span class="toc-number">4.0.0.5.</span> <span class="toc-text">转换为一次函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#对一元函数求极值"><span class="toc-number">4.0.0.6.</span> <span class="toc-text">对一元函数求极值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#求得最终的对偶因子"><span class="toc-number">4.0.0.7.</span> <span class="toc-text">求得最终的对偶因子</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#更新b"><span class="toc-number">4.0.0.8.</span> <span class="toc-text">更新b</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li>
                     </div>
                 </span>
             </div>
