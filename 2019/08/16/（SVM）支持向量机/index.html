@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/img/svm.jpg">
 <meta property="og:image" content="https://github.com/img/svm2.png">
-<meta property="og:updated_time" content="2019-08-18T04:08:24.564Z">
+<meta property="og:updated_time" content="2019-08-18T04:48:26.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM支持向量机">
 <meta name="twitter:description" content="拉格朗日乘子法 拉格朗日乘子法是什么？ 拉格朗日乘子法是一种寻找多元函数在其受到一个或多个条件约束下，求极值的一种方法。">
@@ -316,16 +316,16 @@ $\alpha_{2}^{new， unclipped}=\alpha_{2}^{old}+\frac{y_{2}\left(E_{1}-E_{2}\rig
 
 
 以上求得的$\alpha_2^{new unclipped}$没有考虑约束条件：
-$ \begin{array}{l}{0 \leq \alpha_{i=1,2} \leq C} \\ { \alpha_{1} y_{1}+\alpha_{2} y_{2}=\zeta}\end{array}$
+$ \begin{array}{l}{0 \leq \alpha_{i=1,2} \leq C} \\ { \alpha_{1} y_{1}+\alpha_{2} y_{2}=\zeta} \end{array}$
 
 
 
 
-当$y^(1)和y^(2)$异号时，可以表示为一条斜率为1的直线：
+当$y_1和y_2$异号时，可以表示为一条斜率为1的直线：
 
-![](/img/svm1.png)
+![求值L](/img/svm1.png)
 
-其中横轴为$\alpha_1，纵轴为\alpha_2$
+其中横轴为$\alpha_1$，纵轴为$\alpha_2$。
 
 
 
