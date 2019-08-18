@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/yourusername/yourusername.github.io">
-  <title>批量梯度下降法 | 3to</title>
+  <title>SVM支持向量机 | 3to</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="是什么？ 什么是批量梯度下降法？  批量梯度下降根据所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新，去拟合数据函数关系。">
-<meta name="keywords" content="最优化,梯度下降">
+  <meta name="description" content="拉格朗日乘子法 拉格朗日乘子法是什么？ 拉格朗日乘子法是一种寻找多元函数在其受到一个或多个条件约束下，求极值的一种方法。">
+<meta name="keywords" content="SVM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="批量梯度下降法">
-<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/2019/06/19/梯度下降法(二) 批量梯度下降法/index.html">
+<meta property="og:title" content="SVM支持向量机">
+<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/2019/08/16/（SVM）支持向量机/index.html">
 <meta property="og:site_name" content="3to">
-<meta property="og:description" content="是什么？ 什么是批量梯度下降法？  批量梯度下降根据所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新，去拟合数据函数关系。">
+<meta property="og:description" content="拉格朗日乘子法 拉格朗日乘子法是什么？ 拉格朗日乘子法是一种寻找多元函数在其受到一个或多个条件约束下，求极值的一种方法。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-24T06:15:45.269Z">
+<meta property="og:image" content="c:/Users/51904/Desktop/k_2.jpg">
+<meta property="og:image" content="https://github.com/img/svm2.png">
+<meta property="og:updated_time" content="2019-08-18T03:19:14.337Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="批量梯度下降法">
-<meta name="twitter:description" content="是什么？ 什么是批量梯度下降法？  批量梯度下降根据所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新，去拟合数据函数关系。">
+<meta name="twitter:title" content="SVM支持向量机">
+<meta name="twitter:description" content="拉格朗日乘子法 拉格朗日乘子法是什么？ 拉格朗日乘子法是一种寻找多元函数在其受到一个或多个条件约束下，求极值的一种方法。">
+<meta name="twitter:image" content="c:/Users/51904/Desktop/k_2.jpg">
   
     <link rel="alternative" href="/atom.xml" title="3to" type="application/atom+xml">
   
@@ -153,80 +156,205 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-梯度下降法(二) 批量梯度下降法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-（SVM）支持向量机" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      批量梯度下降法
+      SVM支持向量机
     </h1>
   
 
         
-        <a href="/2019/06/19/梯度下降法(二) 批量梯度下降法/" class="archive-article-date">
-  	<time datetime="2019-06-18T16:20:06.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-19</time>
+        <a href="/2019/08/16/（SVM）支持向量机/" class="archive-article-date">
+  	<time datetime="2019-08-16T06:41:02.879Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><blockquote>
-<p>什么是批量梯度下降法？</p>
-</blockquote>
-<p>批量梯度下降根据所有的样本数据，来计算出每个的误差，再根据所有的误差进行更新，去拟合数据函数关系。</p>
+        <h2 id="拉格朗日乘子法"><a href="#拉格朗日乘子法" class="headerlink" title="拉格朗日乘子法"></a>拉格朗日乘子法</h2><blockquote>
+<h4 id="拉格朗日乘子法是什么？"><a href="#拉格朗日乘子法是什么？" class="headerlink" title="拉格朗日乘子法是什么？"></a>拉格朗日乘子法是什么？</h4></blockquote>
+<p>拉格朗日乘子法是一种寻找多元函数在其<strong>受到一个或多个条件约束下，求极值</strong>的一种方法。</p>
 <a id="more"></a>
-<h2 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><blockquote>
-<p>为什么这样做？</p>
-</blockquote>
-<ol>
-<li><p>原本的梯度下降算法更新的时候，如果样本数据过多，会一个个的进行样本的训练，这样就会很浪费时间、效率以及容易造成错误。</p>
-</li>
-<li><p>原本的梯度下降法<strong>不能保证找到的极小值点就是函数的极小值点</strong>，然而如果通过<strong>批量的数据对比</strong>，在每一次<strong>去往的梯度方向上进行正确的选择</strong>，那么就可以确保每一次更新都能去往下降最快的方向。</p>
-</li>
-</ol>
+<p>这种方法可以将一个有n个变量与k个约束条件的最优化问题转换为一个解有n + k个变量的方程组的解的问题。</p>
+<ul>
+<li>例子： 求 f(x, y) 在 g(x, y) = c的条件下的最大值，便可以引入$\lambda$，此时便只需求得以下等式的极值便可：<script type="math/tex; mode=display">
+\mathcal{L}(x, y, \lambda)=f(x, y)+\lambda \cdot(g(x, y)-c)</script></li>
+</ul>
 <blockquote>
-<p>实现原理？</p>
-</blockquote>
+<h4 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h4></blockquote>
+<p>等式约束条件。如 g(x, y) = c。</p>
+<h2 id="KKT条件"><a href="#KKT条件" class="headerlink" title="KKT条件"></a>KKT条件</h2><blockquote>
+<h4 id="什么是KKT？"><a href="#什么是KKT？" class="headerlink" title="什么是KKT？"></a>什么是KKT？</h4></blockquote>
+<p>是指在满足一些有规则的条件下，一个<strong>非线性规划问题能有最优化解法的一个必要和充分条件</strong>。</p>
+<p>非线性规划：当目标函数与约束条件都是线形的，则称为线性规划。否则就是非线性规划。</p>
+<ul>
+<li><p>例子：</p>
 <ol>
-<li>首先更新某个点时，用一个样本进行更新时的公式：<script type="math/tex; mode=display">
-\theta_{j} :=\theta_{j}-\alpha \frac{\partial}{\partial \theta_{j}} J(\theta)</script></li>
+<li>假设有需要最小化的目标函数 $ min f （X）$ </li>
 </ol>
-<p>其中<script type="math/tex">\theta_{j}</script>为最开始的随机初始点，<script type="math/tex">\alpha</script>为下降最大方向的步伐大小。<script type="math/tex">\frac{\partial}{\partial \theta_{j}} J(\theta)</script>为函数的偏导数。</p>
+</li>
+</ul>
 <ol>
-<li><strong>更新一个点（x，y）时,J的偏导为：</strong><script type="math/tex; mode=display">
-\begin{aligned} \frac{\partial}{\partial \theta_{j}} J(\theta) &=\frac{\partial}{\partial \theta_{j}} \frac{1}{2}\left(h_{\theta}(x)-y\right)^{2} \\ &=2 \cdot \frac{1}{2}\left(h_{\theta}(x)-y\right) \cdot \frac{\partial}{\partial \theta_{j}}\left(h_{\theta}(x)-y\right) \\ &=\left(h_{\theta}(x)-y\right) \cdot \frac{\partial}{\partial \theta_{j}}\left(\sum_{i=0}^{n} \theta_{i} x_{i}-y\right) \\ &=\left(h_{\theta}(x)-y\right) x_{j} \end{aligned}</script></li>
+<li>约束函数$g_{j}（X）  = 0  \quad j=1,2, \ldots, p $   以及 $g_k（x）\leq 0 \quad k=1,2,\dots,q $。</li>
 </ol>
-<p>对应的<strong>该点更新值为:</strong></p>
-<script type="math/tex; mode=display">
-\theta_{j} :=\theta_{j}-\alpha(h_{\theta}(x)-y) x_{j}</script><ol>
-<li><strong>再利用其它所有的数据，进行更新,其J的偏导为:</strong><script type="math/tex; mode=display">
-\frac{\partial J(\theta)}{\partial \theta_{j}}=-\frac{1}{m} \sum_{i=1}^{m}\left(y^{i}-h_{\theta}\left(x^{i}\right)\right) x_{j}^{i}</script></li>
-</ol>
-<p>根据所求出的函数值，进行<script type="math/tex">\theta_{j}</script>的更新，使得<script type="math/tex">\theta_{j}</script>的值减小到一定值：</p>
-<script type="math/tex; mode=display">
-\theta_{j}^{\prime}=\theta_{j}+\frac{1}{m} \sum_{i=1}^{m}\left(y^{i}-h_{\theta}\left(x^{i}\right)\right) x_{j}^{i}</script><ol>
-<li>一直重复上述过程，<strong>直到满足某个值或者所有样本数据都已经循环完为止。</strong></li>
-</ol>
-<h2 id="应用范围？"><a href="#应用范围？" class="headerlink" title="应用范围？"></a>应用范围？</h2><ol>
-<li>已知x和y，设计一个函数进行拟合时。</li>
-<li>搜索最优解。</li>
-</ol>
-<h2 id="优缺点？"><a href="#优缺点？" class="headerlink" title="优缺点？"></a>优缺点？</h2><blockquote>
-<p>优点</p>
-</blockquote>
 <ol>
-<li>批量梯度下降就是当走到某个点时，用全局已有的数据进行探测，保证每一次更新的梯度方向是正确的。这样就能很好的避免陷入局部极小值中。</li>
+<li>则需要定义不等式约束下的拉格朗日函数L:                                                                                                             $L(X, \lambda, \mu)=f(X)+\sum_{j=1}^{p} \lambda_{j} h_{j}(X)+\sum_{k=1}^{q} \mu_{k} g_{k}(X)$</li>
 </ol>
+<ol>
+<li>其中$f（X）$为原目标函数，$h_{j}（X）$是第$j$个等式约束条件，$\lambda_{j}$为对应的约束系数；$g_{k}（X）$是第k个不等式约束条件。$\mu_{k}$为对应的约束系数。</li>
+</ol>
+<ol>
+<li>若要解得上述优化问题，则必须满足下述条件，<strong>即为<em>KKT条件</em></strong>：<br>1)    $\left.\frac{\partial L}{\partial X}\right|_{X=X^{<em>}}=0$      （拉格朗日极值必要条件）<br>2)    $\lambda_j \neq 0$                 （拉格朗日系数约束）<br>3)    $u_{k} \geq 0$                    （不等式约束）<br>4)    $u_{k} </em> g_{k}(X) = 0$        （互补松弛条件）<br>5)    $h_{j}(X) = 0$                （原约束条件）<br>6)    $g_{k}(X) \leq 0$</li>
+</ol>
+<h2 id="SVM-支持向量机"><a href="#SVM-支持向量机" class="headerlink" title="SVM 支持向量机"></a>SVM 支持向量机</h2><blockquote>
+<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4></blockquote>
+<ul>
+<li>支持向量：离分割超平面最近的一些点</li>
+<li>机：表示得到该分割平面的算法</li>
+</ul>
 <blockquote>
-<p>缺点</p>
-</blockquote>
+<h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4></blockquote>
+<p><img src="C:\Users\51904\Desktop\k_2.jpg" alt="svm工作原理"></p>
+<p>寻求一条直线，将上图的香蕉与苹果进行划分。该条直线到苹果与香蕉最近的点的距离，应该是最大的。</p>
+<p>那么如何求解这个分割线，并且如果函数图像变成不规则的图形，甚至高维图像，又如何进行分割，就是SVM所关注的问题。</p>
+<h5 id="1-寻求最大间隔"><a href="#1-寻求最大间隔" class="headerlink" title="1. 寻求最大间隔"></a>1. 寻求最大间隔</h5><blockquote>
+<h5 id="超平面"><a href="#超平面" class="headerlink" title="超平面"></a>超平面</h5></blockquote>
+<p>假设超平面用$f(x) = w^Tx + b$表示，那么当：<br>f(x) &gt; 0 : 分类1的点<br>f(x) = 0 : 超平面上的点<br>f(x) &lt; 1 : 分类0的点</p>
+<blockquote>
+<h5 id="函数间隔"><a href="#函数间隔" class="headerlink" title="函数间隔"></a>函数间隔</h5></blockquote>
+<p>在$w^Tx+b=0$确定的情况下，$|w^x+b|$能够表示<strong>点x与超平面的距离</strong>，然后便可以<strong>通过$(w^Tx +b) * y $的正负值判断根据超平面划分的分类是否正确。</strong></p>
+<p>因此便可以定义函数间隔（$\hat{\gamma}$）为：<br>$\hat{\gamma}=y\left(w^{T} x+b\right)=y f(x)$</p>
+<p>那么超平面关于数据集T的函数间隔就为:</p>
+<p>$\hat{\gamma}=\min \hat{\gamma} \text { i }(i=1, \ldots n)$</p>
+<p>但这个函数间隔的定义仍有瑕疵，如果成比例的改变w和b，尽管超平面并未改变，但此时的函数间隔却随之进行了改变。</p>
+<p>因此便可以<strong>对法向量W加约束条件，从而引出真正定义点到超平面的距离</strong>——几何间隔。</p>
+<blockquote>
+<h5 id="几何间隔"><a href="#几何间隔" class="headerlink" title="几何间隔"></a>几何间隔</h5></blockquote>
+<p>推断详情见链接最后一个。</p>
+<p>得到几何间隔为：</p>
+<p>$\tilde{\gamma}=y \gamma=\frac{\hat{\gamma}}{|w|} = \frac{函数间隔}{|w|} = \frac{(w^Tx+b)}{|w|}$</p>
+<p>其中||w||为w的二阶范数。</p>
+<h5 id="2-最大间隔分类器"><a href="#2-最大间隔分类器" class="headerlink" title="2. 最大间隔分类器"></a>2. 最大间隔分类器</h5><p>由于函数间隔会随着w和b的改变而改变，因此其不适合用来作为间隔分类器。再根据<strong>几何间隔的特性可知，其最为最大间隔分类超平面的间隔最合适</strong>。</p>
+<p>于是最大间隔分类器的目标函数可以定义为：<br>$\max \tilde{\gamma}$</p>
+<p>同时需要满足一些条件：<br>$y_{i}\left(w^{T} x_{i}+b\right)=\hat{\gamma}_{i} \geq \hat{\gamma}, \quad i=1, \ldots, n$</p>
+<p>因为几何间隔$\tilde{\gamma}=y \gamma=\frac{\hat{\gamma}}{|w|}$，因此可以令函数间隔为1，则几何间隔可以表示为：$\tilde{\gamma}= \frac{1}{|w|}$。从而上述的定义可以<strong>转换为</strong>：</p>
+<p>$\max \frac{1}{|w|}, \quad s . t ., y_{i}\left(w^{T} x_{i}+b\right) \geq 1, i=1, \ldots, n$</p>
+<h5 id="3-转换目标函数"><a href="#3-转换目标函数" class="headerlink" title="3. 转换目标函数"></a>3. 转换目标函数</h5><p>由上述的最大间隔分类器可知，目标函数为：</p>
+<p>$\max \frac{1}{|w|}, \quad s . t ., y_{i}\left(w^{T} x_{i}+b\right) \geq 1, i=1, \ldots, n$</p>
+<p>由于求解矩阵比较麻烦，因此可以将上述<strong>目标函数换一个方式表达</strong>求解：</p>
+<p>$\min \frac{1}{2}|w|^{2} \quad s . t ., y_{i}\left(w^{T} x_{i}+b\right) \geq 1, i=1, \ldots, n$</p>
+<h5 id="4-利用拉格朗日乘法，求凸二次规划问题"><a href="#4-利用拉格朗日乘法，求凸二次规划问题" class="headerlink" title="4. 利用拉格朗日乘法，求凸二次规划问题"></a>4. 利用拉格朗日乘法，求凸二次规划问题</h5><p>上面这个目标函数是一个凸二次规划问题，便可以根据拉格朗日乘数法进行优化：</p>
+<p>$\mathcal{L}(w, b, \alpha)=\frac{1}{2}|w|^{2}-\sum_{i=1}^{n} \alpha_{i}\left(y_{i}\left(w^{T} x_{i}+b\right)-1\right)$</p>
+<p>然后令</p>
+<p>$\theta(w)=\max _{\alpha_{i} \geq 0} \mathcal{L}(w, b, \alpha)$</p>
+<p>当所有约束条件都满足时，最优值为$\theta(w)=\frac{1}{2}|w|^{2}$，便是最初要最小化的量。</p>
+<p>因此要在约束条件下求最优值可以<strong>直接通过$\theta(w)$求解</strong>。因而<strong>目标函数又可以转变为：</strong></p>
+<p>$\min _{w, b} \theta(w)=\min _{w, b} \max _{\alpha_{i} \geq 0} \mathcal{L}(w, b, \alpha)=p^{*}$</p>
+<h5 id="5-对偶问题求解"><a href="#5-对偶问题求解" class="headerlink" title="5. 对偶问题求解"></a>5. 对偶问题求解</h5><p>由于这里直接求解包含两个未知数“w”和“b”，因此<strong>又可以将式子转换为：</strong></p>
+<p>$\max _{\alpha_{i} \geq 0} \min _{w, b} \mathcal{L}(w, b, \alpha)=d^{*}$</p>
+<p>交换以后的新问题就是原始问题的<strong>对偶问题</strong>。新问题的最优值用$d^{<em>}$表示。而且有$d^</em> \leq p^<em>$，在满足KKT条件下，这两者相等。这时便<em>*可以通过对偶问题来间接的求解原始问题。</em></em></p>
+<p>求解对偶问题时：可以先通过对L求w和b的极小值，然后在对α求最大值。</p>
+<p>推导步骤见</p>
+<p><a href="https://blog.csdn.net/v_july_v/article/details/7624837" target="_blank" rel="noopener">支持向量机通俗导论（理解SVM的三层境界）</a> 中 的 2.1.3、对偶问题求解的3个步骤</p>
+<p>首先固定α，然后对L求w和b的偏导，最后得到结果：</p>
+<p>$\begin{aligned} \mathcal{L}(w, b, \alpha) &amp;=\frac{1}{2} \sum_{i, j=1}^{n} \alpha_{i} \alpha_{j} y_{i} y_{j} x_{i}^{T} x_{j}-\sum_{i, j=1}^{n} \alpha_{i} \alpha_{j} y_{i} y_{j} x_{i}^{T} x_{j}-b \sum_{i=1}^{n} \alpha_{i} y_{i}+\sum_{i=1}^{n} \alpha_{i} \ &amp;=\sum_{i=1}^{n} \alpha_{i}-\frac{1}{2} \sum_{i, j=1}^{n} \alpha_{i} \alpha_{j} y_{i} y_{j} x_{i}^{T} x_{j} \end{aligned}$</p>
+<p>由于$x_i以及y_i$都是已知实数，因此函数只包含一个变量$\alpha$。则对$\alpha$求极大值便是对偶函数的最优化问题。从上面的式子可以得到：</p>
+<p>$\begin{array}{l}{\max _{\alpha} \sum_{i=1}^{n} \alpha_{i}-\frac{1}{2} \sum_{i, j=1}^{n} \alpha_{i} \alpha_{j} y y_{j} x_{i}^{T} x_{j}} \ {\text { s.t. } \alpha_{i} \geq 0, i=1, \ldots, n} \ {\quad \sum_{i=1}^{n} \alpha_{i} y=0}\end{array}$</p>
+<p>然后根据$w=\sum_{i=1}^{m} \alpha_{i} y^{(i)} x^{(i)}$可以求出w</p>
+<p>在通过$b^{<em>}=-\frac{\max _{i : y^{(i)}=-1} w^{</em> T} x^{(i)}+\min _{i : y^{(i)}=1} w^{* T} x^{(i)}}{2}$求得b</p>
+<h2 id="SMO算法"><a href="#SMO算法" class="headerlink" title="SMO算法"></a>SMO算法</h2><blockquote>
+<h5 id="松弛变量"><a href="#松弛变量" class="headerlink" title="松弛变量"></a>松弛变量</h5></blockquote>
+<p>当数据集中存在某些偏离与之相同的分类时，即存在某些”异类“数据时。其如果离超平面过近，则会导致超平面进行调整，最终调整到偏离最佳位置，也可以将此类数据称为噪点。</p>
+<p>为了处理这种情况，SVM允许数据集在一定程度上偏离超平面，实现方法便是加入了<strong>松弛变量</strong>。</p>
+<p>当假如松弛变量后，原来的约束条件从：</p>
+<p>$y_{i}\left(w^{T} x_{i}+b\right) \geq 1, \quad i=1, \ldots, n$</p>
+<p>变为了：</p>
+<p>$y_{i}\left(w^{T} x_{i}+b\right) \geq 1, \quad i=1 - \xi_{i},   \ldots, n$</p>
+<p>则目标函数也会随着改变为：</p>
+<p>$\min \frac{1}{2}|w|^{2}+C \sum_{i=1}^{n} \xi_{i}$</p>
+<p>其中C是一个参数，用于<strong>控制目标函数中“寻找间隔最大超平面”和“保证数据偏差最小”之间的权重，并且是事先确定好的常量</strong>。$\xi_{i}$则是需要<strong>优化的变量之一</strong>。</p>
+<p>再通过拉格朗日乘子法进行目标函数的转换可以得到：</p>
+<p>$\begin{array}{l}{\max _{\alpha} \sum_{i=1}^{n} \alpha_{i}-\frac{1}{2} \sum_{i, j=1}^{n} \alpha_{i} \alpha_{j} y_{i} y_{j}\left\langle x_{i}, x_{j}\right\rangle} \ {\text { s.t. }, 0 \leq \alpha_{i} \leq C, i=1, \ldots, n} \ {\quad \sum_{i=1}^{n} \alpha_{i} y_{i}=0}\end{array}$</p>
+<p>（具体参照  <a href="https://blog.csdn.net/v_july_v/article/details/7624837" target="_blank" rel="noopener">支持向量机通俗导论（理解SVM的三层境界）</a>  2.3、使用松弛变量处理 outliers 方法）</p>
+<p>到此这个目标函数便能处理含有噪音的数据集了。</p>
+<blockquote>
+<h5 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h5></blockquote>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">创建一个α向量，并初始化为<span class="number">0</span>向量</span><br><span class="line">当迭代次数小于最大迭代次数时：（外循环）</span><br><span class="line">		对数据集进行遍历：</span><br><span class="line">				如果该数据集可以被优化：</span><br><span class="line">						随机选取另一个向量</span><br><span class="line">						尝试同时优化这两个向量</span><br><span class="line">						如果都不能被优化，则退出内循环</span><br><span class="line">        如果所有数据都没被优化，增加迭代数目，继续循环</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h5 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h5></blockquote>
 <ol>
-<li>每次更新每一个参数时都采用的所有样本数据，因此开销大，时间长。</li>
+<li>将目标函数装换为二次函数：通过选取参数$\alpha_1，\alpha_2$，并将其与N-2个参数固定，则对目标函数化简可得</li>
 </ol>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://medium.com/@divakar_239/stochastic-vs-batch-gradient-descent-8820568eada1" target="_blank" rel="noopener">Stochastic vs Batch Gradient Descent</a><br><a href="https://zhuanlan.zhihu.com/p/25765735" target="_blank" rel="noopener">详解梯度下降法的三种形式BGD、SGD以及MBGD</a></p>
+<p>   $\begin{array}{l}{\min \Psi\left(\alpha_{1}, \alpha_{2}\right)=\frac{1}{2} K_{11} \alpha_{1}^{2}+\frac{1}{2} K_{22} \alpha_{2}^{2}+y_{1} y_{2} K_{12} \alpha_{2}-\left(\alpha_{1}+\alpha_{2}\right)+y_{1} v_{1} \alpha_{1}+y_{2} v_{2} \alpha_{2}+\text {Constant}} \ {其中 v_{i}=\sum_{j=3}^{N} \alpha_{j} y_{j} K\left(x_{i}, x_{j}\right), i=1,2}\end{array}\\{k_{i,j}表示核函数}$  (1)</p>
+<ol>
+<li><p>将二元函数转换为一元函数： 通过约束条件</p>
+<p>$\sum_{i=1}^{N} y_{i} \alpha_{i}=0$可得</p>
+</li>
+</ol>
+<p>   $\alpha_{1} y_{1}+\alpha_{2} y_{2}=-\sum_{i=3}^{N} \alpha_{i} y_{i}=\zeta$，其中$\zeta$为一个固定值</p>
+<p>   让两边同时除以$y_1$，化简得到：<br>   $\alpha_{1}=\left(\zeta-y_{2} \alpha_{2}\right) y_{1}$    (2)</p>
+<p>   然后代入二次函数可以得到一个一次函数：<br>   $\begin{array}{l}{\min \psi\left(\alpha_{2}\right)=\frac{1}{2} K_{11}\left(\zeta-\alpha_{2} y_{2}\right)^{2}+\frac{1}{2} K_{22} \alpha_{2}^{2}+y_{2} K_{12}\left(\zeta-\alpha_{2} y_{2}\right) \alpha_{2}-} \ {\left(\zeta-\alpha_{2} y_{2}\right) y_{1}-\alpha_{2}+v_{1}\left(\zeta-\alpha_{2} y_{2}\right)+y_{2} v_{2} \alpha_{2}+\text { Cons tan } t}\end{array}$    (3)</p>
+<ol>
+<li>对一元函数求极值：<br>$\frac{\partial \Psi\left(\alpha_{2}\right)}{\partial \alpha_{2}}=\left(K_{11}+K_{22}-2 K_{12}\right) \alpha_{2}-K_{11} \zeta y_{2}+K_{12} \zeta y_{2}+y_{1} y_{2}-1-v_{1} y_{2}+v_{2} y_{2}=0$</li>
+</ol>
+<p>   假设求解得到的值即为$\alpha_1^{new}，\alpha_2^{new}$，优化前的解记为$\alpha_1^{odd}，\alpha_2^{odd}$，则根据约束条件：<br>   $\alpha_{1}^{o l d} y_{1}+\alpha_{2}^{o l d} y_{2}=-\sum_{i=3}^{N} \alpha_{i} y_{i}=\alpha_{1}^{n e w} y_{1}+\alpha_{2}^{n e w} y_{2}=\zeta$</p>
+<p>   可以得到：<br>   $\zeta=\alpha_{1}^{o l d} y_{1}+\alpha_{2}^{o l d} y_{2}$    (4)</p>
+<p>   再设SVM的超平面模型为：$f(x) = w^Tx+b \quad w = \Sigma \alpha_{i} y_{i} x_{i} $。即f(x)为样本$x_i$的预测值，$y_i$为样本的真实值，那么可以得到误差值为：<br>   $E_i = f(x_i) - y_i$    (5)</p>
+<p>   由于：<br>   $v_{i}=\sum_{j=3}^{N} \alpha_{j} y_{j} K\left(x_{i}, x_{j}\right), i=1,2$</p>
+<p>   那么可以得到：<br>   $v_{1}=f\left(x_{1}\right)-\sum_{j=1}^{2} y_{j} \alpha_{j} K_{1 j}-b \quad    (6) \\v_{2}=f\left(x_{2}\right)-\sum_{j=1}^{2} y_{j} \alpha_{j} K_{2 j}-b \quad  (7)$</p>
+<p>   那么将上面（4）（5）（6）的公式代入求导公式后，此时便可以得到没有约束条件的$\alpha_2^{new}$，记为$\alpha_2{new,unclipped}$</p>
+<p>   $\left(K_{11}+K_{22}-2 K_{12}\right) \alpha_{2}^{\text {new, undiped }}=\left(K_{11}+K_{22}-2 K_{12}\right) \alpha_{2}^{\text {old}}+y_{2}\left[y_{2}-y_{1}+f\left(x_{1}\right)-f\left(x_{2}\right)\right]$</p>
+   <font color="#00ffff" size="3">将其代入(5)中，可得</font>:
+
+   $\alpha_{2}^{new， unclipped}=\alpha_{2}^{old}+\frac{y_{2}\left(E_{1}-E_{2}\right)}{\eta} \\ \eta = k(x_1,x_1) + k(x_2,x_2) - 2k(x_1, x_2) $    (8)
+
+
+
+4. 求得最终的对偶因子
+
+
+
+   以上求得的$\alpha_2^{new unclipped}$没有考虑约束条件：
+   $ \begin{array}{l}{0 \leq \alpha_{i=1,2} \leq C} \\ { \alpha_{1} y_{1}+\alpha_{2} y_{2}=\zeta}\end{array}$
+
+
+
+   当$y^(1)和y^(2)$异号时，可以表示为一条斜率为1的直线：
+
+   ![](/img/svm1.png)
+
+
+   其中横轴为$\alpha_1，纵轴为\alpha_2$
+
+
+
+
+
+   <font color="#00ffff" size="3">由于$\alpha_1和\alpha_2$既要在矩形方框内，也要在直线上，因此$L \leq \alpha_2^{new} \leq H$，那么便可以得到：</font>
+
+<p>   $当y_1 \neq y_2时： \quad L = max(0, \alpha_2^{odd} - \alpha_1^{odd}); \quad H = min(C, C+\alpha_2^{old} - \alpha_1^{odd})$</p>
+<p>   $当y_1 = y_2 时：\quad  L = max(0, \alpha_1{odd} + \alpha_2^{odd} - C)  \quad  H = min(C, \alpha_2^{old}+\alpha_1^{odd})  $</p>
+<p>   <font color="#00ffff" size="3">那么可以得到最终的值为：</font><br>   $\begin{equation}<br>   \alpha_2^{new} = \begin{cases}<br>   H， \alpha_{2}^{\text {new, undiped }} &gt; H \\<br>   \alpha_{2}^{\text {new, undiped }}， L \leq \alpha_{2}^{\text {new, undiped }} \leq H \\<br>   L，\alpha_{2}^{\text {new, undiped }} &lt; L\end{cases}\end{equation}$</p>
+<p>   再根据<br>   $\alpha_1^{old}y_1 + \alpha_2^{odd}y_2 = \alpha_1^{new}y_1 + \alpha_2^{new}y_2$</p>
+<p>   <font color="#00ffff" size="3">得到$\alpha_1^{new}$</font>:<br>   $\alpha_1^{new} = \alpha_1^{old} + y_1y_2(\alpha_2^{old}-\alpha_2^{new})$    (9)</p>
+<p>   <font color="#00ffff" size="3">每完成两个变量的优化后，都需要对阈值B进行更新，因为关系到下次优化是f(x)的计算。</font>:</p>
+<p>   <img src="/img/svm2.png" alt></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>推导公式参考下面三个链接，理论基础参考其他。</p>
+<hr>
+<p><a href="https://zh.wikipedia.org/wiki/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E6%95%B0" target="_blank" rel="noopener">拉格朗日乘数</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions" target="_blank" rel="noopener">Karush–Kuhn–Tucker conditions</a></p>
+<p><a href="https://www.cnblogs.com/mo-wang/p/4775548.html" target="_blank" rel="noopener">【整理】深入理解拉格朗日乘子法（Lagrange Multiplier) 和KKT条件</a>] </p>
+<p><a href="[http://jacoxu.com/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA%E4%B8%8Ekkt%E6%9D%A1%E4%BB%B6/](http://jacoxu.com/最优化理论与kkt条件/">最优化理论与KKT条件</a>)</p>
+<p><a href="[https://github.com/apachecn/AiLearning/blob/master/docs/ml/6.1.%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%9A%84%E5%87%A0%E4%B8%AA%E9%80%9A%E4%BF%97%E7%90%86%E8%A7%A3.md](https://github.com/apachecn/AiLearning/blob/master/docs/ml/6.1.支持向量机的几个通俗理解.md">6.1.支持向量机的几个通俗理解</a>)</p>
+<p><a href="[https://github.com/apachecn/AiLearning/blob/master/docs/ml/6.%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA.md](https://github.com/apachecn/AiLearning/blob/master/docs/ml/6.支持向量机.md">6.支持向量机</a>)</p>
+<p><strong>*</strong> <a href="https://blog.csdn.net/v_july_v/article/details/7624837" target="_blank" rel="noopener">支持向量机通俗导论（理解SVM的三层境界）</a></p>
+<p><strong>*</strong> <a href="https://www.bbsmax.com/A/Vx5MvQ6LdN/" target="_blank" rel="noopener">机器学习之支持向量机（二）：SMO算法</a></p>
+<p><strong>*</strong>  <a href="https://blog.csdn.net/u011067360/article/details/26503719" target="_blank" rel="noopener">支持向量机(SVM)（五）— SMO算法详解</a></p>
 
       
 
@@ -266,11 +394,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最优化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">梯度下降</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SVM</a>
         		</li>
       		
 		</ul>
@@ -326,7 +450,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/yourusername/yourusername.github.io/2019/06/19/梯度下降法(二) 批量梯度下降法/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/yourusername/yourusername.github.io/2019/08/16/（SVM）支持向量机/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -340,18 +464,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/20/梯度下降法(三) 随机梯度下降法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          随机梯度下降法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/06/18/梯度下降法(一)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">梯度下降法(一)</div>
+    <a href="/2019/08/15/朴素贝叶斯/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">朴素贝叶斯</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -378,7 +493,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么？"><span class="toc-number">1.</span> <span class="toc-text">是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么？"><span class="toc-number">2.</span> <span class="toc-text">为什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用范围？"><span class="toc-number">3.</span> <span class="toc-text">应用范围？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优缺点？"><span class="toc-number">4.</span> <span class="toc-text">优缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#拉格朗日乘子法"><span class="toc-number">1.</span> <span class="toc-text">拉格朗日乘子法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#拉格朗日乘子法是什么？"><span class="toc-number">1.0.1.</span> <span class="toc-text">拉格朗日乘子法是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用条件"><span class="toc-number">1.0.2.</span> <span class="toc-text">使用条件</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#KKT条件"><span class="toc-number">2.</span> <span class="toc-text">KKT条件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是KKT？"><span class="toc-number">2.0.1.</span> <span class="toc-text">什么是KKT？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVM-支持向量机"><span class="toc-number">3.</span> <span class="toc-text">SVM 支持向量机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#概念"><span class="toc-number">3.0.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#工作原理"><span class="toc-number">3.0.2.</span> <span class="toc-text">工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-寻求最大间隔"><span class="toc-number">3.0.2.1.</span> <span class="toc-text">1. 寻求最大间隔</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#超平面"><span class="toc-number">3.0.2.2.</span> <span class="toc-text">超平面</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#函数间隔"><span class="toc-number">3.0.2.3.</span> <span class="toc-text">函数间隔</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#几何间隔"><span class="toc-number">3.0.2.4.</span> <span class="toc-text">几何间隔</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-最大间隔分类器"><span class="toc-number">3.0.2.5.</span> <span class="toc-text">2. 最大间隔分类器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-转换目标函数"><span class="toc-number">3.0.2.6.</span> <span class="toc-text">3. 转换目标函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-利用拉格朗日乘法，求凸二次规划问题"><span class="toc-number">3.0.2.7.</span> <span class="toc-text">4. 利用拉格朗日乘法，求凸二次规划问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-对偶问题求解"><span class="toc-number">3.0.2.8.</span> <span class="toc-text">5. 对偶问题求解</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SMO算法"><span class="toc-number">4.</span> <span class="toc-text">SMO算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#松弛变量"><span class="toc-number">4.0.0.1.</span> <span class="toc-text">松弛变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#伪代码"><span class="toc-number">4.0.0.2.</span> <span class="toc-text">伪代码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原理分析"><span class="toc-number">4.0.0.3.</span> <span class="toc-text">原理分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li>
                     </div>
                 </span>
             </div>
