@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/yourusername/yourusername.github.io">
-  <title>Archives | 3to</title>
+  <title>随机森林 | 3to</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="认真能做任何事.">
-<meta name="keywords" content="3to">
-<meta property="og:type" content="website">
-<meta property="og:title" content="3to">
-<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/archives/index.html">
+  <meta name="description" content="集成方法 概念 集成学习是一种机器学习范式。其结合了多种模型，通过一定的策略将所有模型组合起来，利用各个模块的优点组成一个强学习器。这种方法能够有助于减少误差，提高算法的稳定性与准确性。">
+<meta name="keywords" content="随机森林">
+<meta property="og:type" content="article">
+<meta property="og:title" content="随机森林">
+<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/2019/08/19/随机森林/index.html">
 <meta property="og:site_name" content="3to">
-<meta property="og:description" content="认真能做任何事.">
+<meta property="og:description" content="集成方法 概念 集成学习是一种机器学习范式。其结合了多种模型，通过一定的策略将所有模型组合起来，利用各个模块的优点组成一个强学习器。这种方法能够有助于减少误差，提高算法的稳定性与准确性。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://github.com/img/bagging.webp">
+<meta property="og:image" content="https://github.com/img/boosting.png">
+<meta property="og:updated_time" content="2019-08-19T09:37:24.867Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3to">
-<meta name="twitter:description" content="认真能做任何事.">
+<meta name="twitter:title" content="随机森林">
+<meta name="twitter:description" content="集成方法 概念 集成学习是一种机器学习范式。其结合了多种模型，通过一定的策略将所有模型组合起来，利用各个模块的优点组成一个强学习器。这种方法能够有助于减少误差，提高算法的稳定性与准确性。">
+<meta name="twitter:image" content="https://github.com/img/bagging.webp">
   
     <link rel="alternative" href="/atom.xml" title="3to" type="application/atom+xml">
   
@@ -152,36 +156,109 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-随机森林" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/19/随机森林/" class="archive-article-date">
-  	<time datetime="2019-08-19T09:37:01.783Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/19/随机森林/">随机森林</a>
+    <h1 class="article-title" itemprop="name">
+      随机森林
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/08/19/随机森林/" class="archive-article-date">
+  	<time datetime="2019-08-19T09:37:01.783Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="集成方法"><a href="#集成方法" class="headerlink" title="集成方法"></a>集成方法</h2><blockquote>
+<h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5></blockquote>
+<p>集成学习是一种机器学习范式。其结合了多种模型，通过一定的策略将所有模型组合起来，利用各个模块的优点组成一个强学习器。这种方法能够有助于减少误差，提高算法的稳定性与准确性。</p>
+<a id="more"></a>
+<blockquote>
+<h5 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h5></blockquote>
+<ul>
+<li>bagging (bootstrap aggregation) ：每次从训练集中根据bootstrap方法抽取一部分数据，将其作为子训练集。然后对训练数据集，得到模型。最后将所有的模型进行综合整理。（分类的就进行投票方式获得；回归则采用均值获得）<br><img src="/img/bagging.webp" alt></li>
+</ul>
+<ul>
+<li>boosting： 是基于所有分类器的加权求和的方法。首先从训练集中用初始权重构造出一个弱学习器1，根据该学习器1的误差表现来更新训练样本的权重信息。然后基于调整权重后的训练集来训练弱学习器2，如此进行重复训练调整，最终得到一个强学习器。<br><img src="/img/boosting.png" alt></li>
+</ul>
+<h2 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h2><blockquote>
+<h5 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h5></blockquote>
+<p>随机森林指的是利用多个树来对样本进行训练生成模型，然后利用多个决策树的分类结果进行投票，从而实现分类。它很好的解决了决策树泛化能力弱的问题。</p>
+<blockquote>
+<h5 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h5></blockquote>
+<ol>
+<li>假设训练样本数为N，则从N个样本中有放回的随机选取n个作为子样本，该子样本用来生成单颗决策树。</li>
+<li>假设特征的个数为M，则从M个样本中随机选取m个特征，其中m&lt;&lt;M，然后在m个特征中选取一个最好的进行分裂。</li>
+<li>每棵树都这样一直分裂下去，直到无法分裂或所有数据都为一个类时。在这里是不需要进行剪枝的。 剪枝的目的是防止过拟合，但由于是随机选取的，因此就算不剪枝也不会出现过拟合的现象。</li>
+</ol>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h4 id="1-数据样本抽取"><a href="#1-数据样本抽取" class="headerlink" title="1. 数据样本抽取"></a>1. 数据样本抽取</h4><blockquote>
+<h5 id="1-进行样本数据随机抽样"><a href="#1-进行样本数据随机抽样" class="headerlink" title="1. 进行样本数据随机抽样"></a>1. 进行样本数据随机抽样</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cross_validation_split</span><span class="params">(dataSet, n_folds)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    数据划分</span></span><br><span class="line"><span class="string">    :param dataSet:  数据集</span></span><br><span class="line"><span class="string">    :param n_folds:  划分的个数</span></span><br><span class="line"><span class="string">    :return: 划分后的数据集</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    dataSetSplit = list()</span><br><span class="line">    dataSetCopy = list(dataSet)             <span class="comment"># 复制数据</span></span><br><span class="line">    foldSize = len(dataSet) / n_folds       <span class="comment"># 每一份数据的大小</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n_folds):</span><br><span class="line">        fold = list()</span><br><span class="line">        <span class="keyword">while</span> len(fold) &lt; foldSize:</span><br><span class="line">            <span class="comment"># 随机挑选数据，并将数据进行加入</span></span><br><span class="line">            index = randrange(len(dataSetCopy))</span><br><span class="line">            fold.append(dataSetCopy[index])</span><br><span class="line">        dataSetSplit.append(fold)</span><br><span class="line">    <span class="keyword">return</span> dataSetSplit</span><br></pre></td></tr></table></figure>
+<h5 id="2-划分样本数据"><a href="#2-划分样本数据" class="headerlink" title="2. 划分样本数据"></a>2. 划分样本数据</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">subSample</span><span class="params">(dataSet, ratio)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    根据比例划分数据</span></span><br><span class="line"><span class="string">    :param dataSet: 数据集</span></span><br><span class="line"><span class="string">    :param ratio:  比例</span></span><br><span class="line"><span class="string">    :return: 根据比例划分的样本数</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    sample = list()</span><br><span class="line">    nSample = round(len(dataSet) * ratio)   <span class="comment"># 根据比例划分的样本数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> len(sample) &lt; nSample:</span><br><span class="line">        index = randrange(len(dataSet))     <span class="comment"># 随机选取数据集中的样本进行添加</span></span><br><span class="line">        sample.append(dataSet[index])</span><br><span class="line">    <span class="keyword">return</span> sample</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="2-创建单个决策树"><a href="#2-创建单个决策树" class="headerlink" title="2. 创建单个决策树"></a>2. 创建单个决策树</h4><blockquote>
+<h5 id="3-创建决策树"><a href="#3-创建决策树" class="headerlink" title="3. 创建决策树"></a>3. 创建决策树</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">buildTree</span><span class="params">(train, maxDepth, minSize, nFeatures)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    创建决策树</span></span><br><span class="line"><span class="string">    :param train: 数据</span></span><br><span class="line"><span class="string">    :param maxDepth: 决策树的深度</span></span><br><span class="line"><span class="string">    :param minSize: 叶子节点大小</span></span><br><span class="line"><span class="string">    :param nFeatures: 特征个数</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 返回最优佳特征列和相关信息</span></span><br><span class="line">    root = getSplit(train, minSize)</span><br><span class="line">    <span class="comment"># 对最最佳特征列左右两边的数据进行递归调用</span></span><br><span class="line">    split(root, maxDepth, minSize, nFeatures, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>
+<h5 id="4-从数据中寻找最佳特征，进行划分"><a href="#4-从数据中寻找最佳特征，进行划分" class="headerlink" title="4.  从数据中寻找最佳特征，进行划分"></a>4.  从数据中寻找最佳特征，进行划分</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getSplit</span><span class="params">(dataSet, nFeatures)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    寻找最佳特征，并数据分割</span></span><br><span class="line"><span class="string">    :param dataSet: 数据集</span></span><br><span class="line"><span class="string">    :param nFeatures: 特征个数</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    classValues = list(set(row[<span class="number">-1</span>] <span class="keyword">for</span> row <span class="keyword">in</span> dataSet))</span><br><span class="line">    bIndex, bValue, bScore, bGroups = <span class="number">999</span>, <span class="number">999</span>, <span class="number">999</span>, <span class="literal">None</span>   <span class="comment">#最佳特征列下标，最佳特征列值，最佳特征列的gini值， 根据最佳特征列划分的结果</span></span><br><span class="line">    features = list()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> len(features) &lt; nFeatures:</span><br><span class="line">        <span class="comment"># 随机挑选一个目前features不存在特征，将其进行添加</span></span><br><span class="line">        index = randrange(len(dataSet[<span class="number">0</span>]) - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> index <span class="keyword">not</span> <span class="keyword">in</span> features:</span><br><span class="line">            features.append(index)</span><br><span class="line">        <span class="comment"># 对每一个特征进行遍历</span></span><br><span class="line">        <span class="keyword">for</span> index <span class="keyword">in</span> features:</span><br><span class="line">            <span class="keyword">for</span> row <span class="keyword">in</span> dataSet:</span><br><span class="line">                <span class="comment"># 根据特征和特征值划分数据</span></span><br><span class="line">                groups = testSplit(index, row[index], dataSet)</span><br><span class="line">                <span class="comment"># 计算划分后的gini值</span></span><br><span class="line">                gini = giniIndex(groups, classValues)</span><br><span class="line">                <span class="comment"># 寻找出gini值最小的特征</span></span><br><span class="line">                <span class="keyword">if</span> gini &lt; bScore:</span><br><span class="line">                    bIndex, bValue, bScore, bGroups = index, row[index], gini, groups</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">'index'</span>:bIndex, <span class="string">'value'</span>:bValue, <span class="string">'groups'</span>:bGroups&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="5-根据特征列和特征值进行数据的划分"><a href="#5-根据特征列和特征值进行数据的划分" class="headerlink" title="5.  根据特征列和特征值进行数据的划分"></a>5.  根据特征列和特征值进行数据的划分</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">testSplit</span><span class="params">(index, value, dataSet)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    根据特征和特征值进行数据划分</span></span><br><span class="line"><span class="string">    :param index: 特征</span></span><br><span class="line"><span class="string">    :param value: 该特征的特征值</span></span><br><span class="line"><span class="string">    :param dataSet: 数据集</span></span><br><span class="line"><span class="string">    :return: 左子树和右子树</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    left, right = list(), list()</span><br><span class="line">    <span class="comment"># 根据该特征值进行数据集的数据划分</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> dataSet:</span><br><span class="line">        <span class="keyword">if</span> float(row[index]) &lt; float(value):</span><br><span class="line">            left.append(row)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            right.append(row)</span><br><span class="line">    <span class="keyword">return</span> left, right</span><br></pre></td></tr></table></figure>
+<h5 id="6-计算gini值"><a href="#6-计算gini值" class="headerlink" title="6. 计算gini值"></a>6. 计算gini值</h5></blockquote>
+<p>基尼指数（gini）：代表了模型的不纯度，基尼指数越小，不纯度越低，反之则越高。</p>
+<p>假设有K个类，样本点属于第k类的概率为$P_k$，则概率分布的gini指数的定义为:<br>$Gini(p) = \sum_{n=1}^{N} p_n * (1- p_n) =  1 -\sum_{n=1}^{N} p_n^2$</p>
+<p>如果样本被某个特征A分割为D1和D2，那么在特征A的条件下，集合D的gini指数的定义为：<br>$Gini(D，A) = \frac{D_1}{D} <em> Gini(D_1) + \frac{D_2}{D} </em> Gini(D_2)$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ef giniIndex(groups, classValues):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    对划分的数据计算其GINI值</span></span><br><span class="line"><span class="string">    如果样本被某个特征A分割为D1和D2，那么在特征A的条件下，集合D的gini指数的定义为：</span></span><br><span class="line"><span class="string">        Gini(D,A) = D1/D * Gini(D1) + D2/D * Gini(D2)</span></span><br><span class="line"><span class="string">    gini指数Gini(D,A)表示特征A不同分组的数据集D的不确定性。其越大表示越不确定</span></span><br><span class="line"><span class="string">    :param groups: 划分的数据集</span></span><br><span class="line"><span class="string">    :param classValues: 特征值</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    gini = <span class="number">0.0</span></span><br><span class="line">    D = len(groups[<span class="number">0</span>]) + len(groups[<span class="number">1</span>])     <span class="comment"># 总长度，用于计算概率</span></span><br><span class="line">    <span class="keyword">for</span> classValue <span class="keyword">in</span> classValues:</span><br><span class="line">        <span class="keyword">for</span> group <span class="keyword">in</span> groups:</span><br><span class="line">            size = len(group)       <span class="comment"># 每一个分组中样本的总个数</span></span><br><span class="line">            <span class="keyword">if</span> size == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            proportion = [row[<span class="number">-1</span>] <span class="keyword">for</span> row <span class="keyword">in</span> group].count(classValue)   <span class="comment"># 计算该分组中包含指定特征的个数</span></span><br><span class="line">            gini += float(size / D * (proportion * (<span class="number">1.0</span> - proportion))) <span class="comment"># 计算其Gini值</span></span><br><span class="line">    <span class="keyword">return</span> gini</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h5 id="7-在得到最佳特征列后，便可以对最佳特征列的左右两边进行递归创建"><a href="#7-在得到最佳特征列后，便可以对最佳特征列的左右两边进行递归创建" class="headerlink" title="7. 在得到最佳特征列后，便可以对最佳特征列的左右两边进行递归创建"></a>7. 在得到最佳特征列后，便可以对最佳特征列的左右两边进行递归创建</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">split</span><span class="params">(node, maxDepth, minSize, nFeatures, depth)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    根据node节点，进行左右子树的递归创建</span></span><br><span class="line"><span class="string">    :param node: 传入的根节点</span></span><br><span class="line"><span class="string">    :param maxDepth: 最大深度</span></span><br><span class="line"><span class="string">    :param minSize: 叶子节点大小</span></span><br><span class="line"><span class="string">    :param nFeatures: 特征数目</span></span><br><span class="line"><span class="string">    :param depth:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    left, right = node[<span class="string">'groups'</span>]</span><br><span class="line">    <span class="keyword">del</span>(node[<span class="string">'groups'</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 无法继续划分的情况</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> left <span class="keyword">or</span> <span class="keyword">not</span> right:</span><br><span class="line">        node[<span class="string">'left'</span>] = node[<span class="string">'right'</span>] = to_terminal(left+right)</span><br><span class="line">        <span class="keyword">return</span> </span><br><span class="line"></span><br><span class="line">    <span class="comment"># 如果递归到了最大深度，仍然未将数据分类完全，那么就将数据中分类标签较多的作为结果，使分类提前结束</span></span><br><span class="line">    <span class="keyword">if</span> depth &gt;= maxDepth:</span><br><span class="line">        node[<span class="string">'left'</span>], node[<span class="string">'right'</span>] = to_terminal(left), to_terminal(right)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 处理左边的子树</span></span><br><span class="line">    <span class="keyword">if</span> len(left) &lt;= minSize:</span><br><span class="line">        node[<span class="string">'left'</span>] = to_terminal(left)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 当叶子节点仍然可以继续划分时，继续进行递归构造</span></span><br><span class="line">        node[<span class="string">'left'</span>] = getSplit(left, nFeatures)</span><br><span class="line">        split(node[<span class="string">'left'</span>], maxDepth, minSize, nFeatures, depth + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> len(right) &lt;= minSize:</span><br><span class="line">        node[right] = to_terminal(right)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        node[<span class="string">'right'</span>] = getSplit(right, nFeatures)</span><br><span class="line">        split(node[<span class="string">'right'</span>], maxDepth, minSize, nFeatures, depth + <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="8-创建叶子节点"><a href="#8-创建叶子节点" class="headerlink" title="8. 创建叶子节点"></a>8. 创建叶子节点</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_terminal</span><span class="params">(group)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    创建叶子节点</span></span><br><span class="line"><span class="string">    :param group: 数据集</span></span><br><span class="line"><span class="string">    :return: 次数出现较多的标签</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    outcomes = [row[<span class="number">-1</span>] <span class="keyword">for</span> row <span class="keyword">in</span> group]</span><br><span class="line">    <span class="keyword">return</span> max(set(outcomes), key=outcomes.count)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="3-进行结果预测"><a href="#3-进行结果预测" class="headerlink" title="3. 进行结果预测"></a>3. 进行结果预测</h4><blockquote>
+<h5 id="9-进行bagging方式预测"><a href="#9-进行bagging方式预测" class="headerlink" title="9. 进行bagging方式预测"></a>9. 进行bagging方式预测</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">baggingPredict</span><span class="params">(trees, row)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    利用bagging方式进行结果预测</span></span><br><span class="line"><span class="string">    :param trees: 随机森林</span></span><br><span class="line"><span class="string">    :param row: 测试集</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 对每颗决策树进行测试预测</span></span><br><span class="line">    prections = [predict(tree, row) <span class="keyword">for</span> tree <span class="keyword">in</span> trees]</span><br><span class="line">    <span class="keyword">return</span> max(set(prections), key=prections.count)</span><br></pre></td></tr></table></figure>
+<h5 id="10-每颗决策树的预测结果"><a href="#10-每颗决策树的预测结果" class="headerlink" title="10. 每颗决策树的预测结果"></a>10. 每颗决策树的预测结果</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(node, row)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    预测模型分类结果</span></span><br><span class="line"><span class="string">    :param node: 决策树</span></span><br><span class="line"><span class="string">    :param row: 测试数据</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 进行决策划分，返回预测结果</span></span><br><span class="line">    <span class="keyword">if</span> float(row[int(node[<span class="string">'index'</span>])]) &lt; float(node[<span class="string">'value'</span>]):</span><br><span class="line">        <span class="keyword">if</span> isinstance(node[<span class="string">'left'</span>], dict):</span><br><span class="line">            <span class="keyword">return</span> predict(node[<span class="string">'left'</span>], row)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> node[<span class="string">'left'</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> isinstance(node[<span class="string">'right'</span>], dict):</span><br><span class="line">            <span class="keyword">return</span> predict(node[<span class="string">'right'</span>], row)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> node[<span class="string">'right'</span>]</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="算法总结"><a href="#算法总结" class="headerlink" title="算法总结"></a>算法总结</h2><ol>
+<li>首先需要进行数据的划分，此时数据需要进行随机抽样，确保其不会出现过拟合现象。</li>
+<li>构造决策树时，需要根据基尼指数判断最佳特征，其与之前的信息增益不同的地方在于：信息增益的计算需要使用log对数函数，降低了运算时间；而基尼指数的计算为常规计算，计算速度更快，因此更适合。</li>
+<li>在对数据进行预测时，采用的是交叉检验的方法：选取一部分作为测试集，另一部分作为训练集，能很好的模型进行优化。</li>
+</ol>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="[https://github.com/apachecn/AiLearning/blob/master/docs/ml/7.%E9%9B%86%E6%88%90%E6%96%B9%E6%B3%95-%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E5%92%8CAdaBoost.md](https://github.com/apachecn/AiLearning/blob/master/docs/ml/7.集成方法-随机森林和AdaBoost.md">集成方法-随机森林和AdaBoost</a>)<br><a href="https://www.jianshu.com/p/708dff71df3a" target="_blank" rel="noopener">总结：Bootstrap(自助法)，Bagging，Boosting(提升)</a><br><a href="https://towardsdatascience.com/simple-guide-for-ensemble-learning-methods-d87cc68705a2" target="_blank" rel="noopener">Simple guide for ensemble learning methods</a><br><a href="https://blog.csdn.net/u013709270/article/details/72553282" target="_blank" rel="noopener">机器学习中Bagging和Boosting的区别</a><br><a href="https://zhuanlan.zhihu.com/p/39920405" target="_blank" rel="noopener">集成学习-Boosting,Bagging与Stacking</a><br><a href="https://bbs.pinggu.org/thread-5986969-1-1.html" target="_blank" rel="noopener">Gini指数：Gini指数的意义和Gini指数的计算</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/Alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -193,174 +270,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/yourusername/yourusername.github.io/2019/08/19/随机森林/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/16/（SVM）支持向量机/" class="archive-article-date">
-  	<time datetime="2019-08-16T06:41:02.879Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/16/（SVM）支持向量机/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SVM支持向量机</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/16/（SVM）支持向量机/">SVM支持向量机</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SVM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#集成方法"><span class="toc-number">1.</span> <span class="toc-text">集成方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#概念"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#实现方式"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">实现方式</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#随机森林"><span class="toc-number">2.</span> <span class="toc-text">随机森林</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#概念-1"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#开发步骤"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">开发步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number">3.</span> <span class="toc-text">代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-数据样本抽取"><span class="toc-number">3.0.1.</span> <span class="toc-text">1. 数据样本抽取</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-进行样本数据随机抽样"><span class="toc-number">3.0.1.1.</span> <span class="toc-text">1. 进行样本数据随机抽样</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-划分样本数据"><span class="toc-number">3.0.1.2.</span> <span class="toc-text">2. 划分样本数据</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建单个决策树"><span class="toc-number">3.0.2.</span> <span class="toc-text">2. 创建单个决策树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-创建决策树"><span class="toc-number">3.0.2.1.</span> <span class="toc-text">3. 创建决策树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-从数据中寻找最佳特征，进行划分"><span class="toc-number">3.0.2.2.</span> <span class="toc-text">4.  从数据中寻找最佳特征，进行划分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-根据特征列和特征值进行数据的划分"><span class="toc-number">3.0.2.3.</span> <span class="toc-text">5.  根据特征列和特征值进行数据的划分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-计算gini值"><span class="toc-number">3.0.2.4.</span> <span class="toc-text">6. 计算gini值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-在得到最佳特征列后，便可以对最佳特征列的左右两边进行递归创建"><span class="toc-number">3.0.2.5.</span> <span class="toc-text">7. 在得到最佳特征列后，便可以对最佳特征列的左右两边进行递归创建</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-创建叶子节点"><span class="toc-number">3.0.2.6.</span> <span class="toc-text">8. 创建叶子节点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-进行结果预测"><span class="toc-number">3.0.3.</span> <span class="toc-text">3. 进行结果预测</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#9-进行bagging方式预测"><span class="toc-number">3.0.3.1.</span> <span class="toc-text">9. 进行bagging方式预测</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#10-每颗决策树的预测结果"><span class="toc-number">3.0.3.2.</span> <span class="toc-text">10. 每颗决策树的预测结果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法总结"><span class="toc-number">4.</span> <span class="toc-text">算法总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/15/朴素贝叶斯/" class="archive-article-date">
-  	<time datetime="2019-08-15T03:14:31.135Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/15/朴素贝叶斯/">朴素贝叶斯</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">贝叶斯分类器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/14/逻辑回归/" class="archive-article-date">
-  	<time datetime="2019-08-14T14:08:27.996Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/14/逻辑回归/">逻辑回归</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">逻辑回归</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/13/决策树（id3实现）/" class="archive-article-date">
-  	<time datetime="2019-08-13T08:53:18.116Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/13/决策树（id3实现）/">决策树（id3算法）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">决策树</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -384,8 +405,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
