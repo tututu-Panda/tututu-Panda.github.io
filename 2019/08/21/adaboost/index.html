@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="3to">
 <meta property="og:description" content="Adaboost原理 1. 概念 Adaboost，英文名称为“Adaptive Boosting”，意思为自适应增强。其通过在每一轮加强分错样本比例的权重，降低分对样本比例的权重，来达到改善分类器的效果，使其最终能够达到足够小的误差率。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-21T08:16:09.635Z">
+<meta property="og:updated_time" content="2019-08-21T08:17:26.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="adabost">
 <meta name="twitter:description" content="Adaboost原理 1. 概念 Adaboost，英文名称为“Adaptive Boosting”，意思为自适应增强。其通过在每一轮加强分错样本比例的权重，降低分对样本比例的权重，来达到改善分类器的效果，使其最终能够达到足够小的误差率。">
@@ -339,7 +339,7 @@ sign(f(x)) = sign(\frac{1}{2} log \frac{P(y=1 | x)}{P(y = -1|x)} ) \\
   
   
     <a href="/2019/08/21/损失函数/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">损失函数</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -553,6 +553,10 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">随机森林，集成学习</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">损失函数</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -679,22 +683,6 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
