@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="3to">
 <meta property="og:description" content="损失函数 概念  损失函数是用来估量模型的预测值与实际值的不一致程度，是一个非负的实值函数。通常使用$L(Y, f(x))$进行表示，如果损失越小，则模型的鲁棒性（robust）则越强。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-21T08:03:57.547Z">
+<meta property="og:updated_time" content="2019-08-21T08:16:35.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3to">
 <meta name="twitter:description" content="损失函数 概念  损失函数是用来估量模型的预测值与实际值的不一致程度，是一个非负的实值函数。通常使用$L(Y, f(x))$进行表示，如果损失越小，则模型的鲁棒性（robust）则越强。">
@@ -200,10 +200,15 @@
 </ol>
 <h4 id="Huber-损失"><a href="#Huber-损失" class="headerlink" title="Huber 损失"></a>Huber 损失</h4><blockquote>
 <p>公式</p>
-</blockquote>
-<p>$\begin{equation}<br>\left\{<br>             \begin{array}{<strong>lr</strong>}<br>             \frac{1}{2}[y-f(x)]^2    &amp; |y-(fx)| \leq \delta \ <br>            \delta|y-f(x)|-\frac{1}{2} \delta^2  &amp; |y-f(x)| &gt; \delta<br>             \end{array}<br>\right.<br>\end{equation}  $</p>
-<blockquote>
-<p>含义</p>
+<script type="math/tex; mode=display">
+\begin{equation}  
+\left\{  
+             \begin{array}{**lr**}  
+             \frac{1}{2}[y-f(x)]^2    & |y-(fx)| \leq \delta \\  
+            \delta|y-f(x)|-\frac{1}{2} \delta^2  & |y-f(x)| > \delta 
+             \end{array}  
+\right.  
+\end{equation}</script><p>含义</p>
 </blockquote>
 <p>当误差绝对值大于$\delta$时，采用类似于平均绝对值损失的方式；当误差绝对值小于$\delta$时，采用类似于均方损失的方式。</p>
 <blockquote>
@@ -240,8 +245,15 @@
 </blockquote>
 <p>样本X为分类Y的情况下，使概率P(Y|X)达到最大值。即利用已知的样本分布，找到最有可能（最大概率）导致这种分布的参数值。因为log函数为单调递增的，那么当P找到最大值时，L即为最小值。</p>
 <p>逻辑回归的P(Y=y|x)的表达式为：</p>
-<p>$\begin{equation}<br>P(Y=y^{i} | x^{i};\theta)= \left\{<br>             \begin{array}{<strong>lr</strong>}<br>             h_\theta(x^{i}) = \frac{1}{1+e^{-\theta^Tx}} &amp; y^i = 1 \\<br>           1- h_\theta(x^{i}) = \frac{e^{-\theta^Tx}}{1+e^{-\theta^Tx}} &amp; y^i = 0<br>             \end{array}<br>\right.<br>\end{equation}  $</p>
-<p>将公式合并，即可得到第i个样本正确预测的概率：</p>
+<script type="math/tex; mode=display">
+\begin{equation}  
+P(Y=y^{i} | x^{i};\theta)= \left\{  
+             \begin{array}{**lr**}  
+             h_\theta(x^{i}) = \frac{1}{1+e^{-\theta^Tx}} & y^i = 1 \\
+           1- h_\theta(x^{i}) = \frac{e^{-\theta^Tx}}{1+e^{-\theta^Tx}} & y^i = 0
+             \end{array}  
+\right.  
+\end{equation}</script><p>将公式合并，即可得到第i个样本正确预测的概率：</p>
 <p>$P(Y=y^{i} | x^{i};\theta)= h_\theta(x^{i})^{y^i} · (1- h_\theta(x^{i})) ^{1-y^i}$</p>
 <p>假设每个样本的生成过程是独立的，那么在整个样本空间中的概率分布为：</p>
 <p>$P(Y|X;\theta) = \prod_{i=1}^{N} (h_\theta(x^{i})^{y^i} · (1- h_\theta(x^{i})) ^{1-y^i})$</p>

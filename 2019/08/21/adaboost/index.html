@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="3to">
 <meta property="og:description" content="Adaboost原理 1. 概念 Adaboost，英文名称为“Adaptive Boosting”，意思为自适应增强。其通过在每一轮加强分错样本比例的权重，降低分对样本比例的权重，来达到改善分类器的效果，使其最终能够达到足够小的误差率。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-21T08:12:34.185Z">
+<meta property="og:updated_time" content="2019-08-21T08:16:09.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="adabost">
 <meta name="twitter:description" content="Adaboost原理 1. 概念 Adaboost，英文名称为“Adaptive Boosting”，意思为自适应增强。其通过在每一轮加强分错样本比例的权重，降低分对样本比例的权重，来达到改善分类器的效果，使其最终能够达到足够小的误差率。">
@@ -209,8 +209,18 @@
 <p>化简可以得到：</p>
 <p>$<br>f(x) = \frac{1}{2} log \frac{P(y=1 | x)}{P(y = -1|x)}  \\<br>P(y=1|x) = \frac{1}{1+e^{-2f(x)}}<br>$</p>
 <p>其与logistic regression类似，因此每一轮最小化指数损失就是在训练一个logistic regression模型，来逼近对数几率。</p>
-<p>那么可以得到：<br>$<br>sign(f(x)) = sign(\frac{1}{2} log \frac{P(y=1 | x)}{P(y = -1|x)} ) \\<br>= \begin{equation}<br>\left\{<br>\begin{array}{<strong>lr</strong>}<br>1 &amp; P(y=1|x) &gt; P(y=-1|x) \ <br>-1 &amp; P(y=1|x) &lt; P(y=-1|x)<br>\end{array}<br>\right.<br>\end{equation}    \\<br>= argmax_{y\subset{\{1,-1\}}}P(y|x)<br>$</p>
-<p>这就意味着对于每个样本x都选择后验概率最大的类别。若指数损失最小化，那么分类错别率就会达到最小化。</p>
+<p>那么可以得到：</p>
+<script type="math/tex; mode=display">
+sign(f(x)) = sign(\frac{1}{2} log \frac{P(y=1 | x)}{P(y = -1|x)} ) \\
+= \begin{equation}  
+\left\{  
+\begin{array}{**lr**}  
+1 & P(y=1|x) > P(y=-1|x) \\  
+-1 & P(y=1|x) < P(y=-1|x) 
+\end{array}  
+\right.  
+\end{equation}    \\
+= argmax_{y\subset{\{1,-1\}}}P(y|x)</script><p>这就意味着对于每个样本x都选择后验概率最大的类别。若指数损失最小化，那么分类错别率就会达到最小化。</p>
 <h2 id="adaBoost的数学推导"><a href="#adaBoost的数学推导" class="headerlink" title="adaBoost的数学推导"></a>adaBoost的数学推导</h2><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="[https://github.com/apachecn/AiLearning/blob/master/docs/ml/7.%E9%9B%86%E6%88%90%E6%96%B9%E6%B3%95-%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E5%92%8CAdaBoost.md](https://github.com/apachecn/AiLearning/blob/master/docs/ml/7.集成方法-随机森林和AdaBoost.md">7.集成方法-随机森林和AdaBoost</a>)</p>
 <p><strong>*</strong><a href="https://www.imooc.com/article/258253" target="_blank" rel="noopener">【机器学习】集成学习——AdaBoost算法与原理推导</a></p>
 <p><a href="https://blog.csdn.net/v_JULY_v/article/details/40718799" target="_blank" rel="noopener">Adaboost 算法的原理与推导</a></p>
