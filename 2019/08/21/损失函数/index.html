@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="3to">
 <meta property="og:description" content="损失函数 概念  损失函数是用来估量模型的预测值与实际值的不一致程度，是一个非负的实值函数。通常使用$L(Y, f(x))$进行表示，如果损失越小，则模型的鲁棒性（robust）则越强。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-21T08:21:47.492Z">
+<meta property="og:updated_time" content="2019-08-21T08:26:25.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="损失函数">
 <meta name="twitter:description" content="损失函数 概念  损失函数是用来估量模型的预测值与实际值的不一致程度，是一个非负的实值函数。通常使用$L(Y, f(x))$进行表示，如果损失越小，则模型的鲁棒性（robust）则越强。">
@@ -181,7 +181,10 @@
 <p>模型的结构风险函数包括了<strong>经验风险项、正则项</strong>，通常用可以表示为：</p>
 <p>$\theta^* = arg min \frac{1}{N} \sum_{i=1}^{N}L(y_i, f(x_i;\theta)) + \lambda \Phi(\theta) $</p>
 <p>前面的则是经验风险项，其中L代表损失函数，$\Phi$是正则化项或惩罚项。整个式子表达的意思是<strong>找到使目标函数最小时的$\theta$值</strong>。</p>
-<h4 id="均方误差（L2损失）"><a href="#均方误差（L2损失）" class="headerlink" title="均方误差（L2损失）"></a>均方误差（L2损失）</h4><blockquote>
+<ol>
+<li>均方误差（L2损失）</li>
+</ol>
+<blockquote>
 <p>公式</p>
 </blockquote>
 <p>$MSE = \frac{1}{N}\sum_{i=1}^{n}(y_i- \bar y)^2$</p>
@@ -197,7 +200,7 @@
 <li>如果数据集中包含的某个噪点偏离实际总体均值过大的话，那么均方误差会将其<strong>进行平方放大</strong>，这就会导致赋值给离群点更高的权值。</li>
 <li>梯度在损失值较高时会比较大，随着损失接近0时而降低。</li>
 </ol>
-<h4 id="平均绝对值误差（L1损失）"><a href="#平均绝对值误差（L1损失）" class="headerlink" title="平均绝对值误差（L1损失）"></a>平均绝对值误差（L1损失）</h4><blockquote>
+<h3 id="2-平均绝对值误差（L1损失）"><a href="#2-平均绝对值误差（L1损失）" class="headerlink" title="2. 平均绝对值误差（L1损失）"></a>2. 平均绝对值误差（L1损失）</h3><blockquote>
 <p>公式</p>
 </blockquote>
 <p>$MAE = \frac{1}{N}\sum_{i=1}^{n}|y_i - \bar y|$</p>
@@ -213,7 +216,7 @@
 <li>适用与训练数据被离群点所影响时，即离群点的数据过大。</li>
 <li>由于MAE的梯度在任何时候都是相同的，那么即使是很小的损失，也会具有很大的梯度，这便会造成对于模型的学习不够好。</li>
 </ol>
-<h4 id="Huber-损失"><a href="#Huber-损失" class="headerlink" title="Huber 损失"></a>Huber 损失</h4><blockquote>
+<h3 id="3-Huber-损失"><a href="#3-Huber-损失" class="headerlink" title="3. Huber 损失"></a>3. Huber 损失</h3><blockquote>
 <p>公式</p>
 <script type="math/tex; mode=display">
 \begin{equation}  
@@ -233,7 +236,7 @@
 <li>对于损失较大的值，采用平均绝对损失的方式可以减轻异常值的影响。</li>
 <li>对于损失较小的值，采用均方损失能使其 在接近最小值时，梯度随之降低，从而使其更加精准。</li>
 </ol>
-<h4 id="Log-cosh-损失"><a href="#Log-cosh-损失" class="headerlink" title="Log-cosh 损失"></a>Log-cosh 损失</h4><blockquote>
+<h3 id="4-Log-cosh-损失"><a href="#4-Log-cosh-损失" class="headerlink" title="4. Log-cosh 损失"></a>4. Log-cosh 损失</h3><blockquote>
 <p>公式</p>
 </blockquote>
 <p>$L(Y, Y^p) =  \sum_{i=1}^{n} log(cosh(y_i^p - y_i))$</p>
@@ -251,7 +254,7 @@
 <li>这就导致了其虽然与均方误差类似，但是不会像均方误差一样被离群值所影响。</li>
 <li>其具有Huber Loss 的所有优点，并且处处二次可导。</li>
 </ol>
-<h4 id="Log-loss-对数损失-逻辑回归损失，交叉熵损失"><a href="#Log-loss-对数损失-逻辑回归损失，交叉熵损失" class="headerlink" title="Log-loss 对数损失(逻辑回归损失，交叉熵损失)"></a>Log-loss 对数损失(逻辑回归损失，交叉熵损失)</h4><blockquote>
+<h3 id="5-Log-loss-对数损失-逻辑回归损失，交叉熵损失"><a href="#5-Log-loss-对数损失-逻辑回归损失，交叉熵损失" class="headerlink" title="5. Log-loss 对数损失(逻辑回归损失，交叉熵损失)"></a>5. Log-loss 对数损失(逻辑回归损失，交叉熵损失)</h3><blockquote>
 <p>公式</p>
 </blockquote>
 <p>$L(Y, P(Y|X)) = -log P(Y|X)$</p>
@@ -274,7 +277,7 @@ P(Y=y^{i} | x^{i};\theta)= \left\{
 <p>$P(Y|X;\theta) = \prod_{i=1}^{N} (h_\theta(x^{i})^{y^i} · (1- h_\theta(x^{i})) ^{1-y^i})$</p>
 <p>将上诉代入到对数损失函数中，可以得到最终的损失函数为：</p>
 <p>$J(\theta) = -\frac{1}{N} y^ilog(h_\theta(x^{i})) + (1-y^i)log((1- h_\theta(x^{i}))$</p>
-<h4 id="指数损失"><a href="#指数损失" class="headerlink" title="指数损失"></a>指数损失</h4><blockquote>
+<h3 id="6-指数损失"><a href="#6-指数损失" class="headerlink" title="6. 指数损失"></a>6. 指数损失</h3><blockquote>
 <p>公式</p>
 </blockquote>
 <p>$L(y, f(x)) = e^{-yf(x)}$</p>
@@ -282,7 +285,7 @@ P(Y=y^{i} | x^{i};\theta)= \left\{
 <p>特点</p>
 </blockquote>
 <p>对离群点、噪点非常敏感，经常用于AdaBoost中。</p>
-<h4 id="Hinge损失"><a href="#Hinge损失" class="headerlink" title="Hinge损失"></a>Hinge损失</h4><blockquote>
+<h4 id="7-Hinge损失"><a href="#7-Hinge损失" class="headerlink" title="7. Hinge损失"></a>7. Hinge损失</h4><blockquote>
 <p>公式</p>
 </blockquote>
 <p>$L(y, f(x)) = max(0, 1-yf(x))$</p>
@@ -445,7 +448,7 @@ P(Y=y^{i} | x^{i};\theta)= \left\{
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#损失函数"><span class="toc-number">1.</span> <span class="toc-text">损失函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#均方误差（L2损失）"><span class="toc-number">1.0.1.</span> <span class="toc-text">均方误差（L2损失）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#平均绝对值误差（L1损失）"><span class="toc-number">1.0.2.</span> <span class="toc-text">平均绝对值误差（L1损失）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Huber-损失"><span class="toc-number">1.0.3.</span> <span class="toc-text">Huber 损失</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Log-cosh-损失"><span class="toc-number">1.0.4.</span> <span class="toc-text">Log-cosh 损失</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Log-loss-对数损失-逻辑回归损失，交叉熵损失"><span class="toc-number">1.0.5.</span> <span class="toc-text">Log-loss 对数损失(逻辑回归损失，交叉熵损失)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指数损失"><span class="toc-number">1.0.6.</span> <span class="toc-text">指数损失</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hinge损失"><span class="toc-number">1.0.7.</span> <span class="toc-text">Hinge损失</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">2.</span> <span class="toc-text">参考链接</span></a></li>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#损失函数"><span class="toc-number">1.</span> <span class="toc-text">损失函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-平均绝对值误差（L1损失）"><span class="toc-number">1.1.</span> <span class="toc-text">2. 平均绝对值误差（L1损失）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Huber-损失"><span class="toc-number">1.2.</span> <span class="toc-text">3. Huber 损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Log-cosh-损失"><span class="toc-number">1.3.</span> <span class="toc-text">4. Log-cosh 损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Log-loss-对数损失-逻辑回归损失，交叉熵损失"><span class="toc-number">1.4.</span> <span class="toc-text">5. Log-loss 对数损失(逻辑回归损失，交叉熵损失)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-指数损失"><span class="toc-number">1.5.</span> <span class="toc-text">6. 指数损失</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-Hinge损失"><span class="toc-number">1.5.1.</span> <span class="toc-text">7. Hinge损失</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">2.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
