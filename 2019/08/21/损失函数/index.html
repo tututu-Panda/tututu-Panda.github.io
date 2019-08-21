@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="3to">
 <meta property="og:description" content="损失函数 概念  损失函数是用来估量模型的预测值与实际值的不一致程度，是一个非负的实值函数。通常使用$L(Y, f(x))$进行表示，如果损失越小，则模型的鲁棒性（robust）则越强。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-21T08:18:12.200Z">
+<meta property="og:updated_time" content="2019-08-21T08:21:47.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="损失函数">
 <meta name="twitter:description" content="损失函数 概念  损失函数是用来估量模型的预测值与实际值的不一致程度，是一个非负的实值函数。通常使用$L(Y, f(x))$进行表示，如果损失越小，则模型的鲁棒性（robust）则越强。">
@@ -233,8 +233,8 @@
 <li>对于损失较大的值，采用平均绝对损失的方式可以减轻异常值的影响。</li>
 <li>对于损失较小的值，采用均方损失能使其 在接近最小值时，梯度随之降低，从而使其更加精准。</li>
 </ol>
-<blockquote>
-<h4 id="Log-cosh-损失"><a href="#Log-cosh-损失" class="headerlink" title="Log-cosh 损失"></a>Log-cosh 损失</h4><p>公式</p>
+<h4 id="Log-cosh-损失"><a href="#Log-cosh-损失" class="headerlink" title="Log-cosh 损失"></a>Log-cosh 损失</h4><blockquote>
+<p>公式</p>
 </blockquote>
 <p>$L(Y, Y^p) =  \sum_{i=1}^{n} log(cosh(y_i^p - y_i))$</p>
 <p>其中cosh为余弦双曲线：$\frac{e^x+e^{-x}}{2}$，是关于y轴对称的偶函数。</p>
@@ -251,8 +251,8 @@
 <li>这就导致了其虽然与均方误差类似，但是不会像均方误差一样被离群值所影响。</li>
 <li>其具有Huber Loss 的所有优点，并且处处二次可导。</li>
 </ol>
-<blockquote>
-<h4 id="Log-loss-对数损失-逻辑回归损失，交叉熵损失"><a href="#Log-loss-对数损失-逻辑回归损失，交叉熵损失" class="headerlink" title="Log-loss 对数损失(逻辑回归损失，交叉熵损失)"></a>Log-loss 对数损失(逻辑回归损失，交叉熵损失)</h4><p>公式</p>
+<h4 id="Log-loss-对数损失-逻辑回归损失，交叉熵损失"><a href="#Log-loss-对数损失-逻辑回归损失，交叉熵损失" class="headerlink" title="Log-loss 对数损失(逻辑回归损失，交叉熵损失)"></a>Log-loss 对数损失(逻辑回归损失，交叉熵损失)</h4><blockquote>
+<p>公式</p>
 </blockquote>
 <p>$L(Y, P(Y|X)) = -log P(Y|X)$</p>
 <blockquote>
@@ -274,16 +274,16 @@ P(Y=y^{i} | x^{i};\theta)= \left\{
 <p>$P(Y|X;\theta) = \prod_{i=1}^{N} (h_\theta(x^{i})^{y^i} · (1- h_\theta(x^{i})) ^{1-y^i})$</p>
 <p>将上诉代入到对数损失函数中，可以得到最终的损失函数为：</p>
 <p>$J(\theta) = -\frac{1}{N} y^ilog(h_\theta(x^{i})) + (1-y^i)log((1- h_\theta(x^{i}))$</p>
-<blockquote>
-<h4 id="指数损失"><a href="#指数损失" class="headerlink" title="指数损失"></a>指数损失</h4><p>公式</p>
+<h4 id="指数损失"><a href="#指数损失" class="headerlink" title="指数损失"></a>指数损失</h4><blockquote>
+<p>公式</p>
 </blockquote>
 <p>$L(y, f(x)) = e^{-yf(x)}$</p>
 <blockquote>
 <p>特点</p>
 </blockquote>
 <p>对离群点、噪点非常敏感，经常用于AdaBoost中。</p>
-<blockquote>
-<h4 id="Hinge损失"><a href="#Hinge损失" class="headerlink" title="Hinge损失"></a>Hinge损失</h4><p>公式</p>
+<h4 id="Hinge损失"><a href="#Hinge损失" class="headerlink" title="Hinge损失"></a>Hinge损失</h4><blockquote>
+<p>公式</p>
 </blockquote>
 <p>$L(y, f(x)) = max(0, 1-yf(x))$</p>
 <blockquote>
@@ -762,6 +762,22 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
