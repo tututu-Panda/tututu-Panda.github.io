@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/yourusername/yourusername.github.io">
-  <title>Tag: KNN | 3to</title>
+  <title>3to</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="认真能做任何事.">
+  <meta name="description" content="损失函数 概念  损失函数是用来估量模型的预测值与实际值的不一致程度，是一个非负的实值函数。通常使用$L(Y, f(x))$进行表示，如果损失越小，则模型的鲁棒性（robust）则越强。">
 <meta name="keywords" content="3to">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="3to">
-<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/tags/KNN/index.html">
+<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/2019/08/21/损失函数/index.html">
 <meta property="og:site_name" content="3to">
-<meta property="og:description" content="认真能做任何事.">
+<meta property="og:description" content="损失函数 概念  损失函数是用来估量模型的预测值与实际值的不一致程度，是一个非负的实值函数。通常使用$L(Y, f(x))$进行表示，如果损失越小，则模型的鲁棒性（robust）则越强。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-21T08:03:57.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3to">
-<meta name="twitter:description" content="认真能做任何事.">
+<meta name="twitter:description" content="损失函数 概念  损失函数是用来估量模型的预测值与实际值的不一致程度，是一个非负的实值函数。通常使用$L(Y, f(x))$进行表示，如果损失越小，则模型的鲁棒性（robust）则越强。">
   
     <link rel="alternative" href="/atom.xml" title="3to" type="application/atom+xml">
   
@@ -152,60 +153,280 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-损失函数" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><blockquote>
+<p>概念</p>
+</blockquote>
+<p>损失函数是用来<strong>估量模型的预测值与实际值的不一致程度，是一个非负的实值函数。</strong>通常使用$L(Y, f(x))$进行表示，如果损失越小，则模型的鲁棒性（robust）则越强。</p>
+<a id="more"></a>
+<p>模型的结构风险函数包括了<strong>经验风险项、正则项</strong>，通常用可以表示为：</p>
+<p>$\theta^* = arg min \frac{1}{N} \sum_{i=1}^{N}L(y_i, f(x_i;\theta)) + \lambda \Phi(\theta) $</p>
+<p>前面的则是经验风险项，其中L代表损失函数，$\Phi$是正则化项或惩罚项。整个式子表达的意思是<strong>找到使目标函数最小时的$\theta$值</strong>。</p>
+<h4 id="均方误差（L2损失）"><a href="#均方误差（L2损失）" class="headerlink" title="均方误差（L2损失）"></a>均方误差（L2损失）</h4><blockquote>
+<p>公式</p>
+</blockquote>
+<p>$MSE = \frac{1}{N}\sum_{i=1}^{n}(y_i- \bar y)^2$</p>
+<p>对应的<strong>均方损失</strong>：$L(Y, f(X)) = (Y- f(X))^2$</p>
+<blockquote>
+<p>含义</p>
+</blockquote>
+<p>预测值与真实值之间距离的平方和。</p>
+<blockquote>
+<p>特点</p>
+</blockquote>
+<ol>
+<li>如果数据集中包含的某个噪点偏离实际总体均值过大的话，那么均方误差会将其<strong>进行平方放大</strong>，这就会导致赋值给离群点更高的权值。</li>
+<li>梯度在损失值较高时会比较大，随着损失接近0时而降低。</li>
+</ol>
+<h4 id="平均绝对值误差（L1损失）"><a href="#平均绝对值误差（L1损失）" class="headerlink" title="平均绝对值误差（L1损失）"></a>平均绝对值误差（L1损失）</h4><blockquote>
+<p>公式</p>
+</blockquote>
+<p>$MAE = \frac{1}{N}\sum_{i=1}^{n}|y_i - \bar y|$</p>
+<p>对应的<strong>平均绝对损失</strong>为：$L(Y, f(X)) = |Y - f(X)|$</p>
+<blockquote>
+<p>含义</p>
+</blockquote>
+<p>目标值与真实值之间距离的绝对值之和。</p>
+<blockquote>
+<p>特点</p>
+</blockquote>
+<ol>
+<li>适用与训练数据被离群点所影响时，即离群点的数据过大。</li>
+<li>由于MAE的梯度在任何时候都是相同的，那么即使是很小的损失，也会具有很大的梯度，这便会造成对于模型的学习不够好。</li>
+</ol>
+<h4 id="Huber-损失"><a href="#Huber-损失" class="headerlink" title="Huber 损失"></a>Huber 损失</h4><blockquote>
+<p>公式</p>
+</blockquote>
+<p>$\begin{equation}<br>\left\{<br>             \begin{array}{<strong>lr</strong>}<br>             \frac{1}{2}[y-f(x)]^2    &amp; |y-(fx)| \leq \delta \ <br>            \delta|y-f(x)|-\frac{1}{2} \delta^2  &amp; |y-f(x)| &gt; \delta<br>             \end{array}<br>\right.<br>\end{equation}  $</p>
+<blockquote>
+<p>含义</p>
+</blockquote>
+<p>当误差绝对值大于$\delta$时，采用类似于平均绝对值损失的方式；当误差绝对值小于$\delta$时，采用类似于均方损失的方式。</p>
+<blockquote>
+<p>特点</p>
+</blockquote>
+<ol>
+<li>对于损失较大的值，采用平均绝对损失的方式可以减轻异常值的影响。</li>
+<li>对于损失较小的值，采用均方损失能使其 在接近最小值时，梯度随之降低，从而使其更加精准。</li>
+</ol>
+<blockquote>
+<h4 id="Log-cosh-损失"><a href="#Log-cosh-损失" class="headerlink" title="Log-cosh 损失"></a>Log-cosh 损失</h4><p>公式</p>
+</blockquote>
+<p>$L(Y, Y^p) =  \sum_{i=1}^{n} log(cosh(y_i^p - y_i))$</p>
+<p>其中cosh为余弦双曲线：$\frac{e^x+e^{-x}}{2}$，是关于y轴对称的偶函数。</p>
+<blockquote>
+<p>含义</p>
+</blockquote>
+<p>log-cosh 是用于回归任务的一种损失函数，它是预测误差的双曲余弦的对数。</p>
+<blockquote>
+<p>特点</p>
+</blockquote>
+<ol>
+<li>对于较小的x：$log(cosh(x))$接近等价于$\frac{1}{2}{x^2}$;</li>
+<li>对于较大的x：其接近等价于$|x| - log(2)$</li>
+<li>这就导致了其虽然与均方误差类似，但是不会像均方误差一样被离群值所影响。</li>
+<li>其具有Huber Loss 的所有优点，并且处处二次可导。</li>
+</ol>
+<blockquote>
+<h4 id="Log-loss-对数损失-逻辑回归损失，交叉熵损失"><a href="#Log-loss-对数损失-逻辑回归损失，交叉熵损失" class="headerlink" title="Log-loss 对数损失(逻辑回归损失，交叉熵损失)"></a>Log-loss 对数损失(逻辑回归损失，交叉熵损失)</h4><p>公式</p>
+</blockquote>
+<p>$L(Y, P(Y|X)) = -log P(Y|X)$</p>
+<blockquote>
+<p>含义</p>
+</blockquote>
+<p>样本X为分类Y的情况下，使概率P(Y|X)达到最大值。即利用已知的样本分布，找到最有可能（最大概率）导致这种分布的参数值。因为log函数为单调递增的，那么当P找到最大值时，L即为最小值。</p>
+<p>逻辑回归的P(Y=y|x)的表达式为：</p>
+<p>$\begin{equation}<br>P(Y=y^{i} | x^{i};\theta)= \left\{<br>             \begin{array}{<strong>lr</strong>}<br>             h_\theta(x^{i}) = \frac{1}{1+e^{-\theta^Tx}} &amp; y^i = 1 \\<br>           1- h_\theta(x^{i}) = \frac{e^{-\theta^Tx}}{1+e^{-\theta^Tx}} &amp; y^i = 0<br>             \end{array}<br>\right.<br>\end{equation}  $</p>
+<p>将公式合并，即可得到第i个样本正确预测的概率：</p>
+<p>$P(Y=y^{i} | x^{i};\theta)= h_\theta(x^{i})^{y^i} · (1- h_\theta(x^{i})) ^{1-y^i}$</p>
+<p>假设每个样本的生成过程是独立的，那么在整个样本空间中的概率分布为：</p>
+<p>$P(Y|X;\theta) = \prod_{i=1}^{N} (h_\theta(x^{i})^{y^i} · (1- h_\theta(x^{i})) ^{1-y^i})$</p>
+<p>将上诉代入到对数损失函数中，可以得到最终的损失函数为：</p>
+<p>$J(\theta) = -\frac{1}{N} y^ilog(h_\theta(x^{i})) + (1-y^i)log((1- h_\theta(x^{i}))$</p>
+<blockquote>
+<h4 id="指数损失"><a href="#指数损失" class="headerlink" title="指数损失"></a>指数损失</h4><p>公式</p>
+</blockquote>
+<p>$L(y, f(x)) = e^{-yf(x)}$</p>
+<blockquote>
+<p>特点</p>
+</blockquote>
+<p>对离群点、噪点非常敏感，经常用于AdaBoost中。</p>
+<blockquote>
+<h4 id="Hinge损失"><a href="#Hinge损失" class="headerlink" title="Hinge损失"></a>Hinge损失</h4><p>公式</p>
+</blockquote>
+<p>$L(y, f(x)) = max(0, 1-yf(x))$</p>
+<blockquote>
+<p>特点</p>
+</blockquote>
+<ol>
+<li>如果被正确分类则损失为0，否则损失为$1-yf(x)$。常被SVM中使用的损失函数。</li>
+<li>对离群点、噪点不敏感。</li>
+</ol>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://zhuanlan.zhihu.com/p/36431289" target="_blank" rel="noopener">常见回归和分类损失函数比较</a><br><a href="https://zhuanlan.zhihu.com/p/38529433" target="_blank" rel="noopener">如何选择合适的损失函数，请看……</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1165263" target="_blank" rel="noopener">一文读懂机器学习常用损失函数</a></p>
+<p><a href="https://towardsdatascience.com/understanding-the-3-most-common-loss-functions-for-machine-learning-regression-23e0ef3e14d3" target="_blank" rel="noopener">Understanding the 3 most common loss functions for Machine Learning Regression</a></p>
+<p><a href="https://www.jianshu.com/p/477a8c1cb05d" target="_blank" rel="noopener">机器学习-损失函数详解</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/58883095" target="_blank" rel="noopener">常见的损失函数(loss function)总结</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/Alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/12/k最邻近(K-Nearest Neighbor)/" class="archive-article-date">
-  	<time datetime="2019-08-12T09:44:03.325Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/12/k最邻近(K-Nearest Neighbor)/">K最邻近（K-Nearest—Neighbor）</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">KNN</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/yourusername/yourusername.github.io/2019/08/21/损失函数/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/08/21/adaboost/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          adabost
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/08/19/随机森林/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">随机森林</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#损失函数"><span class="toc-number">1.</span> <span class="toc-text">损失函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#均方误差（L2损失）"><span class="toc-number">1.0.1.</span> <span class="toc-text">均方误差（L2损失）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#平均绝对值误差（L1损失）"><span class="toc-number">1.0.2.</span> <span class="toc-text">平均绝对值误差（L1损失）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Huber-损失"><span class="toc-number">1.0.3.</span> <span class="toc-text">Huber 损失</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Log-cosh-损失"><span class="toc-number">1.0.4.</span> <span class="toc-text">Log-cosh 损失</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Log-loss-对数损失-逻辑回归损失，交叉熵损失"><span class="toc-number">1.0.5.</span> <span class="toc-text">Log-loss 对数损失(逻辑回归损失，交叉熵损失)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指数损失"><span class="toc-number">1.0.6.</span> <span class="toc-text">指数损失</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hinge损失"><span class="toc-number">1.0.7.</span> <span class="toc-text">Hinge损失</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">2.</span> <span class="toc-text">参考链接</span></a></li>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -228,9 +449,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

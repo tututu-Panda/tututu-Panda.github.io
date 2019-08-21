@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/yourusername/yourusername.github.io">
-  <title>Tag: 随机森林 | 3to</title>
+  <title>adabost | 3to</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="认真能做任何事.">
-<meta name="keywords" content="3to">
-<meta property="og:type" content="website">
-<meta property="og:title" content="3to">
-<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/tags/随机森林/index.html">
+  <meta name="description" content="Adaboost原理 1. 概念 Adaboost，英文名称为“Adaptive Boosting”，意思为自适应增强。其通过在每一轮加强分错样本比例的权重，降低分对样本比例的权重，来达到改善分类器的效果，使其最终能够达到足够小的误差率。">
+<meta name="keywords" content="adaboost，集成学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="adabost">
+<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/2019/08/21/adaboost/index.html">
 <meta property="og:site_name" content="3to">
-<meta property="og:description" content="认真能做任何事.">
+<meta property="og:description" content="Adaboost原理 1. 概念 Adaboost，英文名称为“Adaptive Boosting”，意思为自适应增强。其通过在每一轮加强分错样本比例的权重，降低分对样本比例的权重，来达到改善分类器的效果，使其最终能够达到足够小的误差率。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-21T07:15:12.405Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3to">
-<meta name="twitter:description" content="认真能做任何事.">
+<meta name="twitter:title" content="adabost">
+<meta name="twitter:description" content="Adaboost原理 1. 概念 Adaboost，英文名称为“Adaptive Boosting”，意思为自适应增强。其通过在每一轮加强分错样本比例的权重，降低分对样本比例的权重，来达到改善分类器的效果，使其最终能够达到足够小的误差率。">
   
     <link rel="alternative" href="/atom.xml" title="3to" type="application/atom+xml">
   
@@ -152,60 +153,248 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-adaboost" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/19/随机森林/" class="archive-article-date">
-  	<time datetime="2019-08-19T09:37:01.783Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/19/随机森林/">随机森林</a>
+    <h1 class="article-title" itemprop="name">
+      adabost
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/08/21/adaboost/" class="archive-article-date">
+  	<time datetime="2019-08-21T08:05:34.182Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Adaboost原理"><a href="#Adaboost原理" class="headerlink" title="Adaboost原理"></a>Adaboost原理</h2><blockquote>
+<h4 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h4></blockquote>
+<p>Adaboost，英文名称为“Adaptive Boosting”，意思为自适应增强。其通过在每一轮加强分错样本比例的权重，降低分对样本比例的权重，来达到改善分类器的效果，使其最终能够达到足够小的误差率。</p>
+<a id="more"></a>
+<blockquote>
+<h4 id="2-算法流程"><a href="#2-算法流程" class="headerlink" title="2. 算法流程"></a>2. 算法流程</h4></blockquote>
+<ol>
+<li>首先初始化训练数据集的权值分布，每一个训练样本最初的权重都为1/N。<br>$W =  ( w_{11}, w_{12}, w_{1N}), w_{1i}  = \frac{1}{N}, i = 1,2,\dots,N$</li>
+</ol>
+<ol>
+<li>进行多次迭代，直到误差率到达约定效果或者迭代次数完成。<ol>
+<li>使用权值分布为$w_m$的训练样例得到基分类器$G_m$。<br>$G_m(x) : x-&gt;{-1, 1}$</li>
+</ol>
+</li>
+</ol>
+<ol>
+<li>计算上一轮得到的基分类器误差率。<br>$e_m = P(G_m(x_i)  \neq y_i) = \sum_{i=1}^{N} w_{mi} I(G_m(x_i) \neq y_i)$</li>
+</ol>
+<ol>
+<li>计算$G_m$前面的权重系数。<br>$\alpha_m = \frac{1}{2} log \frac{1-e_m}{e_m}$</li>
+</ol>
+<ol>
+<li><p>更新训练样本的权重系数。<br>$D_{m+1} = (w_{m+1,1}, w_{m+1,2}, \dots, w_{m+1, i}, \dots, w_{m+1, N} )$</p>
+<p>$w_{m+1, i} = \frac{w_{mi}}{Z_m} exp (-\alpha_m y_i G_m(x_i)), i = 1,2, \dots, N$</p>
+</li>
+</ol>
+<p>   其中$Z_m$是规范化因子，使得$D_{m+1}$成为一个概率分布：<br>   $Z_m = \sum_{i=1}^{N} w_{mi}    exp   (-\alpha_m y_i G_m(x_i)$</p>
+<ol>
+<li>组合各个弱分类器，从而得到最终分类器。<br>$f(x) = \sum_{m=1}^{M} \alpha_m G_m(x)$<br>$G(x) = sign(f(x)) = sign(\sum_{m=1}^{M} \alpha_m G_m(x))$</li>
+</ol>
+<blockquote>
+<h4 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3. 代码实现"></a>3. 代码实现</h4><h5 id="1-训练基分类器"><a href="#1-训练基分类器" class="headerlink" title="1. 训练基分类器"></a>1. 训练基分类器</h5></blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">adaBoostTrainDS</span><span class="params">(dataArr, labelArr, numIt=<span class="number">40</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    迭代训练基学习器</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        dataArr   特征标签集合</span></span><br><span class="line"><span class="string">        labelArr  分类标签集合</span></span><br><span class="line"><span class="string">        numIt     实例数</span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        weakClassArr  弱分类器的集合</span></span><br><span class="line"><span class="string">        aggClassEst   预测的分类结果值</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    weakClassArr = []</span><br><span class="line">    m = shape(dataArr)[<span class="number">0</span>]</span><br><span class="line">    <span class="comment"># 初始化 D，设置每行数据的样本的所有特征权重集合，平均分为m份</span></span><br><span class="line">    D = mat(ones((m, <span class="number">1</span>))/m)</span><br><span class="line">    aggClassEst = mat(zeros((m, <span class="number">1</span>)))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(numIt):</span><br><span class="line">        <span class="comment"># 得到该决策树i的模型、最小误差率、结果集</span></span><br><span class="line">        bestStump, error, classEst = buildStump(dataArr, labelArr, D)</span><br><span class="line">        <span class="comment"># 根据误差率计算α系数,α即代表该决策树在最终分类所占的权重</span></span><br><span class="line">        <span class="comment"># α = 1/2log[(1-e)/e]</span></span><br><span class="line">        alpha = float(<span class="number">0.5</span>*log((<span class="number">1.0</span>-error)/max(error, <span class="number">1e-16</span>)))</span><br><span class="line"></span><br><span class="line">        bestStump[<span class="string">'alpha'</span>] = alpha</span><br><span class="line">        weakClassArr.append(bestStump)</span><br><span class="line">        <span class="comment"># 接着需要更新训练数集的权值分布，进行下一次迭代</span></span><br><span class="line">        <span class="comment"># w_(m+i) = w_(mi) / Z_m exp(-α_m * y_i * G_m(x_i))</span></span><br><span class="line">        expon = multiply(<span class="number">-1</span>*alpha*mat(labelArr).T, classEst)</span><br><span class="line">        <span class="comment"># D = (w_(m+1,1), w_(m+1,2), ···, w_(m+1,i), w_(m+1N) )</span></span><br><span class="line">        D = multiply(D, exp(expon))</span><br><span class="line">        D = D/D.sum()</span><br><span class="line">        <span class="comment"># 得到基本分类器sign(f(x))</span></span><br><span class="line">        aggClassEst += alpha*classEst</span><br><span class="line">        <span class="comment"># 计算错误比例，如果该比例为0则停止</span></span><br><span class="line">        aggErrors = multiply(sign(aggClassEst) != mat(labelArr).T, ones((m, <span class="number">1</span>)))</span><br><span class="line">        errorRate = aggErrors.sum()/m</span><br><span class="line">        <span class="keyword">if</span> errorRate == <span class="number">0.0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> weakClassArr, aggClassEst</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h5 id="2-创建决策树模型"><a href="#2-创建决策树模型" class="headerlink" title="2. 创建决策树模型"></a>2. 创建决策树模型</h5></blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">buildStump</span><span class="params">(dataArr, labelArr, D)</span>:</span></span><br><span class="line">    dataMat = mat(dataArr)</span><br><span class="line">    labelMat = mat(labelArr).T</span><br><span class="line">    m, n = shape(dataMat)</span><br><span class="line">    <span class="comment"># 初始化数据</span></span><br><span class="line">    numSteps = <span class="number">10.0</span>     <span class="comment"># 将阈值取多少份来计算误差率</span></span><br><span class="line">    bestStump = &#123;&#125;</span><br><span class="line">    bestClasEst = mat(zeros((m, <span class="number">1</span>)))</span><br><span class="line">    minError = inf</span><br><span class="line">    <span class="comment"># 循环所有的feature列，将列切分成 若干份，每一段以最左边的点作为分类节点</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">        rangeMin = dataMat[:, i].min()</span><br><span class="line">        rangeMax = dataMat[:, i].max()</span><br><span class="line">        <span class="comment"># 计算每一份的元素个数</span></span><br><span class="line">        stepSize = (rangeMax-rangeMin)/numSteps</span><br><span class="line">        <span class="comment"># 如 numSteps = 2 rangeMax = 10 rangeMin = 1 stepSize = (10-1)/2=4</span></span><br><span class="line">        <span class="comment"># 那么 每次的阈值为  1+(-1)*4 [-1次]   1+0*4 [0次]    1+1*4[1次]   1+2*4[2次]</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">-1</span>, int(numSteps)+<span class="number">1</span>):</span><br><span class="line">            <span class="comment"># 通过阈值比较数据进行分类</span></span><br><span class="line">            <span class="keyword">for</span> inequal <span class="keyword">in</span> [<span class="string">'lt'</span>, <span class="string">'gt'</span>]:</span><br><span class="line">                threshVal = (rangeMin + float(j) * stepSize)        <span class="comment"># 对阈值进行改变，来重新划分</span></span><br><span class="line">                <span class="comment"># 根据阈值划分的结果集</span></span><br><span class="line">                predictedVals = stumpClassify(dataMat, i, threshVal, inequal)</span><br><span class="line">                errArr = mat(ones((m, <span class="number">1</span>)))</span><br><span class="line">                errArr[predictedVals == labelMat] = <span class="number">0</span>   <span class="comment"># 得到每行的错误信息，错误为1，正确为0</span></span><br><span class="line">                weightedError = D.T*errArr  <span class="comment"># 得到误差率</span></span><br><span class="line">                <span class="keyword">if</span> weightedError &lt; minError:</span><br><span class="line">                    minError = weightedError</span><br><span class="line">                    bestClasEst = predictedVals.copy()</span><br><span class="line">                    bestStump[<span class="string">'dim'</span>] = i</span><br><span class="line">                    bestStump[<span class="string">'thresh'</span>] = threshVal</span><br><span class="line">                    bestStump[<span class="string">'ineq'</span>] = inequal</span><br><span class="line">    <span class="comment"># bestStump 表示分类器的结果，在第几个列上，用大于／小于比较，阈值是多少</span></span><br><span class="line">    <span class="keyword">return</span> bestStump, minError, bestClasEst</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h5 id="3-根据阈值划分数据集"><a href="#3-根据阈值划分数据集" class="headerlink" title="3. 根据阈值划分数据集"></a>3. 根据阈值划分数据集</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stumpClassify</span><span class="params">(dataMat, dimen, threshVal, threshIneq)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    数据集feature列的value值为基准，以threshVal阈值进行划分</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 默认都是1</span></span><br><span class="line">    retArray = ones((shape(dataMat)[<span class="number">0</span>], <span class="number">1</span>))</span><br><span class="line">    <span class="keyword">if</span> threshIneq == <span class="string">'lt'</span>:</span><br><span class="line">        retArray[dataMat[:, dimen] &lt;= threshVal] = <span class="number">-1.0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        retArray[dataMat[:, dimen] &gt; threshVal] = <span class="number">-1.0</span></span><br><span class="line">    <span class="keyword">return</span> retArray</span><br></pre></td></tr></table></figure>
+<h5 id="4-得到最终的分类器"><a href="#4-得到最终的分类器" class="headerlink" title="4. 得到最终的分类器"></a>4. 得到最终的分类器</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">adaClassify</span><span class="params">(datToClass, classifierArr)</span>:</span></span><br><span class="line">    dataMat = mat(datToClass)</span><br><span class="line">    m = shape(dataMat)[<span class="number">0</span>]</span><br><span class="line">    aggClassEst = mat(zeros((m, <span class="number">1</span>)))</span><br><span class="line">    <span class="comment"># 循环 多个分类器</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(classifierArr)):</span><br><span class="line">        <span class="comment"># 前提： 我们已经知道了最佳的分类器的实例</span></span><br><span class="line">        <span class="comment"># 通过分类器来核算每一次的分类结果，然后通过alpha*每一次的结果 得到最后的权重加和的值。</span></span><br><span class="line">        classEst = stumpClassify(dataMat, classifierArr[i][<span class="string">'dim'</span>], classifierArr[i][<span class="string">'thresh'</span>], classifierArr[i][<span class="string">'ineq'</span>])</span><br><span class="line">        aggClassEst += classifierArr[i][<span class="string">'alpha'</span>]*classEst</span><br><span class="line">        <span class="comment"># print aggClassEst</span></span><br><span class="line">    <span class="keyword">return</span> sign(aggClassEst)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="个人总结"><a href="#个人总结" class="headerlink" title="个人总结"></a>个人总结</h2><blockquote>
+<h4 id="算法总结"><a href="#算法总结" class="headerlink" title="算法总结"></a>算法总结</h4></blockquote>
+<ol>
+<li>由于本算法中每一个基分类器都需要根据上一步操作的结果来进行训练，因此不能进行并行操作，效率较慢。</li>
+<li>算法中最重要的步骤是如何得到基分类器： 其通过选取让误差率最低的阈值来设计基本分类器。</li>
+<li>其次便是每次都需要对数据集进行权重的更新。</li>
+</ol>
+<h2 id="AdaBoost采用指数损失的原因"><a href="#AdaBoost采用指数损失的原因" class="headerlink" title="AdaBoost采用指数损失的原因"></a>AdaBoost采用指数损失的原因</h2><p>如果将指数损失表示为期望值的形式，则为：</p>
+<p>$E(e^{-yf(x)}|x) = P(y=1|x)e^{-f(x)} + P(y=-1|x)e^{f(x)}$</p>
+<p>由于求得是最小化损失值，那么对上式求导令为0可得：</p>
+<p>$-P(Yy=1|x)e^{-f(x)}+P(y = -1|x)e^{f(x)} = 0$</p>
+<p>化简可以得到：</p>
+<p>$<br>f(x) = \frac{1}{2} log \frac{P(y=1 | x)}{P(y = -1|x)}  \\<br>P(y=1|x) = \frac{1}{1+e^{-2f(x)}}<br>$</p>
+<p>其与logistic regression类似，因此每一轮最小化指数损失就是在训练一个logistic regression模型，来逼近对数几率。</p>
+<p>那么可以得到：</p>
+<p>$<br>sign(f(x)) = sign(\frac{1}{2} log \frac{P(y=1 | x)}{P(y = -1|x)} ) \\<br>= \begin{equation}<br>\left\{<br>             \begin{array}{<strong>lr</strong>}<br>            1    &amp; P(y=1|x) &gt; P(y=-1|x) \ <br>            -1 &amp; P(y=1|x) &lt; P(y=-1|x)<br>             \end{array}<br>\right.<br>\end{equation}    \\<br>= argmax_{y\subset{\{1,-1\}}}P(y|x)<br>$</p>
+<p>这就意味着对于每个样本x都选择后验概率最大的类别。若指数损失最小化，那么分类错别率就会达到最小化。</p>
+<h2 id="adaBoost的数学推导"><a href="#adaBoost的数学推导" class="headerlink" title="adaBoost的数学推导"></a>adaBoost的数学推导</h2><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="[https://github.com/apachecn/AiLearning/blob/master/docs/ml/7.%E9%9B%86%E6%88%90%E6%96%B9%E6%B3%95-%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E5%92%8CAdaBoost.md](https://github.com/apachecn/AiLearning/blob/master/docs/ml/7.集成方法-随机森林和AdaBoost.md">7.集成方法-随机森林和AdaBoost</a>)</p>
+<p><strong>*</strong><a href="https://www.imooc.com/article/258253" target="_blank" rel="noopener">【机器学习】集成学习——AdaBoost算法与原理推导</a></p>
+<p><a href="https://blog.csdn.net/v_JULY_v/article/details/40718799" target="_blank" rel="noopener">Adaboost 算法的原理与推导</a></p>
+<p><a href="https://www.cnblogs.com/liuwu265/p/4692347.html" target="_blank" rel="noopener">[AdaBoost 算法原理及推导]</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/37358517" target="_blank" rel="noopener">集成学习之Boosting —— AdaBoost原理</a></p>
+<p><a href="https://en.wikipedia.org/wiki/AdaBoost#Statistical_understanding_of_boosting" target="_blank" rel="noopener">AdaBoost</a></p>
+<p>[<a href="http://www.52caml.com/head_first_ml/ml-chapter6-boosting-family/" target="_blank" rel="noopener">第06章：深入浅出ML之Boosting家族</a>]</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/Alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">随机森林</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">adaboost，集成学习</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/yourusername/yourusername.github.io/2019/08/21/adaboost/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/08/21/损失函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Adaboost原理"><span class="toc-number">1.</span> <span class="toc-text">Adaboost原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-概念"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. 概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-算法流程"><span class="toc-number">1.0.2.</span> <span class="toc-text">2. 算法流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-代码实现"><span class="toc-number">1.0.3.</span> <span class="toc-text">3. 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-训练基分类器"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">1. 训练基分类器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-创建决策树模型"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">2. 创建决策树模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-根据阈值划分数据集"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">3. 根据阈值划分数据集</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-得到最终的分类器"><span class="toc-number">1.0.3.4.</span> <span class="toc-text">4. 得到最终的分类器</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#个人总结"><span class="toc-number">2.</span> <span class="toc-text">个人总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#算法总结"><span class="toc-number">2.0.1.</span> <span class="toc-text">算法总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AdaBoost采用指数损失的原因"><span class="toc-number">3.</span> <span class="toc-text">AdaBoost采用指数损失的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#adaBoost的数学推导"><span class="toc-number">4.</span> <span class="toc-text">adaBoost的数学推导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -228,9 +417,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -364,6 +553,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">随机森林</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">adaboost，集成学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">随机森林，集成学习</a>
               </li>
             
             <div class="clearfix"></div>
