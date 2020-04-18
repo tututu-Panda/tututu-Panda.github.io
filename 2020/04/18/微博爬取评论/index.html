@@ -6,19 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://github.com/yourusername/yourusername.github.io">
-  <title>Tag: adaboost，集成学习 | 3to</title>
+  <title>模拟微博登录 | 3to</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="认真能做任何事.">
-<meta name="keywords" content="3to">
-<meta property="og:type" content="website">
-<meta property="og:title" content="3to">
-<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/tags/adaboost，集成学习/index.html">
+  <meta name="description" content="一. 正常登陆流程1. 正常登录请求查看首先正常登陆微博账户，并通过chrome的network查看网络传输的相关信息。这个过程需要多次进行比较，去发现哪些是动态变化的，哪些是固定的。">
+<meta name="keywords" content="爬虫,微博登录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模拟微博登录">
+<meta property="og:url" content="https://github.com/yourusername/yourusername.github.io/2020/04/18/微博爬取评论/index.html">
 <meta property="og:site_name" content="3to">
-<meta property="og:description" content="认真能做任何事.">
+<meta property="og:description" content="一. 正常登陆流程1. 正常登录请求查看首先正常登陆微博账户，并通过chrome的network查看网络传输的相关信息。这个过程需要多次进行比较，去发现哪些是动态变化的，哪些是固定的。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="c:/Users/51904/Desktop/学习笔记/note/note/微博爬虫/登陆框出现.png">
+<meta property="og:image" content="c:/Users/51904/Desktop/学习笔记/note/note/微博爬虫/登陆演示1.png">
+<meta property="og:image" content="c:/Users/51904/Desktop/学习笔记/note/note/微博爬虫/登陆演示2.png">
+<meta property="og:image" content="c:/Users/51904/Desktop/学习笔记/note/note/微博爬虫/时间戳.png">
+<meta property="og:image" content="c:/Users/51904/Desktop/学习笔记/note/note/微博爬虫/login.png">
+<meta property="og:image" content="c:/Users/51904/Desktop/学习笔记/note/note/微博爬虫/prelogin.png">
+<meta property="og:image" content="c:/Users/51904/Desktop/学习笔记/note/note/微博爬虫/relog.png">
+<meta property="og:image" content="c:/Users/51904/Desktop/学习笔记/note/note/微博爬虫/encrypt.png">
+<meta property="og:updated_time" content="2020-04-18T14:36:50.590Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3to">
-<meta name="twitter:description" content="认真能做任何事.">
+<meta name="twitter:title" content="模拟微博登录">
+<meta name="twitter:description" content="一. 正常登陆流程1. 正常登录请求查看首先正常登陆微博账户，并通过chrome的network查看网络传输的相关信息。这个过程需要多次进行比较，去发现哪些是动态变化的，哪些是固定的。">
+<meta name="twitter:image" content="c:/Users/51904/Desktop/学习笔记/note/note/微博爬虫/登陆框出现.png">
   
     <link rel="alternative" href="/atom.xml" title="3to" type="application/atom+xml">
   
@@ -152,60 +162,265 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-微博爬取评论" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/02/adaboost/" class="archive-article-date">
-  	<time datetime="2020-03-02T10:45:14.931Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/02/adaboost/">adabost</a>
+    <h1 class="article-title" itemprop="name">
+      模拟微博登录
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/04/18/微博爬取评论/" class="archive-article-date">
+  	<time datetime="2020-04-18T14:36:11.263Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-正常登陆流程"><a href="#一-正常登陆流程" class="headerlink" title="一. 正常登陆流程"></a>一. 正常登陆流程</h2><h3 id="1-正常登录请求查看"><a href="#1-正常登录请求查看" class="headerlink" title="1. 正常登录请求查看"></a>1. 正常登录请求查看</h3><p>首先正常登陆微博账户，并通过chrome的network查看网络传输的相关信息。这个过程需要多次进行比较，去发现哪些是动态变化的，哪些是固定的。</p>
+<a id="more"></a>
+<h5 id="1-点击登录"><a href="#1-点击登录" class="headerlink" title="1. 点击登录"></a>1. 点击登录</h5><p>首先清空network后点击登录，出现登录框。期间请求了多个地址，依次查看并可以观察到一个重要的信息。</p>
+<p><img src="C:\Users\51904\Desktop\学习笔记\note\note\微博爬虫\登陆框出现.png" alt></p>
+<h5 id="2-输入相关信息，点击登录按钮"><a href="#2-输入相关信息，点击登录按钮" class="headerlink" title="2. 输入相关信息，点击登录按钮"></a>2. 输入相关信息，点击登录按钮</h5><p>随机输入相关信息，可以得到后台返回的信息。</p>
+<p><img src="C:\Users\51904\Desktop\学习笔记\note\note\微博爬虫\登陆演示1.png" alt></p>
+<h5 id="3-分析请求头"><a href="#3-分析请求头" class="headerlink" title="3. 分析请求头"></a>3. 分析请求头</h5><p>通过分析请求头结合第一步点击登录框时返回的数据</p>
+<p><img src="C:\Users\51904\Desktop\学习笔记\note\note\微博爬虫\登陆演示2.png" alt></p>
+<p>便可以知道得到以下主要主要信息：</p>
+<ol>
+<li>servertime</li>
+<li>nonce</li>
+<li>pubkey</li>
+<li>rsakv</li>
+</ol>
+<h3 id="2-分析数据"><a href="#2-分析数据" class="headerlink" title="2. 分析数据"></a>2. 分析数据</h3><blockquote>
+<p>账户和密码</p>
+</blockquote>
+<p>按照常理想象，登陆肯定需要<strong>账户</strong>以及<strong>密码</strong>，对应常用字段“account”和“password”。但从中无法对应，猜想可能对应的是“su”和“sp”字段。</p>
+<blockquote>
+<p>服务时间</p>
+</blockquote>
+<p>字段中包含了“servicetime”字段，猜想可能是时间戳格式，将其通过工具转换，确认为时间戳。</p>
+<p><img src="C:\Users\51904\Desktop\学习笔记\note\note\微博爬虫\时间戳.png" alt></p>
+<blockquote>
+<p>nonce</p>
+</blockquote>
+<p>动态变换，暂时未知(但通过词义可以推断其是随机数)</p>
+<blockquote>
+<p>pubkey</p>
+</blockquote>
+<p>固定值</p>
+<blockquote>
+<p>rsakv</p>
+</blockquote>
+<p>固定，结合rsa需要公钥信息，推断pubkey为公钥。</p>
+<p>从上面的数据可以看出，公共信息可以直接去请求prelogin这个接口，得到相关的信息，而不需要自己去构造。</p>
+<h2 id="二-数据加密"><a href="#二-数据加密" class="headerlink" title="二. 数据加密"></a>二. 数据加密</h2><p>通过分析以上字段可以推断出，微博对用户输入的账户和密码进行了加密操作。因此接下来便需要进一步分析是如何进行加密的。</p>
+<h3 id="1-找到加密方式"><a href="#1-找到加密方式" class="headerlink" title="1. 找到加密方式"></a>1. 找到加密方式</h3><p><img src="C:\Users\51904\Desktop\学习笔记\note\note\微博爬虫\login.png" alt></p>
+<p>依然从登录时触发的请求出发，可以看到其中登录请求出现载loginLayer.js中，因此进入其中。</p>
+<p><img src="C:\Users\51904\Desktop\学习笔记\note\note\微博爬虫\prelogin.png" alt></p>
+<p>进入js文件可以发现一个重要的方法==“verify”==，可以得知其主要是用来相关字段的验证。并且得知了一个重要的方法==prelogin()==，结合之前有个“prelogin”的接口，两者之间可能有关联，因此进入其中进行查看。</p>
+<p><img src="C:\Users\51904\Desktop\学习笔记\note\note\微博爬虫\relog.png" alt></p>
+<p>发现其是构造prelogin接口的方法，可以从中得到==su==的加密方式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su : d </span><br><span class="line">d = sinaSSOEncoder.base64.encode(urlencode(d))</span><br></pre></td></tr></table></figure>
+<p>以上是找到了prelogin请求的构造，并找到了账户加密的方式。剩下的自己太菜了，不能一步一步进行找到剩下的。</p>
+<p>通过之前的请求post数据可知，相关数据可能需要通过pubkey进行加密。因此选择通过全局查询关键字==pubkey==， 知道其赋值给了==rsaPubkey==，进而继续搜索该值得到下图关键信息。</p>
+<p><img src="C:\Users\51904\Desktop\学习笔记\note\note\微博爬虫\encrypt.png" alt></p>
+<p>得到加密密码的方式，首先设置公钥（因此是固定），然后通过servertime、nonce和b进行加密，然后复制给sp，这里便可以推出b代表用户输入的密码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f.setPublic(me.rsaPubkey, <span class="string">"10001"</span>);</span><br><span class="line">b = f.encrypt([me.servertime, me.nonce].join(<span class="string">"\t"</span>) + <span class="string">"\n"</span> + b)</span><br><span class="line">e.sp = b;</span><br></pre></td></tr></table></figure>
+<h3 id="2-总结"><a href="#2-总结" class="headerlink" title="2. 总结"></a>2. 总结</h3><ol>
+<li>su代表账户信息，加密得到。</li>
+<li>sp代表密码，动态rsa加密得到。</li>
+<li>nonce随机生成数，在加密密码时用到。</li>
+</ol>
+<p>因此便得到了所有需要加密的信息，接下来便是通过python实现，然后模拟登录。</p>
+<h2 id="三-模拟登陆"><a href="#三-模拟登陆" class="headerlink" title="三. 模拟登陆"></a>三. 模拟登陆</h2><h3 id="1-构造账户"><a href="#1-构造账户" class="headerlink" title="1. 构造账户"></a>1. 构造账户</h3><p>通过js文件可得知，加密方式通过如下实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d = sinaSSOEncoder.base64.encode(urlencode(d))</span><br></pre></td></tr></table></figure>
+<p>通过python实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username_quote = urllib.parse.quote_plus(self.user_name)</span><br><span class="line">username_base64 = base64.b64encode(username_quote.encode(<span class="string">"utf-8"</span>))</span><br><span class="line"><span class="keyword">return</span> username_base64.decode(<span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2-构造密码"><a href="#2-构造密码" class="headerlink" title="2. 构造密码"></a>2. 构造密码</h3><blockquote>
+<p>构造密码需要==nonce==、==servertime==、==pubkey==根据用户的密码动态加密生成，因此需要从prelogin中得到相关动态信息。</p>
+</blockquote>
+<h4 id="1-获取动态信息"><a href="#1-获取动态信息" class="headerlink" title="1. 获取动态信息"></a>1. 获取动态信息</h4><p>通过上面的分析图可以知道，在请求prelogin的时候，需要传入==su==以及==_==参数。su代表加密账户，而这个==_==自己没找到出处，但参考了其他技术文章后得到是当前时间戳放大了1000倍。</p>
+<p>然后通过python实现得到json数据：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">logging.info(<span class="string">"-----请求json数据-----"</span>)</span><br><span class="line">login_url = <span class="string">"http://login.sina.com.cn/sso/prelogin.php"</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">"entry"</span>: <span class="string">"account"</span>,</span><br><span class="line">    <span class="string">"callback"</span>: <span class="string">"sinaSSOController.preloginCallBack"</span>,</span><br><span class="line">    <span class="string">"rsakt"</span>: <span class="string">"mod"</span>,</span><br><span class="line">    <span class="string">"checkpin"</span>: <span class="string">"1"</span>,</span><br><span class="line">    <span class="string">"client"</span>: <span class="string">"ssologin.js(v1.4.15)"</span>,</span><br><span class="line">    <span class="string">"su"</span>: su_value,</span><br><span class="line">    <span class="string">"_"</span>: int(time.time() * <span class="number">1000</span>),</span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(url, params=data)</span><br></pre></td></tr></table></figure>
+<h4 id="2-加密密码"><a href="#2-加密密码" class="headerlink" title="2. 加密密码"></a>2. 加密密码</h4><p>密码加密的js文件主要通过以下步骤实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f.setPublic(me.rsaPubkey, <span class="string">"10001"</span>);</span><br><span class="line">b = f.encrypt([me.servertime, me.nonce].join(<span class="string">"\t"</span>) + <span class="string">"\n"</span> + b)</span><br><span class="line">e.sp = b;</span><br></pre></td></tr></table></figure>
+<p>其中第一步代表设置公钥。</p>
+<p>第二步代表将servertime和nonce通过”\t”结合，加上“\n”和密码，作为整体的加密字符串，进行密码加密。</p>
+<p>通过python实现:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string = (str(servertime) + <span class="string">"\t"</span> + str(nonce) + <span class="string">"\n"</span> + str(self.pass_word)).encode(<span class="string">"utf-8"</span>)</span><br><span class="line">public_key = rsa.PublicKey(int(pubkey, <span class="number">16</span>), int(<span class="string">"10001"</span>, <span class="number">16</span>))</span><br><span class="line">password = rsa.encrypt(string, public_key)</span><br><span class="line">password = binascii.b2a_hex(password)</span><br><span class="line"><span class="keyword">return</span> password.decode()</span><br></pre></td></tr></table></figure>
+<h3 id="3-构造登录"><a href="#3-构造登录" class="headerlink" title="3. 构造登录"></a>3. 构造登录</h3><h4 id="1-首先构造post数据"><a href="#1-首先构造post数据" class="headerlink" title="1.首先构造post数据"></a>1.首先构造post数据</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">post_data = &#123;</span><br><span class="line">    "entry": "weibo",</span><br><span class="line">    "gateway": "1",</span><br><span class="line">    "from": "",</span><br><span class="line">    "savestate": "7",</span><br><span class="line">    "userticket": "1",</span><br><span class="line">    "vsnf": "1",</span><br><span class="line">    "service": "miniblog",</span><br><span class="line">    "encoding": "UTF-8",</span><br><span class="line">    "pwencode": "rsa2",</span><br><span class="line">    "sr": "1280*800",</span><br><span class="line">    "prelt": "529",</span><br><span class="line">    "url": "http://weibo.com/ajaxlogin.php?framelogin=1&amp;callback=parent.sinaSSOController.feedBackUrlCallBack",</span><br><span class="line">    "rsakv": json_data["rsakv"],</span><br><span class="line">    "servertime": json_data["servertime"],</span><br><span class="line">    "nonce": json_data["nonce"],</span><br><span class="line">    "su": s_user_name,</span><br><span class="line">    "sp": s_pass_word,</span><br><span class="line">    "returntype": "TEXT",</span><br><span class="line">&#125;</span><br><span class="line">// json_data 代表返回的prelogin数据</span><br><span class="line">// s_user_name 加密账户 s_pass_word 加密密码</span><br></pre></td></tr></table></figure>
+<h4 id="2-验证码链接生成"><a href="#2-验证码链接生成" class="headerlink" title="2. 验证码链接生成"></a>2. 验证码链接生成</h4><p>登录的时候可能会遇到输入验证码的情况，解决方法是直接根据验证码生成规则，去请求它生成的链接，然后手动输入验证码。这里借鉴的别人的代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get captcha code</span></span><br><span class="line"><span class="keyword">if</span> json_data.get(<span class="string">"showpin"</span>) == <span class="number">1</span>:</span><br><span class="line">    url = <span class="string">"http://login.sina.com.cn/cgi/pin.php?r=%d&amp;s=0&amp;p=%s"</span> %(int(time.time()), json_data[<span class="string">"pcid"</span>])</span><br><span class="line">    logging.warning(<span class="string">"查看验证码："</span> + url)</span><br><span class="line">    code = input(<span class="string">"请输入验证码:"</span>)</span><br><span class="line">    post_data[<span class="string">"pcid"</span>] = json_data[<span class="string">"pcid"</span>]</span><br><span class="line">    post_data[<span class="string">"door"</span>] = code</span><br></pre></td></tr></table></figure>
+<h4 id="3-请求登录"><a href="#3-请求登录" class="headerlink" title="3. 请求登录"></a>3. 请求登录</h4><p>然后便可以根据构造的post信息，去请求后台登录接口</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># login weibo.com</span></span><br><span class="line">self.session = requests.Session()</span><br><span class="line">login_url_1 = <span class="string">"http://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.4.18)&amp;_=%d"</span> % int(time.time())</span><br><span class="line">json_data_1 = self.session.post(login_url_1, data=post_data).json()</span><br><span class="line"><span class="keyword">if</span> json_data_1[<span class="string">"retcode"</span>] == <span class="string">"0"</span>:</span><br><span class="line">    params = &#123;</span><br><span class="line">        <span class="string">"callback"</span>: <span class="string">"sinaSSOController.callbackLoginStatus"</span>,</span><br><span class="line">        <span class="string">"client"</span>: <span class="string">"ssologin.js(v1.4.18)"</span>,</span><br><span class="line">        <span class="string">"ticket"</span>: json_data_1[<span class="string">"ticket"</span>],</span><br><span class="line">        <span class="string">"ssosavestate"</span>: int(time.time()),</span><br><span class="line">        <span class="string">"_"</span>: int(time.time() * <span class="number">1000</span>),</span><br><span class="line">    &#125;</span><br><span class="line">    response = self.session.get(<span class="string">"https://passport.weibo.com/wbsso/login"</span>, params=params)</span><br><span class="line">    json_data_2 = json.loads(re.search(<span class="string">r'[(](.*?)[)]'</span>, response.text).group(<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">if</span> json_data_2[<span class="string">"result"</span>] <span class="keyword">is</span> <span class="literal">True</span>:</span><br><span class="line">        self.user_uniqueid = json_data_2[<span class="string">"userinfo"</span>][<span class="string">"uniqueid"</span>]</span><br><span class="line">        self.user_nick = json_data_2[<span class="string">"userinfo"</span>][<span class="string">"displayname"</span>]</span><br><span class="line">        logging.warning(<span class="string">"WeiBoLogin succeed: %s"</span>, json_data_2)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        logging.warning(<span class="string">"WeiBoLogin failed: %s"</span>, json_data_2)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    logging.warning(<span class="string">"WeiBoLogin failed: %s"</span>, json_data_1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存session</span></span><br><span class="line">self.cookie = self.session.cookies.get_dict()</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/Alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">adaboost，集成学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">微博登录</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/yourusername/yourusername.github.io/2020/04/18/微博爬取评论/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/03/02/adaboost/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">adabost</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-正常登陆流程"><span class="toc-number">1.</span> <span class="toc-text">一. 正常登陆流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-正常登录请求查看"><span class="toc-number">1.1.</span> <span class="toc-text">1. 正常登录请求查看</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-点击登录"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">1. 点击登录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-输入相关信息，点击登录按钮"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">2. 输入相关信息，点击登录按钮</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-分析请求头"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">3. 分析请求头</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-分析数据"><span class="toc-number">1.2.</span> <span class="toc-text">2. 分析数据</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二-数据加密"><span class="toc-number">2.</span> <span class="toc-text">二. 数据加密</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-找到加密方式"><span class="toc-number">2.1.</span> <span class="toc-text">1. 找到加密方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-总结"><span class="toc-number">2.2.</span> <span class="toc-text">2. 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-模拟登陆"><span class="toc-number">3.</span> <span class="toc-text">三. 模拟登陆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-构造账户"><span class="toc-number">3.1.</span> <span class="toc-text">1. 构造账户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-构造密码"><span class="toc-number">3.2.</span> <span class="toc-text">2. 构造密码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-获取动态信息"><span class="toc-number">3.2.1.</span> <span class="toc-text">1. 获取动态信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-加密密码"><span class="toc-number">3.2.2.</span> <span class="toc-text">2. 加密密码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-构造登录"><span class="toc-number">3.3.</span> <span class="toc-text">3. 构造登录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-首先构造post数据"><span class="toc-number">3.3.1.</span> <span class="toc-text">1.首先构造post数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-验证码链接生成"><span class="toc-number">3.3.2.</span> <span class="toc-text">2. 验证码链接生成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-请求登录"><span class="toc-number">3.3.3.</span> <span class="toc-text">3. 请求登录</span></a></li></ol></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -228,9 +443,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
