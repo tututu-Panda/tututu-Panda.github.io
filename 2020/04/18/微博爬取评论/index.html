@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://github.com/img/微博爬虫/prelogin.png">
 <meta property="og:image" content="https://github.com/img/微博爬虫/relog.png">
 <meta property="og:image" content="https://github.com/img/微博爬虫/encrypt.png">
-<meta property="og:updated_time" content="2020-04-18T14:52:38.962Z">
+<meta property="og:updated_time" content="2020-04-18T15:05:11.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模拟微博登录">
 <meta name="twitter:description" content="一. 正常登陆流程1. 正常登录请求查看首先正常登陆微博账户，并通过chrome的network查看网络传输的相关信息。这个过程需要多次进行比较，去发现哪些是动态变化的，哪些是固定的。">
@@ -223,12 +223,12 @@
 <h3 id="1-找到加密方式"><a href="#1-找到加密方式" class="headerlink" title="1. 找到加密方式"></a>1. 找到加密方式</h3><p><img src="/img/微博爬虫/login.png" alt></p>
 <p>依然从登录时触发的请求出发，可以看到其中登录请求出现载loginLayer.js中，因此进入其中。</p>
 <p><img src="/img/微博爬虫/prelogin.png" alt></p>
-<p>进入js文件可以发现一个重要的方法==“verify”==，可以得知其主要是用来相关字段的验证。并且得知了一个重要的方法==prelogin()==，结合之前有个“prelogin”的接口，两者之间可能有关联，因此进入其中进行查看。</p>
+<p>进入js文件可以发现一个重要的方法<strong>“verify”</strong>，可以得知其主要是用来相关字段的验证。并且得知了一个重要的方法<strong>prelogin()</strong>，结合之前有个“prelogin”的接口，两者之间可能有关联，因此进入其中进行查看。</p>
 <p><img src="/img/微博爬虫/relog.png" alt></p>
-<p>发现其是构造prelogin接口的方法，可以从中得到==su==的加密方式</p>
+<p>发现其是构造prelogin接口的方法，可以从中得到<strong>su</strong>的加密方式</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su : d </span><br><span class="line">d = sinaSSOEncoder.base64.encode(urlencode(d))</span><br></pre></td></tr></table></figure>
 <p>以上是找到了prelogin请求的构造，并找到了账户加密的方式。剩下的自己太菜了，不能一步一步进行找到剩下的。</p>
-<p>通过之前的请求post数据可知，相关数据可能需要通过pubkey进行加密。因此选择通过全局查询关键字==pubkey==， 知道其赋值给了==rsaPubkey==，进而继续搜索该值得到下图关键信息。</p>
+<p>通过之前的请求post数据可知，相关数据可能需要通过pubkey进行加密。因此选择通过全局查询关键字<strong>pubkey</strong>， 知道其赋值给了<strong>rsaPubkey</strong>，进而继续搜索该值得到下图关键信息。</p>
 <p><img src="/img/微博爬虫/encrypt.png" alt></p>
 <p>得到加密密码的方式，首先设置公钥（因此是固定），然后通过servertime、nonce和b进行加密，然后复制给sp，这里便可以推出b代表用户输入的密码。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f.setPublic(me.rsaPubkey, <span class="string">"10001"</span>);</span><br><span class="line">b = f.encrypt([me.servertime, me.nonce].join(<span class="string">"\t"</span>) + <span class="string">"\n"</span> + b)</span><br><span class="line">e.sp = b;</span><br></pre></td></tr></table></figure>
@@ -243,9 +243,9 @@
 <p>通过python实现：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username_quote = urllib.parse.quote_plus(self.user_name)</span><br><span class="line">username_base64 = base64.b64encode(username_quote.encode(<span class="string">"utf-8"</span>))</span><br><span class="line"><span class="keyword">return</span> username_base64.decode(<span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="2-构造密码"><a href="#2-构造密码" class="headerlink" title="2. 构造密码"></a>2. 构造密码</h3><blockquote>
-<p>构造密码需要==nonce==、==servertime==、==pubkey==根据用户的密码动态加密生成，因此需要从prelogin中得到相关动态信息。</p>
+<p>构造密码需要<strong>nonce、servertime、pubkey</strong>根据用户的密码动态加密生成，因此需要从prelogin中得到相关动态信息。</p>
 </blockquote>
-<h4 id="1-获取动态信息"><a href="#1-获取动态信息" class="headerlink" title="1. 获取动态信息"></a>1. 获取动态信息</h4><p>通过上面的分析图可以知道，在请求prelogin的时候，需要传入==su==以及==_==参数。su代表加密账户，而这个==_==自己没找到出处，但参考了其他技术文章后得到是当前时间戳放大了1000倍。</p>
+<h4 id="1-获取动态信息"><a href="#1-获取动态信息" class="headerlink" title="1. 获取动态信息"></a>1. 获取动态信息</h4><p>通过上面的分析图可以知道，在请求prelogin的时候，<strong>需要传入su以及_参数</strong>。su代表加密账户，而这个<strong>“_“</strong>自己没找到出处，但参考了其他技术文章后得到是当前时间戳放大了1000倍。</p>
 <p>然后通过python实现得到json数据：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">logging.info(<span class="string">"-----请求json数据-----"</span>)</span><br><span class="line">login_url = <span class="string">"http://login.sina.com.cn/sso/prelogin.php"</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">"entry"</span>: <span class="string">"account"</span>,</span><br><span class="line">    <span class="string">"callback"</span>: <span class="string">"sinaSSOController.preloginCallBack"</span>,</span><br><span class="line">    <span class="string">"rsakt"</span>: <span class="string">"mod"</span>,</span><br><span class="line">    <span class="string">"checkpin"</span>: <span class="string">"1"</span>,</span><br><span class="line">    <span class="string">"client"</span>: <span class="string">"ssologin.js(v1.4.15)"</span>,</span><br><span class="line">    <span class="string">"su"</span>: su_value,</span><br><span class="line">    <span class="string">"_"</span>: int(time.time() * <span class="number">1000</span>),</span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(url, params=data)</span><br></pre></td></tr></table></figure>
 <h4 id="2-加密密码"><a href="#2-加密密码" class="headerlink" title="2. 加密密码"></a>2. 加密密码</h4><p>密码加密的js文件主要通过以下步骤实现：</p>
