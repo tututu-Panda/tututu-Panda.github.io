@@ -16,19 +16,19 @@
 <meta property="og:site_name" content="3to">
 <meta property="og:description" content="一. 正常登陆流程1. 正常登录请求查看首先正常登陆微博账户，并通过chrome的network查看网络传输的相关信息。这个过程需要多次进行比较，去发现哪些是动态变化的，哪些是固定的。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://github.com/yourusername/yourusername.github.io/2020/04/18/微博爬取评论/img/微博爬虫/登陆框出现.png">
-<meta property="og:image" content="https://github.com/yourusername/yourusername.github.io/2020/04/18/微博爬取评论/img/微博爬虫/登陆演示1.png">
-<meta property="og:image" content="https://github.com/yourusername/yourusername.github.io/2020/04/18/微博爬取评论/img/微博爬虫/登陆演示2.png">
-<meta property="og:image" content="https://github.com/yourusername/yourusername.github.io/2020/04/18/微博爬取评论/img/微博爬虫/时间戳.png">
-<meta property="og:image" content="https://github.com/yourusername/yourusername.github.io/2020/04/18/微博爬取评论/img/微博爬虫/login.png">
-<meta property="og:image" content="https://github.com/yourusername/yourusername.github.io/2020/04/18/微博爬取评论/img/微博爬虫/prelogin.png">
-<meta property="og:image" content="https://github.com/yourusername/yourusername.github.io/2020/04/18/微博爬取评论/img/微博爬虫/relog.png">
-<meta property="og:image" content="https://github.com/yourusername/yourusername.github.io/2020/04/18/微博爬取评论/img/微博爬虫/encrypt.png">
-<meta property="og:updated_time" content="2020-04-18T14:47:22.233Z">
+<meta property="og:image" content="https://github.com/img/微博爬虫/登陆框出现.png">
+<meta property="og:image" content="https://github.com/img/微博爬虫/登陆演示1.png">
+<meta property="og:image" content="https://github.com/img/微博爬虫/登陆演示2.png">
+<meta property="og:image" content="https://github.com/img/微博爬虫/时间戳.png">
+<meta property="og:image" content="https://github.com/img/微博爬虫/login.png">
+<meta property="og:image" content="https://github.com/img/微博爬虫/prelogin.png">
+<meta property="og:image" content="https://github.com/img/微博爬虫/relog.png">
+<meta property="og:image" content="https://github.com/img/微博爬虫/encrypt.png">
+<meta property="og:updated_time" content="2020-04-18T14:52:38.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模拟微博登录">
 <meta name="twitter:description" content="一. 正常登陆流程1. 正常登录请求查看首先正常登陆微博账户，并通过chrome的network查看网络传输的相关信息。这个过程需要多次进行比较，去发现哪些是动态变化的，哪些是固定的。">
-<meta name="twitter:image" content="https://github.com/yourusername/yourusername.github.io/2020/04/18/微博爬取评论/img/微博爬虫/登陆框出现.png">
+<meta name="twitter:image" content="https://github.com/img/微博爬虫/登陆框出现.png">
   
     <link rel="alternative" href="/atom.xml" title="3to" type="application/atom+xml">
   
@@ -185,11 +185,11 @@
         <h2 id="一-正常登陆流程"><a href="#一-正常登陆流程" class="headerlink" title="一. 正常登陆流程"></a>一. 正常登陆流程</h2><h3 id="1-正常登录请求查看"><a href="#1-正常登录请求查看" class="headerlink" title="1. 正常登录请求查看"></a>1. 正常登录请求查看</h3><p>首先正常登陆微博账户，并通过chrome的network查看网络传输的相关信息。这个过程需要多次进行比较，去发现哪些是动态变化的，哪些是固定的。</p>
 <a id="more"></a>
 <h5 id="1-点击登录"><a href="#1-点击登录" class="headerlink" title="1. 点击登录"></a>1. 点击登录</h5><p>首先清空network后点击登录，出现登录框。期间请求了多个地址，依次查看并可以观察到一个重要的信息。</p>
-<p><img src="img\微博爬虫\登陆框出现.png" alt></p>
+<p><img src="/img/微博爬虫/登陆框出现.png" alt></p>
 <h5 id="2-输入相关信息，点击登录按钮"><a href="#2-输入相关信息，点击登录按钮" class="headerlink" title="2. 输入相关信息，点击登录按钮"></a>2. 输入相关信息，点击登录按钮</h5><p>随机输入相关信息，可以得到后台返回的信息。</p>
-<p><img src="img\微博爬虫\登陆演示1.png" alt></p>
+<p><img src="/img/微博爬虫/登陆演示1.png" alt></p>
 <h5 id="3-分析请求头"><a href="#3-分析请求头" class="headerlink" title="3. 分析请求头"></a>3. 分析请求头</h5><p>通过分析请求头结合第一步点击登录框时返回的数据</p>
-<p><img src="img\微博爬虫\登陆演示2.png" alt></p>
+<p><img src="/img/微博爬虫/登陆演示2.png" alt></p>
 <p>便可以知道得到以下主要主要信息：</p>
 <ol>
 <li>servertime</li>
@@ -205,7 +205,7 @@
 <p>服务时间</p>
 </blockquote>
 <p>字段中包含了“servicetime”字段，猜想可能是时间戳格式，将其通过工具转换，确认为时间戳。</p>
-<p><img src="img\微博爬虫\时间戳.png" alt></p>
+<p><img src="/img/微博爬虫/时间戳.png" alt></p>
 <blockquote>
 <p>nonce</p>
 </blockquote>
@@ -220,16 +220,16 @@
 <p>固定，结合rsa需要公钥信息，推断pubkey为公钥。</p>
 <p>从上面的数据可以看出，公共信息可以直接去请求prelogin这个接口，得到相关的信息，而不需要自己去构造。</p>
 <h2 id="二-数据加密"><a href="#二-数据加密" class="headerlink" title="二. 数据加密"></a>二. 数据加密</h2><p>通过分析以上字段可以推断出，微博对用户输入的账户和密码进行了加密操作。因此接下来便需要进一步分析是如何进行加密的。</p>
-<h3 id="1-找到加密方式"><a href="#1-找到加密方式" class="headerlink" title="1. 找到加密方式"></a>1. 找到加密方式</h3><p><img src="img\微博爬虫\login.png" alt></p>
+<h3 id="1-找到加密方式"><a href="#1-找到加密方式" class="headerlink" title="1. 找到加密方式"></a>1. 找到加密方式</h3><p><img src="/img/微博爬虫/login.png" alt></p>
 <p>依然从登录时触发的请求出发，可以看到其中登录请求出现载loginLayer.js中，因此进入其中。</p>
-<p><img src="img\微博爬虫\prelogin.png" alt></p>
+<p><img src="/img/微博爬虫/prelogin.png" alt></p>
 <p>进入js文件可以发现一个重要的方法==“verify”==，可以得知其主要是用来相关字段的验证。并且得知了一个重要的方法==prelogin()==，结合之前有个“prelogin”的接口，两者之间可能有关联，因此进入其中进行查看。</p>
-<p><img src="img\微博爬虫\relog.png" alt></p>
+<p><img src="/img/微博爬虫/relog.png" alt></p>
 <p>发现其是构造prelogin接口的方法，可以从中得到==su==的加密方式</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su : d </span><br><span class="line">d = sinaSSOEncoder.base64.encode(urlencode(d))</span><br></pre></td></tr></table></figure>
 <p>以上是找到了prelogin请求的构造，并找到了账户加密的方式。剩下的自己太菜了，不能一步一步进行找到剩下的。</p>
 <p>通过之前的请求post数据可知，相关数据可能需要通过pubkey进行加密。因此选择通过全局查询关键字==pubkey==， 知道其赋值给了==rsaPubkey==，进而继续搜索该值得到下图关键信息。</p>
-<p><img src="img\微博爬虫\encrypt.png" alt></p>
+<p><img src="/img/微博爬虫/encrypt.png" alt></p>
 <p>得到加密密码的方式，首先设置公钥（因此是固定），然后通过servertime、nonce和b进行加密，然后复制给sp，这里便可以推出b代表用户输入的密码。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f.setPublic(me.rsaPubkey, <span class="string">"10001"</span>);</span><br><span class="line">b = f.encrypt([me.servertime, me.nonce].join(<span class="string">"\t"</span>) + <span class="string">"\n"</span> + b)</span><br><span class="line">e.sp = b;</span><br></pre></td></tr></table></figure>
 <h3 id="2-总结"><a href="#2-总结" class="headerlink" title="2. 总结"></a>2. 总结</h3><ol>
